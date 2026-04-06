@@ -1,5 +1,6 @@
 import { MetadataRoute } from 'next'
 import { cities } from '@/lib/cities'
+import { services } from '@/lib/services'
 
 const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://pureowater.com'
 
@@ -45,7 +46,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ]
 
-  // City landing pages — high priority for local SEO
   const cityRoutes: MetadataRoute.Sitemap = cities.map((city) => ({
     url: `${BASE_URL}/areas/${city.slug}`,
     lastModified: now,
@@ -53,5 +53,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.9,
   }))
 
-  return [...staticRoutes, ...cityRoutes]
+  const serviceRoutes: MetadataRoute.Sitemap = services.map((s) => ({
+    url: `${BASE_URL}/services/${s.slug}`,
+    lastModified: now,
+    changeFrequency: 'monthly' as const,
+    priority: 0.9,
+  }))
+
+  return [...staticRoutes, ...cityRoutes, ...serviceRoutes]
 }

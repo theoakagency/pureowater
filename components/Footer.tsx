@@ -1,11 +1,30 @@
-const footerLinks = {
-  Products: ['Purified Water', 'Alkaline Water', 'Water Cooler Rental', 'Office Delivery', 'Restaurant Service'],
-  'Service Areas': ['Oxnard', 'Ventura', 'Santa Clarita', 'Antelope Valley', 'Thousand Oaks'],
-  Company: ['About Us', 'Current Offers', 'FAQ', 'Contact', 'Admin Login'],
-}
-
 import Image from 'next/image'
 import { Phone } from 'lucide-react'
+
+const footerLinks = {
+  Products: [
+    { label: 'Purified Water',     href: '/products' },
+    { label: 'Alkaline Water',     href: '/products' },
+    { label: 'Office Delivery',    href: '/services/office' },
+    { label: 'Restaurant Service', href: '/services/restaurant' },
+    { label: 'Home Delivery',      href: '/services/home' },
+    { label: 'Gym & Fitness',      href: '/services/gym' },
+  ],
+  'Service Areas': [
+    { label: 'Oxnard',          href: '/areas/oxnard' },
+    { label: 'Ventura',         href: '/areas/ventura' },
+    { label: 'Santa Clarita',   href: '/areas/santa-clarita' },
+    { label: 'Antelope Valley', href: '/areas/antelope-valley' },
+    { label: 'Thousand Oaks',   href: '/areas/thousand-oaks' },
+  ],
+  Company: [
+    { label: 'About Us',       href: '/about' },
+    { label: 'Current Offers', href: '/offers' },
+    { label: 'FAQ',            href: '/faq' },
+    { label: 'Contact',        href: '/contact' },
+    { label: 'Admin Login',    href: '/admin' },
+  ],
+}
 
 export default function Footer() {
   return (
@@ -32,12 +51,12 @@ export default function Footer() {
               <h4 className="text-xs font-bold tracking-[0.08em] uppercase text-white mb-4">{heading}</h4>
               <ul className="space-y-2.5">
                 {links.map((link) => (
-                  <li key={link}>
+                  <li key={link.label}>
                     <a
-                      href={link === 'Admin Login' ? '/admin' : '#'}
+                      href={link.href}
                       className="text-white/55 hover:text-[#00c9e4] text-sm transition-colors"
                     >
-                      {link}
+                      {link.label}
                     </a>
                   </li>
                 ))}
