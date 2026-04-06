@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { Gift, CalendarX2, Users, PartyPopper, Tag } from 'lucide-react'
 
 type FormData = {
   firstName: string
@@ -28,9 +29,9 @@ const INITIAL: FormData = {
 }
 
 const highlights = [
-  { icon: '🎁', title: 'First Delivery Free',      desc: 'New customers get their first delivery at no charge. No strings attached.' },
-  { icon: '📅', title: 'No Long-Term Contract',    desc: 'Month-to-month service. Pause or cancel anytime with zero fees.' },
-  { icon: '🤝', title: 'Local Family Business',    desc: 'Real people, real service. We know our customers by name.' },
+  { icon: Gift,       title: 'First Delivery Free',   desc: 'New customers get their first delivery at no charge. No strings attached.' },
+  { icon: CalendarX2, title: 'No Long-Term Contract', desc: 'Month-to-month service. Pause or cancel anytime with zero fees.' },
+  { icon: Users,      title: 'Local Family Business', desc: 'Real people, real service. We know our customers by name.' },
 ]
 
 export default function OrderForm() {
@@ -99,17 +100,20 @@ export default function OrderForm() {
           </p>
 
           <div className="space-y-6">
-            {highlights.map((h) => (
+            {highlights.map((h) => {
+              const Icon = h.icon
+              return (
               <div key={h.title} className="flex items-start gap-4">
-                <div className="w-11 h-11 rounded-xl bg-[#00c9e4]/12 border border-[#00c9e4]/20 flex items-center justify-center text-xl flex-shrink-0">
-                  {h.icon}
+                <div className="w-11 h-11 rounded-xl bg-[#00c9e4]/12 border border-[#00c9e4]/20 flex items-center justify-center flex-shrink-0">
+                  <Icon size={20} className="text-[#00c9e4]" />
                 </div>
                 <div>
                   <strong className="block text-white text-sm font-semibold mb-1">{h.title}</strong>
                   <span className="text-white/50 text-sm leading-relaxed">{h.desc}</span>
                 </div>
               </div>
-            ))}
+              )
+            })}
           </div>
         </div>
 
@@ -117,7 +121,9 @@ export default function OrderForm() {
         <div className="bg-white rounded-2xl p-10 shadow-[0_24px_80px_rgba(0,0,0,0.35)]">
           {status === 'success' ? (
             <div className="text-center py-8">
-              <div className="text-5xl mb-4">🎉</div>
+              <div className="w-16 h-16 rounded-full bg-[#e8f6fb] flex items-center justify-center mx-auto mb-4">
+                <PartyPopper size={32} className="text-[#1e90d6]" />
+              </div>
               <h3 className="text-2xl font-bold text-[#0d2b4e] mb-3" style={{ fontFamily: 'var(--font-playfair)' }}>
                 You&apos;re all set!
               </h3>
@@ -140,7 +146,8 @@ export default function OrderForm() {
 
               {/* Promo */}
               <div className="bg-gradient-to-r from-[#e8f6fb] to-[#d0f0fb] border border-[#d0e4ef] rounded-xl px-4 py-3.5 text-sm font-semibold text-[#0d2b4e] mb-6 flex items-center gap-2">
-                🎉 First delivery FREE for new customers
+                <Tag size={15} className="text-[#1e90d6] flex-shrink-0" />
+                First delivery FREE for new customers
               </div>
 
               {/* Name row */}
