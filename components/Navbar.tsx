@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { useState } from 'react'
 
 export default function Navbar() {
@@ -10,15 +11,8 @@ export default function Navbar() {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0d2b4e]/97 backdrop-blur-md border-b border-white/10">
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2">
-          <div className="flex flex-col leading-none">
-            <span className="text-white font-bold text-2xl" style={{ fontFamily: 'var(--font-playfair)' }}>
-              Pure<span className="text-[#00c9e4]">O</span>
-            </span>
-            <span className="text-[8px] font-bold tracking-[0.3em] text-[#00c9e4] uppercase -mt-0.5">
-              Water
-            </span>
-          </div>
+        <Link href="/">
+          <Image src="/logo.png" alt="Pure O Water" width={140} height={48} className="h-10 w-auto" priority />
         </Link>
 
         {/* Desktop links */}

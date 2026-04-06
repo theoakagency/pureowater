@@ -4,6 +4,8 @@ const footerLinks = {
   Company: ['About Us', 'Current Offers', 'FAQ', 'Contact', 'Admin Login'],
 }
 
+import Image from 'next/image'
+
 export default function Footer() {
   return (
     <footer className="bg-[#061c35] text-white/60 pt-16 pb-8 px-6">
@@ -11,11 +13,8 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
           {/* Brand */}
           <div>
-            <div className="flex flex-col leading-none mb-4">
-              <span className="text-white font-bold text-2xl" style={{ fontFamily: 'var(--font-playfair)' }}>
-                Pure<span className="text-[#00c9e4]">O</span>
-              </span>
-              <span className="text-[8px] font-bold tracking-[0.3em] text-[#00c9e4] uppercase -mt-0.5">Water</span>
+            <div className="mb-4">
+              <Image src="/logo.png" alt="Pure O Water" width={140} height={48} className="h-10 w-auto brightness-0 invert" />
             </div>
             <p className="text-sm leading-relaxed max-w-xs">
               Premium purified and alkaline water delivered to homes, offices, and businesses across Southern California.
