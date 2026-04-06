@@ -1,9 +1,11 @@
+import { Award, ShieldCheck, RefreshCw, DollarSign, Truck } from 'lucide-react'
+
 const trustItems = [
-  { icon: '🏆', label: 'Shop Local Guarantee' },
-  { icon: '✅', label: 'NSF Certified' },
-  { icon: '🔄', label: 'Flexible Scheduling' },
-  { icon: '💵', label: 'Under $1/day' },
-  { icon: '🚚', label: 'Delivered Every 2 Weeks' },
+  { icon: Award,       label: 'Shop Local Guarantee' },
+  { icon: ShieldCheck, label: 'NSF Certified' },
+  { icon: RefreshCw,   label: 'Flexible Scheduling' },
+  { icon: DollarSign,  label: 'Under $1/day' },
+  { icon: Truck,       label: 'Delivered Every 2 Weeks' },
 ]
 
 const reviews = [
@@ -34,14 +36,17 @@ export function TrustBar() {
   return (
     <div className="bg-[#e8f6fb] border-y border-[#d0e4ef] py-5 px-6">
       <div className="max-w-6xl mx-auto flex flex-wrap items-center justify-around gap-5">
-        {trustItems.map((item) => (
-          <div key={item.label} className="flex items-center gap-2.5 text-sm font-medium text-[#0d2b4e]">
-            <div className="w-8 h-8 rounded-full bg-[#1565c0] text-white flex items-center justify-center text-sm flex-shrink-0">
-              {item.icon}
+        {trustItems.map((item) => {
+          const Icon = item.icon
+          return (
+            <div key={item.label} className="flex items-center gap-2.5 text-sm font-medium text-[#0d2b4e]">
+              <div className="w-8 h-8 rounded-full bg-[#1565c0] text-white flex items-center justify-center flex-shrink-0">
+                <Icon size={15} />
+              </div>
+              {item.label}
             </div>
-            {item.label}
-          </div>
-        ))}
+          )
+        })}
       </div>
     </div>
   )

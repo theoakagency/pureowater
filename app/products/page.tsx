@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import PageHero from '@/components/PageHero'
+import { Microscope, Gem, Smile, Plug, FlaskConical, Leaf, BarChart2, Zap, Shield, Scale, Droplets } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'Our Products | Pure O Water',
@@ -9,19 +10,19 @@ export const metadata: Metadata = {
 }
 
 const purifiedFeatures = [
-  { icon: '🔬', title: '10-Stage Filtration', desc: 'Water passes through ten distinct filtration stages including sediment, carbon block, reverse osmosis, and UV sterilization.' },
-  { icon: '💎', title: 'Perfect Purity', desc: 'Removes 99.9% of contaminants, chlorine, heavy metals, bacteria, and dissolved solids leaving only pure H₂O.' },
-  { icon: '😋', title: 'Perfect Taste', desc: 'No aftertaste, no odor — just clean, crisp water exactly as nature intended.' },
-  { icon: '🏠', title: 'Universal Fit', desc: 'Compatible with every standard water cooler dispenser. Works for homes, offices, gyms, and restaurants.' },
+  { icon: Microscope,   title: '10-Stage Filtration', desc: 'Water passes through ten distinct filtration stages including sediment, carbon block, reverse osmosis, and UV sterilization.' },
+  { icon: Gem,          title: 'Perfect Purity', desc: 'Removes 99.9% of contaminants, chlorine, heavy metals, bacteria, and dissolved solids leaving only pure H₂O.' },
+  { icon: Smile,        title: 'Perfect Taste', desc: 'No aftertaste, no odor — just clean, crisp water exactly as nature intended.' },
+  { icon: Plug,         title: 'Universal Fit', desc: 'Compatible with every standard water cooler dispenser. Works for homes, offices, gyms, and restaurants.' },
 ]
 
 const alkalineFeatures = [
-  { icon: '⚗️', title: 'Purified First', desc: 'Starts as our same 10-stage purified water — completely clean before the mineral process begins.' },
-  { icon: '🌿', title: 'Organic Mineral Blend', desc: 'Remineralized with a proprietary blend of organic minerals including calcium, magnesium, and potassium.' },
-  { icon: '📊', title: 'pH 9.5', desc: 'Precisely balanced to pH 9.5 — the optimal alkaline level for neutralizing acidity in the body.' },
-  { icon: '⚡', title: 'Superior Hydration', desc: 'Smaller water molecule clusters allow for faster cellular absorption and better hydration than regular water.' },
-  { icon: '🛡️', title: 'Antioxidant Properties', desc: 'Negative ORP (Oxidation Reduction Potential) helps neutralize free radicals and reduce oxidative stress.' },
-  { icon: '⚖️', title: 'Balances Body pH', desc: 'Helps counter the acidic effects of modern diets, coffee, stress, and environmental factors.' },
+  { icon: FlaskConical, title: 'Purified First', desc: 'Starts as our same 10-stage purified water — completely clean before the mineral process begins.' },
+  { icon: Leaf,         title: 'Organic Mineral Blend', desc: 'Remineralized with a proprietary blend of organic minerals including calcium, magnesium, and potassium.' },
+  { icon: BarChart2,    title: 'pH 9.5', desc: 'Precisely balanced to pH 9.5 — the optimal alkaline level for neutralizing acidity in the body.' },
+  { icon: Zap,          title: 'Superior Hydration', desc: 'Smaller water molecule clusters allow for faster cellular absorption and better hydration than regular water.' },
+  { icon: Shield,       title: 'Antioxidant Properties', desc: 'Negative ORP (Oxidation Reduction Potential) helps neutralize free radicals and reduce oxidative stress.' },
+  { icon: Scale,        title: 'Balances Body pH', desc: 'Helps counter the acidic effects of modern diets, coffee, stress, and environmental factors.' },
 ]
 
 const bottles = [
@@ -54,8 +55,8 @@ export default function ProductsPage() {
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               <div>
-                <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-[#0d2b4e] to-[#1565c0] flex items-center justify-center text-4xl mb-6">
-                  💧
+                <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-[#0d2b4e] to-[#1565c0] flex items-center justify-center mb-6">
+                  <Droplets size={36} className="text-white" />
                 </div>
                 <p className="text-xs font-bold tracking-[0.12em] uppercase text-[#1e90d6] mb-3">Product 01</p>
                 <h2 className="text-4xl lg:text-5xl font-bold text-[#0d2b4e] leading-tight mb-5" style={{ fontFamily: 'var(--font-playfair)' }}>
@@ -74,13 +75,18 @@ export default function ProductsPage() {
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {purifiedFeatures.map((f) => (
-                  <div key={f.title} className="bg-[#f4f7fa] rounded-2xl p-5">
-                    <div className="text-2xl mb-3">{f.icon}</div>
-                    <h3 className="font-bold text-[#0d2b4e] mb-2 text-sm">{f.title}</h3>
-                    <p className="text-[#5a7080] text-xs leading-relaxed">{f.desc}</p>
-                  </div>
-                ))}
+                {purifiedFeatures.map((f) => {
+                  const Icon = f.icon
+                  return (
+                    <div key={f.title} className="bg-[#f4f7fa] rounded-2xl p-5">
+                      <div className="w-9 h-9 rounded-lg bg-[#e8f6fb] flex items-center justify-center mb-3">
+                        <Icon size={18} className="text-[#1e90d6]" />
+                      </div>
+                      <h3 className="font-bold text-[#0d2b4e] mb-2 text-sm">{f.title}</h3>
+                      <p className="text-[#5a7080] text-xs leading-relaxed">{f.desc}</p>
+                    </div>
+                  )
+                })}
               </div>
             </div>
           </div>
@@ -94,18 +100,23 @@ export default function ProductsPage() {
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               <div className="order-2 lg:order-1 grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {alkalineFeatures.map((f) => (
-                  <div key={f.title} className="bg-[#f4f7fa] rounded-2xl p-5">
-                    <div className="text-2xl mb-3">{f.icon}</div>
-                    <h3 className="font-bold text-[#0d2b4e] mb-2 text-sm">{f.title}</h3>
-                    <p className="text-[#5a7080] text-xs leading-relaxed">{f.desc}</p>
-                  </div>
-                ))}
+                {alkalineFeatures.map((f) => {
+                  const Icon = f.icon
+                  return (
+                    <div key={f.title} className="bg-[#f4f7fa] rounded-2xl p-5">
+                      <div className="w-9 h-9 rounded-lg bg-[#e8f6fb] flex items-center justify-center mb-3">
+                        <Icon size={18} className="text-[#1e90d6]" />
+                      </div>
+                      <h3 className="font-bold text-[#0d2b4e] mb-2 text-sm">{f.title}</h3>
+                      <p className="text-[#5a7080] text-xs leading-relaxed">{f.desc}</p>
+                    </div>
+                  )
+                })}
               </div>
 
               <div className="order-1 lg:order-2">
-                <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-[#062244] to-[#00b4d8] flex items-center justify-center text-4xl mb-6">
-                  ⚗️
+                <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-[#062244] to-[#00b4d8] flex items-center justify-center mb-6">
+                  <FlaskConical size={36} className="text-white" />
                 </div>
                 <div className="flex items-center gap-3 mb-3">
                   <p className="text-xs font-bold tracking-[0.12em] uppercase text-[#1e90d6]">Product 02</p>
@@ -139,7 +150,9 @@ export default function ProductsPage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-3xl mx-auto">
               {bottles.map((b) => (
                 <div key={b.size} className="bg-white border-2 border-[#d0e4ef] rounded-2xl p-8 hover:border-[#1e90d6] transition-all">
-                  <div className="text-4xl mb-4">{b.size === '5 Gallon' ? '🫧' : '💧'}</div>
+                  <div className="w-10 h-10 rounded-xl bg-[#e8f6fb] flex items-center justify-center mb-4">
+                    <Droplets size={22} className="text-[#1e90d6]" />
+                  </div>
                   <h3 className="text-2xl font-bold text-[#0d2b4e] mb-2" style={{ fontFamily: 'var(--font-playfair)' }}>{b.size}</h3>
                   <p className="text-sm font-medium text-[#1e90d6] mb-5">Best for: {b.best}</p>
                   <dl className="space-y-2">

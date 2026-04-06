@@ -25,7 +25,7 @@ export default function HowItWorks() {
 
           {steps.map((step) => (
             <div key={step.num} className="text-center relative z-10">
-              <div className="w-16 h-16 rounded-full bg-[#0d2b4e] text-white text-2xl font-bold flex items-center justify-center mx-auto mb-5 ring-4 ring-[#d0e4ef] ring-offset-2" style={{ fontFamily: 'var(--font-playfair)' }}>
+              <div className="w-14 h-14 rounded-full border-2 border-[#1e90d6] text-[#1e90d6] text-xl font-bold flex items-center justify-center mx-auto mb-5 bg-white" style={{ fontFamily: 'var(--font-playfair)' }}>
                 {step.num}
               </div>
               <h3 className="font-bold text-[#0d2b4e] text-lg mb-2" style={{ fontFamily: 'var(--font-playfair)' }}>{step.title}</h3>

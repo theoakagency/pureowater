@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 const offers = [
   {
-    badge: '🎁 New Customers',
+    badge: 'New Customers',
     title: 'First Delivery Free',
     desc: 'Brand new to Pure O Water? Your very first delivery is completely on us. No credit card required upfront, no catch.',
     details: ['Applies to all water types and bottle sizes', 'Valid for residential and commercial accounts', 'One per household or business address', 'No promo code needed — just mention it when you sign up'],
@@ -19,7 +19,7 @@ const offers = [
     highlight: true,
   },
   {
-    badge: '👥 Referral Program',
+    badge: 'Referral Program',
     title: 'Refer a Friend, Get a Free Delivery',
     desc: 'When you refer a friend, neighbor, or colleague who becomes an active customer, both of you get a free delivery.',
     details: ['Refer as many people as you like', 'Credit applied automatically to your next delivery', 'Friend must stay active for 2+ deliveries to qualify', 'Call us to register your referral'],
@@ -28,7 +28,7 @@ const offers = [
     highlight: false,
   },
   {
-    badge: '🏢 Businesses',
+    badge: 'Businesses',
     title: 'Office & Commercial Bundle Pricing',
     desc: 'Businesses ordering 6+ bottles per delivery qualify for volume discounts and priority scheduling.',
     details: ['Discounted per-bottle pricing at 6+ bottles', 'Priority scheduling on delivery days', 'Dedicated account manager', 'Monthly invoicing available'],

@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import PageHero from '@/components/PageHero'
+import { Heart, Gem, Clock, Users } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'About Us | Pure O Water',
@@ -9,10 +10,10 @@ export const metadata: Metadata = {
 }
 
 const values = [
-  { icon: '🏡', title: 'Local & Family Owned', desc: 'We\'re a small local business — not a national chain. That means you get personal service and a team that actually cares about your experience.' },
-  { icon: '💧', title: 'Quality Without Compromise', desc: 'Every bottle goes through our 10-stage filtration process. We never cut corners on water quality, because your health depends on it.' },
-  { icon: '🤝', title: 'Reliable & Consistent', desc: 'We show up when we say we will. Our delivery team has served many customers for years because consistency matters more than anything.' },
-  { icon: '🌱', title: 'Community First', desc: 'We live and work in the same communities we deliver to. Supporting Pure O Water means supporting a local family and the local economy.' },
+  { icon: Heart, title: 'Local & Family Owned', desc: 'We\'re a small local business — not a national chain. That means you get personal service and a team that actually cares about your experience.' },
+  { icon: Gem,   title: 'Quality Without Compromise', desc: 'Every bottle goes through our 10-stage filtration process. We never cut corners on water quality, because your health depends on it.' },
+  { icon: Clock, title: 'Reliable & Consistent', desc: 'We show up when we say we will. Our delivery team has served many customers for years because consistency matters more than anything.' },
+  { icon: Users, title: 'Community First', desc: 'We live and work in the same communities we deliver to. Supporting Pure O Water means supporting a local family and the local economy.' },
 ]
 
 const timeline = [
@@ -75,7 +76,7 @@ export default function AboutPage() {
                 &ldquo;I started this business because I wanted my neighbors to have access to the same quality water I&apos;d want for my own family. That hasn&apos;t changed in 20 years — and it never will.&rdquo;
               </blockquote>
               <div className="mt-6 pt-6 border-t border-white/15">
-                <p className="text-white/50 text-sm">📞 Direct line: <a href="tel:+18055227002" className="text-[#00c9e4] font-semibold hover:underline">(805) 522-7002</a></p>
+                <p className="text-white/50 text-sm">Direct line: <a href="tel:+18055227002" className="text-[#00c9e4] font-semibold hover:underline">(805) 522-7002</a></p>
               </div>
             </div>
           </div>
@@ -89,13 +90,18 @@ export default function AboutPage() {
               <h2 className="text-4xl font-bold text-[#0d2b4e]" style={{ fontFamily: 'var(--font-playfair)' }}>Our Values</h2>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {values.map((v) => (
-                <div key={v.title} className="bg-white rounded-2xl p-7 border border-[#d0e4ef]">
-                  <div className="text-3xl mb-4">{v.icon}</div>
-                  <h3 className="font-bold text-[#0d2b4e] mb-3" style={{ fontFamily: 'var(--font-playfair)' }}>{v.title}</h3>
-                  <p className="text-[#5a7080] text-sm leading-relaxed">{v.desc}</p>
-                </div>
-              ))}
+              {values.map((v) => {
+                const Icon = v.icon
+                return (
+                  <div key={v.title} className="bg-white rounded-2xl p-7 border border-[#d0e4ef]">
+                    <div className="w-11 h-11 rounded-xl bg-[#e8f6fb] flex items-center justify-center mb-4">
+                      <Icon size={20} className="text-[#1e90d6]" />
+                    </div>
+                    <h3 className="font-bold text-[#0d2b4e] mb-3" style={{ fontFamily: 'var(--font-playfair)' }}>{v.title}</h3>
+                    <p className="text-[#5a7080] text-sm leading-relaxed">{v.desc}</p>
+                  </div>
+                )
+              })}
             </div>
           </div>
         </section>
