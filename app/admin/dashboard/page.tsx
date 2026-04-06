@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useCallback } from 'react'
 import { useRouter } from 'next/navigation'
+import { Inbox, Download } from 'lucide-react'
 
 type Order = {
   id: number
@@ -173,7 +174,8 @@ export default function AdminDashboard() {
             onClick={exportCSV}
             className="flex items-center gap-2 bg-[#e8f6fb] hover:bg-[#d0e4ef] text-[#0d2b4e] px-4 py-2 rounded-lg text-sm font-semibold transition-colors"
           >
-            ⬇ Export CSV
+            <Download size={15} />
+            Export CSV
           </button>
         </div>
 
@@ -183,7 +185,9 @@ export default function AdminDashboard() {
             <div className="py-20 text-center text-[#5a7080] text-sm">Loading orders…</div>
           ) : orders.length === 0 ? (
             <div className="py-20 text-center">
-              <div className="text-4xl mb-3">📭</div>
+              <div className="w-14 h-14 rounded-full bg-[#f4f7fa] flex items-center justify-center mx-auto mb-3">
+                <Inbox size={28} className="text-[#5a7080]" />
+              </div>
               <p className="text-[#5a7080] font-medium">No orders found</p>
               <p className="text-[#5a7080] text-sm mt-1">Try adjusting your filters</p>
             </div>

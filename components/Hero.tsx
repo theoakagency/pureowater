@@ -108,7 +108,7 @@ export default function Hero() {
               </button>
             </div>
             {zipResult === 'yes' && (
-              <p className="mt-1.5 text-emerald-400 text-xs font-medium">✓ Great news — we deliver to {zip}!</p>
+              <p className="mt-1.5 text-emerald-400 text-xs font-medium flex items-center gap-1"><CheckCircle2 size={13} /> Great news — we deliver to {zip}!</p>
             )}
             {zipResult === 'no' && (
               <p className="mt-1.5 text-white/50 text-xs">We don&apos;t currently deliver to {zip}, but fill out the form and we&apos;ll let you know when we expand.</p>

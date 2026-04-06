@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import PageHero from '@/components/PageHero'
+import { Check } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'Current Offers | Pure O Water',
@@ -75,7 +76,7 @@ export default function OffersPage() {
                     <ul className="space-y-2">
                       {offer.details.map((d) => (
                         <li key={d} className="flex items-start gap-2 text-sm text-[#1a2a3a]">
-                          <span className="text-[#00c9e4] font-bold mt-0.5 flex-shrink-0">✓</span>
+                          <Check size={14} className="text-[#00c9e4] flex-shrink-0 mt-0.5" />
                           {d}
                         </li>
                       ))}

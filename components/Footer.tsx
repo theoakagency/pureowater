@@ -5,6 +5,7 @@ const footerLinks = {
 }
 
 import Image from 'next/image'
+import { Phone } from 'lucide-react'
 
 export default function Footer() {
   return (
@@ -20,7 +21,8 @@ export default function Footer() {
               Premium purified and alkaline water delivered to homes, offices, and businesses across Southern California.
             </p>
             <a href="tel:+18055227002" className="flex items-center gap-2 mt-5 text-[#00c9e4] font-bold text-lg hover:text-[#00dff8] transition-colors">
-              📞 (805) 522-7002
+              <Phone size={18} />
+              (805) 522-7002
             </a>
           </div>
 

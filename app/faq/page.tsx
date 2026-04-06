@@ -4,11 +4,12 @@ import { useState } from 'react'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import PageHero from '@/components/PageHero'
+import { Zap, Droplets, Truck, CreditCard, Phone } from 'lucide-react'
 
 const categories = [
   {
     label: 'Getting Started',
-    icon: '🚀',
+    icon: Zap,
     items: [
       {
         q: 'How do I start my water delivery service?',
@@ -30,7 +31,7 @@ const categories = [
   },
   {
     label: 'Products & Water Quality',
-    icon: '💧',
+    icon: Droplets,
     items: [
       {
         q: 'What\'s the difference between purified and alkaline water?',
@@ -56,7 +57,7 @@ const categories = [
   },
   {
     label: 'Delivery & Service',
-    icon: '🚚',
+    icon: Truck,
     items: [
       {
         q: 'How often will you deliver?',
@@ -82,7 +83,7 @@ const categories = [
   },
   {
     label: 'Billing & Payments',
-    icon: '💳',
+    icon: CreditCard,
     items: [
       {
         q: 'How does billing work?',
@@ -143,20 +144,23 @@ export default function FAQPage() {
           <div className="max-w-4xl mx-auto">
             {/* Category tabs */}
             <div className="flex flex-wrap gap-2 mb-10">
-              {categories.map((cat, i) => (
-                <button
-                  key={cat.label}
-                  onClick={() => setActiveCategory(i)}
-                  className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold transition-all ${
-                    activeCategory === i
-                      ? 'bg-[#0d2b4e] text-white'
-                      : 'bg-[#f4f7fa] text-[#5a7080] hover:bg-[#e8f6fb] hover:text-[#0d2b4e]'
-                  }`}
-                >
-                  <span>{cat.icon}</span>
-                  {cat.label}
-                </button>
-              ))}
+              {categories.map((cat, i) => {
+                const Icon = cat.icon
+                return (
+                  <button
+                    key={cat.label}
+                    onClick={() => setActiveCategory(i)}
+                    className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold transition-all ${
+                      activeCategory === i
+                        ? 'bg-[#0d2b4e] text-white'
+                        : 'bg-[#f4f7fa] text-[#5a7080] hover:bg-[#e8f6fb] hover:text-[#0d2b4e]'
+                    }`}
+                  >
+                    <Icon size={15} />
+                    {cat.label}
+                  </button>
+                )
+              })}
             </div>
 
             {/* Questions */}
@@ -173,8 +177,9 @@ export default function FAQPage() {
               </h3>
               <p className="text-[#5a7080] mb-6">We&apos;re happy to help. Reach out and we&apos;ll get back to you the same business day.</p>
               <div className="flex flex-wrap gap-4 justify-center">
-                <a href="tel:+18055227002" className="bg-[#0d2b4e] text-white px-6 py-3 rounded-lg font-bold text-sm hover:bg-[#1565c0] transition-all">
-                  📞 Call (805) 522-7002
+                <a href="tel:+18055227002" className="inline-flex items-center gap-2 bg-[#0d2b4e] text-white px-6 py-3 rounded-lg font-bold text-sm hover:bg-[#1565c0] transition-all">
+                  <Phone size={15} />
+                  Call (805) 522-7002
                 </a>
                 <a href="/contact" className="border border-[#d0e4ef] text-[#0d2b4e] px-6 py-3 rounded-lg font-semibold text-sm hover:border-[#1e90d6] hover:text-[#1e90d6] transition-all">
                   Send a Message →

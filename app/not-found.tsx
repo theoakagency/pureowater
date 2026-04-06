@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
+import { Droplets } from 'lucide-react'
 
 export default function NotFound() {
   return (
@@ -8,7 +9,9 @@ export default function NotFound() {
       <Navbar />
       <main className="min-h-[80vh] flex items-center justify-center px-6 bg-gradient-to-br from-[#061c35] to-[#0d2b4e]">
         <div className="text-center max-w-lg">
-          <div className="text-7xl mb-6">💧</div>
+          <div className="w-24 h-24 rounded-full bg-white/10 flex items-center justify-center mx-auto mb-6">
+            <Droplets size={48} className="text-[#00c9e4]" />
+          </div>
           <h1 className="text-6xl font-bold text-white mb-4" style={{ fontFamily: 'var(--font-playfair)' }}>404</h1>
           <h2 className="text-2xl font-bold text-white mb-4" style={{ fontFamily: 'var(--font-playfair)' }}>
             Page Not Found

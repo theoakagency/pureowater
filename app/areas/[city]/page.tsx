@@ -5,6 +5,7 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import Link from 'next/link'
 import Script from 'next/script'
+import { Truck, ShieldCheck, Gift, CalendarX2, Check, Droplets, FlaskConical, Tag, Phone } from 'lucide-react'
 
 // Generate static params for all cities
 export async function generateStaticParams() {
@@ -55,6 +56,18 @@ export default async function CityPage(
     url: `${BASE_URL}/areas/${city.slug}`,
   }
 
+  const trustItems = [
+    { icon: Truck,       label: `Delivering to ${city.name} since 2005` },
+    { icon: ShieldCheck, label: 'NSF Certified Water' },
+    { icon: Gift,        label: 'First Delivery Free' },
+    { icon: CalendarX2,  label: 'No Long-Term Contract' },
+  ]
+
+  const products = [
+    { icon: Droplets,    name: 'Purified Water',        price: '$6.99', features: ['10-stage ultra filtration', 'Perfect, clean taste', '3 & 5 gallon bottles', 'Works with any cooler'], accent: false },
+    { icon: FlaskConical,name: 'Alkaline Water pH 9.5', price: '$8.99', features: ['Purified + remineralized', 'Organic mineral blend', 'Balances body pH', 'Superior hydration'], accent: true },
+  ]
+
   return (
     <>
       <Script
@@ -97,8 +110,9 @@ export default async function CityPage(
               <a href="#order-form" className="bg-[#00c9e4] text-[#0d2b4e] px-8 py-4 rounded-lg font-bold hover:bg-[#00dff8] transition-all hover:-translate-y-0.5 hover:shadow-[0_8px_32px_rgba(0,201,228,0.35)]">
                 Start My Delivery in {city.name} →
               </a>
-              <a href="tel:+18055227002" className="border border-white/20 text-white/80 px-7 py-4 rounded-lg font-medium hover:bg-white/05 hover:border-white/40 transition-all">
-                📞 (805) 522-7002
+              <a href="tel:+18055227002" className="inline-flex items-center gap-2 border border-white/20 text-white/80 px-7 py-4 rounded-lg font-medium hover:bg-white/05 hover:border-white/40 transition-all">
+                <Phone size={16} />
+                (805) 522-7002
               </a>
             </div>
           </div>
@@ -107,19 +121,17 @@ export default async function CityPage(
         {/* Trust bar */}
         <div className="bg-[#e8f6fb] border-y border-[#d0e4ef] py-5 px-6">
           <div className="max-w-6xl mx-auto flex flex-wrap items-center justify-around gap-5">
-            {[
-              { icon: '🚚', label: `Delivering to ${city.name} since 2005` },
-              { icon: '✅', label: 'NSF Certified Water' },
-              { icon: '🎁', label: 'First Delivery Free' },
-              { icon: '📅', label: 'No Long-Term Contract' },
-            ].map((item) => (
-              <div key={item.label} className="flex items-center gap-2.5 text-sm font-medium text-[#0d2b4e]">
-                <div className="w-8 h-8 rounded-full bg-[#1565c0] text-white flex items-center justify-center text-sm">
-                  {item.icon}
+            {trustItems.map((item) => {
+              const Icon = item.icon
+              return (
+                <div key={item.label} className="flex items-center gap-2.5 text-sm font-medium text-[#0d2b4e]">
+                  <div className="w-8 h-8 rounded-full bg-[#1565c0] flex items-center justify-center flex-shrink-0">
+                    <Icon size={15} className="text-white" />
+                  </div>
+                  {item.label}
                 </div>
-                {item.label}
-              </div>
-            ))}
+              )
+            })}
           </div>
         </div>
 
@@ -156,7 +168,9 @@ export default async function CityPage(
               <div className="space-y-3">
                 {city.customerTypes.map((type) => (
                   <div key={type} className="flex items-center gap-3 bg-[#f4f7fa] rounded-xl px-4 py-3.5">
-                    <div className="w-6 h-6 rounded-full bg-[#0d2b4e] text-[#00c9e4] flex items-center justify-center text-xs font-bold flex-shrink-0">✓</div>
+                    <div className="w-6 h-6 rounded-full bg-[#0d2b4e] flex items-center justify-center flex-shrink-0">
+                      <Check size={12} className="text-[#00c9e4]" />
+                    </div>
                     <span className="text-sm font-medium text-[#1a2a3a]">{type}</span>
                   </div>
                 ))}
@@ -175,26 +189,29 @@ export default async function CityPage(
               </h2>
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-              {[
-                { emoji: '💧', name: 'Purified Water', price: '$6.99', features: ['10-stage ultra filtration', 'Perfect, clean taste', '3 & 5 gallon bottles', 'Works with any cooler'] },
-                { emoji: '⚗️', name: 'Alkaline Water pH 9.5', price: '$8.99', features: ['Purified + remineralized', 'Organic mineral blend', 'Balances body pH', 'Superior hydration'], accent: true },
-              ].map((p) => (
-                <div key={p.name} className={`bg-white rounded-2xl p-8 border-2 ${p.accent ? 'border-[#00c9e4]/40' : 'border-[#d0e4ef]'}`}>
-                  <div className="text-4xl mb-4">{p.emoji}</div>
-                  <h3 className="text-2xl font-bold text-[#0d2b4e] mb-4" style={{ fontFamily: 'var(--font-playfair)' }}>{p.name}</h3>
-                  <ul className="space-y-2 mb-6">
-                    {p.features.map((f) => (
-                      <li key={f} className="flex items-center gap-2 text-sm text-[#1a2a3a]">
-                        <span className="text-[#1e90d6] font-bold">✓</span> {f}
-                      </li>
-                    ))}
-                  </ul>
-                  <p className="text-sm text-[#5a7080] mb-4">Starting at <strong className="text-xl text-[#0d2b4e]">{p.price}</strong>/bottle</p>
-                  <a href="#order-form" className="inline-flex items-center gap-2 bg-[#0d2b4e] hover:bg-[#1565c0] text-white px-5 py-3 rounded-lg font-bold text-sm transition-all">
-                    Order in {city.name} →
-                  </a>
-                </div>
-              ))}
+              {products.map((p) => {
+                const Icon = p.icon
+                return (
+                  <div key={p.name} className={`bg-white rounded-2xl p-8 border-2 ${p.accent ? 'border-[#00c9e4]/40' : 'border-[#d0e4ef]'}`}>
+                    <div className="w-12 h-12 rounded-xl bg-[#e8f6fb] flex items-center justify-center mb-4">
+                      <Icon size={24} className="text-[#1e90d6]" />
+                    </div>
+                    <h3 className="text-2xl font-bold text-[#0d2b4e] mb-4" style={{ fontFamily: 'var(--font-playfair)' }}>{p.name}</h3>
+                    <ul className="space-y-2 mb-6">
+                      {p.features.map((f) => (
+                        <li key={f} className="flex items-center gap-2 text-sm text-[#1a2a3a]">
+                          <Check size={14} className="text-[#1e90d6] flex-shrink-0" />
+                          {f}
+                        </li>
+                      ))}
+                    </ul>
+                    <p className="text-sm text-[#5a7080] mb-4">Starting at <strong className="text-xl text-[#0d2b4e]">{p.price}</strong>/bottle</p>
+                    <a href="#order-form" className="inline-flex items-center gap-2 bg-[#0d2b4e] hover:bg-[#1565c0] text-white px-5 py-3 rounded-lg font-bold text-sm transition-all">
+                      Order in {city.name} →
+                    </a>
+                  </div>
+                )
+              })}
             </div>
           </div>
         </section>
@@ -231,10 +248,10 @@ export default async function CityPage(
 
             <div className="bg-white rounded-2xl border-2 border-[#d0e4ef] p-8">
               <div className="bg-gradient-to-r from-[#e8f6fb] to-[#d0f0fb] border border-[#d0e4ef] rounded-xl px-4 py-3.5 text-sm font-semibold text-[#0d2b4e] mb-6 flex items-center gap-2">
-                🎉 First delivery FREE for new customers in {city.name}
+                <Tag size={15} className="text-[#1e90d6] flex-shrink-0" />
+                First delivery FREE for new customers in {city.name}
               </div>
 
-              {/* Simplified city-page form that links to full order form */}
               <div className="space-y-4">
                 <div className="grid grid-cols-2 gap-3">
                   <div>

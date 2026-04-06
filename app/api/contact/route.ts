@@ -15,7 +15,7 @@ export async function POST(req: NextRequest) {
       from: 'Pure O Water <contact@pureowater.com>',
       to: process.env.JOSEPH_EMAIL as string,
       replyTo: email,
-      subject: `📬 Contact Form: ${subject || 'General Inquiry'} — ${name}`,
+      subject: `Contact Form: ${subject || 'General Inquiry'} — ${name}`,
       html: `
         <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;">
           <div style="background:#0d2b4e;padding:24px 32px;">
@@ -70,7 +70,7 @@ export async function POST(req: NextRequest) {
     await resend.emails.send({
       from: 'Pure O Water <hello@pureowater.com>',
       to: email,
-      subject: `We received your message, ${name}! 👋`,
+      subject: `We received your message, ${name}!`,
       html: `
         <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;">
           <div style="background:#0d2b4e;padding:24px 32px;text-align:center;">
@@ -84,7 +84,7 @@ export async function POST(req: NextRequest) {
             </p>
             <div style="text-align:center;margin:24px 0;">
               <a href="tel:+18055227002" style="display:inline-block;background:#0d2b4e;color:#fff;padding:14px 28px;border-radius:8px;font-weight:700;text-decoration:none;font-size:16px;">
-                📞 (805) 522-7002
+                (805) 522-7002
               </a>
             </div>
             <div style="background:#e8f6fb;border-radius:10px;padding:16px 20px;margin-top:16px;">

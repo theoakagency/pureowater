@@ -34,7 +34,7 @@ export async function POST(req: NextRequest) {
     await resend.emails.send({
       from: 'Pure O Water <orders@pureowater.com>',
       to: process.env.JOSEPH_EMAIL as string,
-      subject: `🚰 New Order Request — ${firstName} ${lastName} (${city})`,
+      subject: `New Order Request — ${firstName} ${lastName} (${city})`,
       html: `
         <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;">
           <div style="background:#0d2b4e;padding:24px 32px;">
@@ -76,12 +76,12 @@ export async function POST(req: NextRequest) {
     await resend.emails.send({
       from: 'Pure O Water <hello@pureowater.com>',
       to: email,
-      subject: `Your Pure O Water delivery request is confirmed! 🎉`,
+      subject: `Your Pure O Water delivery request is confirmed!`,
       html: `
         <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;">
           <div style="background:#0d2b4e;padding:24px 32px;text-align:center;">
             <h1 style="color:#fff;margin:0;font-size:24px;">You're all set, ${firstName}!</h1>
-            <p style="color:#00c9e4;margin:8px 0 0;font-size:15px;">Your first delivery is on us 🎁</p>
+            <p style="color:#00c9e4;margin:8px 0 0;font-size:15px;">Your first delivery is on us</p>
           </div>
 
           <div style="padding:32px;">
@@ -92,10 +92,10 @@ export async function POST(req: NextRequest) {
 
             <div style="background:#e8f6fb;border-radius:10px;padding:20px 24px;margin:24px 0;">
               <h3 style="color:#0d2b4e;margin:0 0 12px;font-size:15px;">Your order summary:</h3>
-              <p style="margin:4px 0;font-size:14px;color:#1a2a3a;">💧 <strong>${waterType}</strong> — ${bottleSize}</p>
-              <p style="margin:4px 0;font-size:14px;color:#1a2a3a;">📦 ${bottlesPerDelivery} per delivery</p>
-              <p style="margin:4px 0;font-size:14px;color:#1a2a3a;">📅 Delivery frequency: ${frequency}</p>
-              <p style="margin:4px 0;font-size:14px;color:#1a2a3a;">📍 ${address}, ${city}, CA ${zip}</p>
+              <p style="margin:4px 0;font-size:14px;color:#1a2a3a;"><strong>${waterType}</strong> — ${bottleSize}</p>
+              <p style="margin:4px 0;font-size:14px;color:#1a2a3a;">${bottlesPerDelivery} per delivery</p>
+              <p style="margin:4px 0;font-size:14px;color:#1a2a3a;">Delivery frequency: ${frequency}</p>
+              <p style="margin:4px 0;font-size:14px;color:#1a2a3a;">${address}, ${city}, CA ${zip}</p>
             </div>
 
             <p style="color:#5a7080;font-size:14px;line-height:1.7;">
