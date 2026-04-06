@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { getIronSession } from 'iron-session'
+import { unsealData } from 'iron-session'
 import { sessionOptions, SessionData } from '@/lib/session'
 
 export async function proxy(req: NextRequest) {
@@ -7,9 +7,24 @@ export async function proxy(req: NextRequest) {
 
   // Only protect /admin/dashboard and any deeper admin routes
   if (pathname.startsWith('/admin/dashboard')) {
-    const session = await getIronSession<SessionData>(req.cookies, sessionOptions)
+    const cookieValue = req.cookies.get(sessionOptions.cookieName)?.value
 
-    if (!session.isLoggedIn) {
+    if (!cookieValue) {
+      const loginUrl = new URL('/admin', req.url)
+      loginUrl.searchParams.set('redirected', '1')
+      return NextResponse.redirect(loginUrl)
+    }
+
+    try {
+      const session = await unsealData<SessionData>(cookieValue, {
+        password: sessionOptions.password as string,
+      })
+      if (!session.isLoggedIn) {
+        const loginUrl = new URL('/admin', req.url)
+        loginUrl.searchParams.set('redirected', '1')
+        return NextResponse.redirect(loginUrl)
+      }
+    } catch {
       const loginUrl = new URL('/admin', req.url)
       loginUrl.searchParams.set('redirected', '1')
       return NextResponse.redirect(loginUrl)
