@@ -5,3 +5,5 @@ dev.db
 *.db
 tsconfig.tsbuildinfo
 .DS_Store
+.vercel
+.env*.local

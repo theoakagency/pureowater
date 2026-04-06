@@ -1,17 +1,25 @@
 // lib/db.ts
 // Prisma client singleton — safe for Next.js hot reload in development
-// Run `npx prisma generate` before using
+// Prisma 7 + Neon: uses driver adapter instead of direct connection string
 
-// eslint-disable-next-line @typescript-eslint/no-require-imports
-const { PrismaClient } = require('@prisma/client')
+import { PrismaClient } from '@prisma/client'
+import { PrismaNeon } from '@prisma/adapter-neon'
+import { Pool, neonConfig } from '@neondatabase/serverless'
+import ws from 'ws'
 
-type PrismaClientType = InstanceType<typeof PrismaClient>
+neonConfig.webSocketConstructor = ws
 
 const globalForPrisma = globalThis as unknown as {
-  prisma: PrismaClientType | undefined
+  prisma: PrismaClient | undefined
 }
 
-export const prisma: PrismaClientType =
-  globalForPrisma.prisma ?? new PrismaClient()
+function createPrismaClient() {
+  const pool = new Pool({ connectionString: process.env.DATABASE_URL })
+  const adapter = new PrismaNeon(pool)
+  return new PrismaClient({ adapter })
+}
+
+export const prisma: PrismaClient =
+  globalForPrisma.prisma ?? createPrismaClient()
 
 if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = prisma
