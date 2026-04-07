@@ -27,12 +27,14 @@ export default function ParallaxDivider() {
     >
       {/* Parallax background image — starts at top, moves up on scroll */}
       <div
-        className="absolute inset-0 w-full"
+        className="absolute w-full"
         style={{
           backgroundImage: 'url(/pure-o-water.png)',
           backgroundSize: 'cover',
           backgroundPosition: 'top center',
           transform: `translateY(-${offset}px)`,
+          top: '-60px',
+          bottom: '-60px',
         }}
       />
 
