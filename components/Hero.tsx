@@ -45,7 +45,7 @@ export default function Hero() {
     <section className="min-h-screen flex flex-col relative overflow-hidden pt-16">
       {/* Background image */}
       <Image
-        src="/home-hero.png"
+        src="/pure-o-water-bottles.png"
         alt="Pure O Water delivery"
         fill
         className="object-cover object-center"
@@ -53,7 +53,7 @@ export default function Hero() {
       />
 
       {/* Dark overlay */}
-      <div className="absolute inset-0 bg-black/40" />
+      <div className="absolute inset-0 bg-black/35" />
 
       {/* Main content */}
       <div className="relative z-10 flex-1 flex items-center">
