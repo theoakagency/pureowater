@@ -218,13 +218,16 @@ export default function OrderForm() {
 
               {/* Quantity */}
               <div className="mb-4">
-                <label className="block text-xs font-semibold text-[#0d2b4e] mb-1.5">Bottles Per Delivery</label>
+                <label className="block text-xs font-semibold text-[#0d2b4e] mb-1.5">Bottles for First Delivery <span className="text-[#5a7080] font-normal">(we'll confirm recurring qty with you)</span></label>
                 <select value={form.bottlesPerDelivery} onChange={set('bottlesPerDelivery')} className={inputClass('bottlesPerDelivery')}>
                   <option>2 Bottles</option>
                   <option>4 Bottles</option>
                   <option>6 Bottles</option>
                   <option>8+ Bottles</option>
                 </select>
+                <p className="text-xs text-[#5a7080] mt-1.5">
+                  We'll confirm your ongoing delivery quantity with you after the first drop-off.
+                </p>
               </div>
 
               {/* Frequency note */}
