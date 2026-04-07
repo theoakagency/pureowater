@@ -1,8 +1,24 @@
 const steps = [
-  { num: '1', title: 'Choose Your Water', desc: 'Select purified or alkaline, your bottle size, and how many you need per delivery.' },
-  { num: '2', title: 'Pick Your Schedule', desc: 'Weekly, bi-weekly, or monthly. We deliver on your timetable, not ours.' },
-  { num: '3', title: 'We Deliver to You', desc: 'Fresh bottles delivered to your door. We pick up empties at no extra charge.' },
-  { num: '4', title: 'Enjoy & Repeat',    desc: 'Stay hydrated. Adjust, pause, or cancel your delivery any time — no fees.' },
+  {
+    num: '1',
+    title: 'Choose Your Water',
+    desc: 'Select purified or alkaline water and your bottle size. Tell us roughly how much you think you\'ll need.',
+  },
+  {
+    num: '2',
+    title: 'We Set Up Your Schedule',
+    desc: 'All new customers start on a delivery every 2 weeks — the most popular option. We adjust from there as your needs grow.',
+  },
+  {
+    num: '3',
+    title: 'We Deliver to You',
+    desc: 'Fresh bottles delivered to your door. We pick up empties at no extra charge.',
+  },
+  {
+    num: '4',
+    title: 'We Grow With You',
+    desc: 'Need more water over time? Just call us. We\'ll adjust your delivery size and frequency together — no forms, no hassle.',
+  },
 ]
 
 export default function HowItWorks() {
