@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { Gift, CalendarX2, Users, PartyPopper, Tag } from 'lucide-react'
+import { Gift, CalendarX2, Users, PartyPopper, Tag, CalendarDays } from 'lucide-react'
 
 type FormData = {
   firstName: string
@@ -14,7 +14,6 @@ type FormData = {
   waterType: string
   bottleSize: string
   bottlesPerDelivery: string
-  frequency: string
   needsCooler: string
 }
 
@@ -24,7 +23,6 @@ const INITIAL: FormData = {
   waterType: 'Purified Water',
   bottleSize: '5 Gallon',
   bottlesPerDelivery: '2 Bottles',
-  frequency: 'Every 2 Weeks',
   needsCooler: 'I have my own cooler',
 }
 
@@ -218,25 +216,26 @@ export default function OrderForm() {
                 </div>
               </div>
 
-              {/* Quantity + Frequency */}
-              <div className="grid grid-cols-2 gap-3 mb-4">
-                <div>
-                  <label className="block text-xs font-semibold text-[#0d2b4e] mb-1.5">Bottles Per Delivery</label>
-                  <select value={form.bottlesPerDelivery} onChange={set('bottlesPerDelivery')} className={inputClass('bottlesPerDelivery')}>
-                    <option>2 Bottles</option>
-                    <option>4 Bottles</option>
-                    <option>6 Bottles</option>
-                    <option>8+ Bottles</option>
-                  </select>
-                </div>
-                <div>
-                  <label className="block text-xs font-semibold text-[#0d2b4e] mb-1.5">Delivery Frequency</label>
-                  <select value={form.frequency} onChange={set('frequency')} className={inputClass('frequency')}>
-                    <option>Every 2 Weeks</option>
-                    <option>Weekly</option>
-                    <option>Monthly</option>
-                  </select>
-                </div>
+              {/* Quantity */}
+              <div className="mb-4">
+                <label className="block text-xs font-semibold text-[#0d2b4e] mb-1.5">Bottles Per Delivery</label>
+                <select value={form.bottlesPerDelivery} onChange={set('bottlesPerDelivery')} className={inputClass('bottlesPerDelivery')}>
+                  <option>2 Bottles</option>
+                  <option>4 Bottles</option>
+                  <option>6 Bottles</option>
+                  <option>8+ Bottles</option>
+                </select>
+              </div>
+
+              {/* Frequency note */}
+              <div className="bg-[#f4f7fa] border border-[#d0e4ef] rounded-xl px-4 py-3.5 flex items-start gap-3 mb-4">
+                <span className="text-[#1e90d6] mt-0.5 flex-shrink-0">
+                  <CalendarDays size={16} />
+                </span>
+                <p className="text-sm text-[#5a7080] leading-relaxed">
+                  All new deliveries are scheduled <strong className="text-[#0d2b4e]">every 2 weeks</strong>.
+                  As your needs grow, we&apos;ll adjust your frequency together — just give us a call.
+                </p>
               </div>
 
               {/* Cooler */}

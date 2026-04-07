@@ -23,7 +23,7 @@ model Order {
   waterType       String
   bottleSize      String
   bottlesPerDelivery String
-  frequency       String
+  frequency       String @default("every-2-weeks")
   needsCooler     String
 
   notes           String   @default("")

@@ -11,7 +11,7 @@ export async function POST(req: NextRequest) {
       firstName, lastName, phone, email,
       address, city, zip,
       waterType, bottleSize, bottlesPerDelivery,
-      frequency, needsCooler,
+      needsCooler,
     } = body
 
     // Basic server-side validation
@@ -25,7 +25,7 @@ export async function POST(req: NextRequest) {
         firstName, lastName, phone, email,
         address, city, zip,
         waterType, bottleSize, bottlesPerDelivery,
-        frequency, needsCooler,
+        needsCooler,
         status: 'new',
       },
     })
@@ -58,7 +58,7 @@ export async function POST(req: NextRequest) {
               <tr><td style="padding:10px 16px;color:#5a7080;font-size:14px;">Water Type</td><td style="padding:10px 16px;font-size:14px;font-weight:600;">${waterType}</td></tr>
               <tr style="background:#fafafa;"><td style="padding:10px 16px;color:#5a7080;font-size:14px;">Bottle Size</td><td style="padding:10px 16px;font-size:14px;">${bottleSize}</td></tr>
               <tr><td style="padding:10px 16px;color:#5a7080;font-size:14px;">Quantity</td><td style="padding:10px 16px;font-size:14px;">${bottlesPerDelivery}</td></tr>
-              <tr style="background:#fafafa;"><td style="padding:10px 16px;color:#5a7080;font-size:14px;">Frequency</td><td style="padding:10px 16px;font-size:14px;">${frequency}</td></tr>
+              <tr style="background:#fafafa;"><td style="padding:10px 16px;color:#5a7080;font-size:14px;">Frequency</td><td style="padding:10px 16px;font-size:14px;">Every 2 weeks to start</td></tr>
               <tr><td style="padding:10px 16px;color:#5a7080;font-size:14px;">Cooler Needed</td><td style="padding:10px 16px;font-size:14px;">${needsCooler}</td></tr>
             </table>
 
@@ -94,7 +94,7 @@ export async function POST(req: NextRequest) {
               <h3 style="color:#0d2b4e;margin:0 0 12px;font-size:15px;">Your order summary:</h3>
               <p style="margin:4px 0;font-size:14px;color:#1a2a3a;"><strong>${waterType}</strong> — ${bottleSize}</p>
               <p style="margin:4px 0;font-size:14px;color:#1a2a3a;">${bottlesPerDelivery} per delivery</p>
-              <p style="margin:4px 0;font-size:14px;color:#1a2a3a;">Delivery frequency: ${frequency}</p>
+              <p style="margin:4px 0;font-size:14px;color:#1a2a3a;">Deliveries scheduled every 2 weeks to start</p>
               <p style="margin:4px 0;font-size:14px;color:#1a2a3a;">${address}, ${city}, CA ${zip}</p>
             </div>
 
