@@ -3,7 +3,7 @@ import { Droplets, FlaskConical, Check } from 'lucide-react'
 const products = [
   {
     icon: Droplets,
-    name: 'Purified Water',
+    name: 'Purified Drinking Water',
     gradient: 'from-[#0d2b4e] to-[#1565c0]',
     tag: null,
     features: [
@@ -13,8 +13,7 @@ const products = [
       'Compatible with all standard coolers',
       'Ideal for home & office use',
     ],
-    price: '$6.99',
-    cta: 'Order Purified Water',
+    cta: 'Order Purified Drinking Water',
     ctaColor: 'bg-[#1e90d6] hover:bg-[#1565c0]',
   },
   {
@@ -29,7 +28,6 @@ const products = [
       'Powerful antioxidant properties',
       'Superior hydration vs. tap water',
     ],
-    price: '$8.99',
     cta: 'Order Alkaline Water',
     ctaColor: 'bg-[#00c9e4] hover:bg-[#00dff8] !text-[#0d2b4e]',
   },
@@ -43,7 +41,7 @@ export default function Products() {
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-4 mb-14">
           <div>
             <h2 className="text-4xl lg:text-5xl font-bold text-[#0d2b4e] leading-tight" style={{ fontFamily: 'var(--font-playfair)' }}>
-              Two Waters.<br />One Standard of Excellence.
+              Two Choices.<br />One Standard of Excellence.
             </h2>
           </div>
           <p className="text-[#5a7080] text-lg max-w-sm leading-relaxed">
@@ -77,9 +75,6 @@ export default function Products() {
                       </li>
                     ))}
                   </ul>
-                  <p className="text-sm text-[#5a7080] mb-4">
-                    Starting at <span className="text-xl font-bold text-[#0d2b4e]">{p.price}/bottle</span>
-                  </p>
                   <a
                     href="#order"
                     className={`inline-flex items-center gap-2 ${p.ctaColor} text-white px-6 py-3.5 rounded-lg font-bold text-sm transition-all hover:-translate-y-0.5`}

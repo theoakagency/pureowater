@@ -81,7 +81,7 @@ export async function POST(req: NextRequest) {
         <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;">
           <div style="background:#0d2b4e;padding:24px 32px;text-align:center;">
             <h1 style="color:#fff;margin:0;font-size:24px;">You're all set, ${firstName}!</h1>
-            <p style="color:#00c9e4;margin:8px 0 0;font-size:15px;">Your first delivery is on us</p>
+            <p style="color:#00c9e4;margin:8px 0 0;font-size:15px;">We&apos;ll be in touch to confirm your delivery</p>
           </div>
 
           <div style="padding:32px;">

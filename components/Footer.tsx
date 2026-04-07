@@ -3,12 +3,13 @@ import { Phone } from 'lucide-react'
 
 const footerLinks = {
   Products: [
-    { label: 'Purified Water',     href: '/products' },
+    { label: 'Purified Drinking Water', href: '/products' },
     { label: 'Alkaline Water',     href: '/products' },
     { label: 'Office Delivery',    href: '/services/office' },
     { label: 'Restaurant Service', href: '/services/restaurant' },
     { label: 'Home Delivery',      href: '/services/home' },
     { label: 'Gym & Fitness',      href: '/services/gym' },
+    { label: 'Catering & Craft',   href: '/services/catering' },
   ],
   'Service Areas': [
     { label: 'Oxnard',          href: '/areas/oxnard' },

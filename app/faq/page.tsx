@@ -13,7 +13,7 @@ const categories = [
     items: [
       {
         q: 'How do I start my water delivery service?',
-        a: 'Simply fill out our order form on the homepage. Tell us your address, how many bottles you need, and how often you want delivery. We\'ll confirm your first delivery — which is free for new customers — within 1 business day.',
+        a: 'Simply fill out our order form on the homepage. Tell us your address, how many bottles you need, and how often you want delivery. We\'ll confirm your first delivery within 1 business day.',
       },
       {
         q: 'Is there a contract or minimum commitment?',
@@ -21,7 +21,7 @@ const categories = [
       },
       {
         q: 'How much does delivery cost?',
-        a: 'Delivery is included in the price of your water — there\'s no separate delivery fee. Purified water starts at $6.99/bottle and alkaline water starts at $8.99/bottle.',
+        a: 'Delivery is included in the price of your water — there\'s no separate delivery fee. Contact us for current pricing.',
       },
       {
         q: 'Do I need a water cooler to get started?',
@@ -94,8 +94,8 @@ const categories = [
         a: 'We accept cash, check, and major credit cards. You can also pay online — contact us to set up electronic billing.',
       },
       {
-        q: 'Is the first delivery really free?',
-        a: 'Yes, 100%. New customers get their first full delivery at no charge. No catch, no credit card required upfront.',
+        q: 'Is there a setup fee to get started?',
+        a: 'No setup fees, no hidden charges. We bill per delivery — you pay for the bottles delivered each time.',
       },
     ],
   },

@@ -21,7 +21,7 @@ const timeline = [
   { year: '2008', title: 'Expanded to Offices & Business', desc: 'Demand from local businesses led us to expand our commercial delivery service, serving offices, restaurants, and gyms.' },
   { year: '2012', title: 'Alkaline Water Added', desc: 'We added our pH 9.5 alkaline water line in response to growing customer interest in the health benefits of alkaline hydration.' },
   { year: '2018', title: 'Santa Clarita & Antelope Valley', desc: 'Expanded delivery routes to serve Santa Clarita, Palmdale, Lancaster, and surrounding communities.' },
-  { year: '2025', title: 'Serving 2,400+ Customers', desc: 'Today we proudly serve thousands of homes, offices, and businesses across Southern California.' },
+  { year: '2025', title: 'Serving 6,000+ Customers', desc: 'Today we proudly serve thousands of homes, offices, and businesses across Southern California.' },
 ]
 
 export default function AboutPage() {
@@ -54,7 +54,7 @@ export default function AboutPage() {
               <div className="grid grid-cols-3 gap-6 pt-6 border-t border-[#d0e4ef]">
                 {[
                   { num: '20+', label: 'Years in business' },
-                  { num: '2,400+', label: 'Active customers' },
+                  { num: '6,000+', label: 'Active customers' },
                   { num: '6', label: 'Cities served' },
                 ].map((s) => (
                   <div key={s.label}>

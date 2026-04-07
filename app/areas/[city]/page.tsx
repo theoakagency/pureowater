@@ -5,7 +5,7 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import Link from 'next/link'
 import Script from 'next/script'
-import { Truck, ShieldCheck, Gift, CalendarX2, Check, Droplets, FlaskConical, Tag, Phone } from 'lucide-react'
+import { Truck, ShieldCheck, CalendarX2, Check, Droplets, FlaskConical, Phone } from 'lucide-react'
 
 // Generate static params for all cities
 export async function generateStaticParams() {
@@ -22,7 +22,7 @@ export async function generateMetadata(
 
   return {
     title: `Water Delivery in ${city.name}, CA | Pure O Water`,
-    description: `Premium purified and alkaline water delivery in ${city.name}, ${city.county}. ${city.heroDesc} Start your delivery today — first delivery free.`,
+    description: `Premium purified and alkaline water delivery in ${city.name}, ${city.county}. ${city.heroDesc} Start your delivery today.`,
     keywords: `water delivery ${city.name}, alkaline water ${city.name}, purified water delivery ${city.county}, ${city.name} water service`,
   }
 }
@@ -57,15 +57,14 @@ export default async function CityPage(
   }
 
   const trustItems = [
-    { icon: Truck,       label: `Delivering to ${city.name} since 2005` },
-    { icon: ShieldCheck, label: 'NSF Certified Water' },
-    { icon: Gift,        label: 'First Delivery Free' },
-    { icon: CalendarX2,  label: 'No Long-Term Contract' },
+    { icon: Truck,      label: `Delivering to ${city.name} since 2005` },
+    { icon: ShieldCheck, label: 'Locally Owned Business' },
+    { icon: CalendarX2, label: 'No Long-Term Contract' },
   ]
 
   const products = [
-    { icon: Droplets,    name: 'Purified Water',        price: '$6.99', features: ['10-stage ultra filtration', 'Perfect, clean taste', '3 & 5 gallon bottles', 'Works with any cooler'], accent: false },
-    { icon: FlaskConical,name: 'Alkaline Water pH 9.5', price: '$8.99', features: ['Purified + remineralized', 'Organic mineral blend', 'Balances body pH', 'Superior hydration'], accent: true },
+    { icon: Droplets,    name: 'Purified Drinking Water', features: ['10-stage ultra filtration', 'Perfect, clean taste', '3 & 5 gallon bottles', 'Works with any cooler'], accent: false },
+    { icon: FlaskConical,name: 'Alkaline Water pH 9.5',   features: ['Purified + remineralized', 'Organic mineral blend', 'Balances body pH', 'Superior hydration'], accent: true },
   ]
 
   return (
@@ -216,7 +215,6 @@ export default async function CityPage(
                         </li>
                       ))}
                     </ul>
-                    <p className="text-sm text-[#5a7080] mb-4">Starting at <strong className="text-xl text-[#0d2b4e]">{p.price}</strong>/bottle</p>
                     <a href="#order-form" className="inline-flex items-center gap-2 bg-[#0d2b4e] hover:bg-[#1565c0] text-white px-5 py-3 rounded-lg font-bold text-sm transition-all">
                       Order in {city.name} →
                     </a>
@@ -254,14 +252,10 @@ export default async function CityPage(
               <h2 className="text-4xl font-bold text-[#0d2b4e] mb-4" style={{ fontFamily: 'var(--font-playfair)' }}>
                 Start Water Delivery in {city.name}
               </h2>
-              <p className="text-[#5a7080]">Your first delivery is free. No contracts, cancel anytime.</p>
+              <p className="text-[#5a7080]">No contracts, cancel anytime.</p>
             </div>
 
             <div className="bg-white rounded-2xl border-2 border-[#d0e4ef] p-8">
-              <div className="bg-gradient-to-r from-[#e8f6fb] to-[#d0f0fb] border border-[#d0e4ef] rounded-xl px-4 py-3.5 text-sm font-semibold text-[#0d2b4e] mb-6 flex items-center gap-2">
-                <Tag size={15} className="text-[#1e90d6] flex-shrink-0" />
-                First delivery FREE for new customers in {city.name}
-              </div>
 
               <div className="space-y-4">
                 <div className="grid grid-cols-2 gap-3">

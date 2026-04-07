@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { Gift, CalendarX2, Users, PartyPopper, Tag, CalendarDays } from 'lucide-react'
+import { Clock, CalendarX2, Users, PartyPopper, CalendarDays } from 'lucide-react'
 
 type FormData = {
   firstName: string
@@ -20,16 +20,16 @@ type FormData = {
 const INITIAL: FormData = {
   firstName: '', lastName: '', phone: '', email: '',
   address: '', city: '', zip: '',
-  waterType: 'Purified Water',
+  waterType: 'Purified Drinking Water',
   bottleSize: '5 Gallon',
   bottlesPerDelivery: '2 Bottles',
   needsCooler: 'I have my own cooler',
 }
 
 const highlights = [
-  { icon: Gift,       title: 'First Delivery Free',   desc: 'New customers get their first delivery at no charge. No strings attached.' },
-  { icon: CalendarX2, title: 'No Long-Term Contract', desc: 'Month-to-month service. Pause or cancel anytime with zero fees.' },
-  { icon: Users,      title: 'Local Family Business', desc: 'Real people, real service. We know our customers by name.' },
+  { icon: Clock,      title: 'Serving SoCal 20+ Years', desc: 'A trusted local name in water delivery since 2005.' },
+  { icon: CalendarX2, title: 'No Long-Term Contract',   desc: 'Month-to-month service. Pause or cancel anytime with zero fees.' },
+  { icon: Users,      title: 'Locally Owned Business',  desc: 'Real people, real service. We know our customers by name.' },
 ]
 
 export default function OrderForm() {
@@ -142,12 +142,6 @@ export default function OrderForm() {
               </h3>
               <p className="text-[#5a7080] text-sm mb-5">Takes less than 2 minutes</p>
 
-              {/* Promo */}
-              <div className="bg-gradient-to-r from-[#e8f6fb] to-[#d0f0fb] border border-[#d0e4ef] rounded-xl px-4 py-3.5 text-sm font-semibold text-[#0d2b4e] mb-6 flex items-center gap-2">
-                <Tag size={15} className="text-[#1e90d6] flex-shrink-0" />
-                First delivery FREE for new customers
-              </div>
-
               {/* Name row */}
               <div className="grid grid-cols-2 gap-3 mb-4">
                 <div>
@@ -202,7 +196,7 @@ export default function OrderForm() {
                 <div>
                   <label className="block text-xs font-semibold text-[#0d2b4e] mb-1.5">Water Type</label>
                   <select value={form.waterType} onChange={set('waterType')} className={inputClass('waterType')}>
-                    <option>Purified Water</option>
+                    <option>Purified Drinking Water</option>
                     <option>Alkaline Water (pH 9.5)</option>
                     <option>Both</option>
                   </select>
@@ -218,7 +212,7 @@ export default function OrderForm() {
 
               {/* Quantity */}
               <div className="mb-4">
-                <label className="block text-xs font-semibold text-[#0d2b4e] mb-1.5">Bottles for First Delivery <span className="text-[#5a7080] font-normal">(we'll confirm recurring qty with you)</span></label>
+                <label className="block text-xs font-semibold text-[#0d2b4e] mb-1.5">Bottles for First Delivery <span className="text-[#5a7080] font-normal">(we&apos;ll confirm recurring qty with you)</span></label>
                 <select value={form.bottlesPerDelivery} onChange={set('bottlesPerDelivery')} className={inputClass('bottlesPerDelivery')}>
                   <option>2 Bottles</option>
                   <option>4 Bottles</option>
@@ -268,7 +262,7 @@ export default function OrderForm() {
                     Submitting...
                   </>
                 ) : (
-                  'Request My Free First Delivery →'
+                  'Request My First Delivery →'
                 )}
               </button>
 

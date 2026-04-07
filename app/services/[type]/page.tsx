@@ -6,7 +6,7 @@ import Footer from '@/components/Footer'
 import ServiceFAQ from '@/components/ServiceFAQ'
 import Link from 'next/link'
 import Script from 'next/script'
-import { Check, Phone, Tag } from 'lucide-react'
+import { Check, Phone } from 'lucide-react'
 import {
   Droplets, DollarSign, Clock, Package,
   Coffee, Users, RefreshCw, ShieldCheck,
@@ -179,10 +179,6 @@ export default async function ServicePage(
                   ))}
                 </dl>
                 <div className="mt-8 pt-6 border-t border-white/10">
-                  <div className="flex items-center gap-2 text-[#00c9e4] text-sm font-semibold mb-1">
-                    <Tag size={14} />
-                    First delivery FREE for new customers
-                  </div>
                   <p className="text-white/50 text-xs">No contracts. Cancel or adjust anytime.</p>
                 </div>
               </div>
@@ -239,7 +235,7 @@ export default async function ServicePage(
               Start {service.name} Water Delivery Today
             </h2>
             <p className="text-white/60 text-lg mb-8">
-              First delivery is free. No contracts, no commitments — just great water on your schedule.
+              No contracts, no commitments — just great water on your schedule.
             </p>
             <a
               href="/#order"

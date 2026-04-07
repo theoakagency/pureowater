@@ -44,7 +44,7 @@ export default function ProductsPage() {
       <main>
         <PageHero
           badge="Pure O Water Products"
-          title="Two Waters."
+          title="Two Choices."
           titleAccent="One Standard of Excellence."
           subtitle="Every bottle is produced through a rigorous 10-stage filtration process at our local facility before it reaches your door."
           breadcrumbs={[{ label: 'Products', href: '#' }]}
@@ -60,17 +60,16 @@ export default function ProductsPage() {
                 </div>
                 <p className="text-xs font-bold tracking-[0.12em] uppercase text-[#1e90d6] mb-3">Product 01</p>
                 <h2 className="text-4xl lg:text-5xl font-bold text-[#0d2b4e] leading-tight mb-5" style={{ fontFamily: 'var(--font-playfair)' }}>
-                  Purified Water
+                  Purified Drinking Water
                 </h2>
                 <p className="text-[#5a7080] text-lg leading-relaxed mb-8">
                   Our purified water is processed through an advanced 10-stage filtration system at our local facility. The result is water so clean and pure, it speaks for itself — no chemicals, no contaminants, just perfect water.
                 </p>
                 <div className="flex flex-wrap gap-3 mb-8">
-                  <span className="bg-[#e8f6fb] text-[#0d2b4e] text-sm font-semibold px-4 py-2 rounded-full">Starting at $6.99/bottle</span>
                   <span className="bg-[#f4f7fa] text-[#5a7080] text-sm font-medium px-4 py-2 rounded-full">3 & 5 gallon available</span>
                 </div>
                 <a href="#order" className="inline-flex items-center gap-2 bg-[#0d2b4e] hover:bg-[#1565c0] text-white px-7 py-4 rounded-lg font-bold transition-all hover:-translate-y-0.5">
-                  Order Purified Water →
+                  Order Purified Drinking Water →
                 </a>
               </div>
 
@@ -129,7 +128,6 @@ export default function ProductsPage() {
                   Our alkaline water starts as purified water, then goes through a remineralization process using a proprietary organic mineral blend. The result is water at pH 9.5 — perfectly balanced for superior hydration and health benefits.
                 </p>
                 <div className="flex flex-wrap gap-3 mb-8">
-                  <span className="bg-[#e8f6fb] text-[#0d2b4e] text-sm font-semibold px-4 py-2 rounded-full">Starting at $8.99/bottle</span>
                   <span className="bg-[#f4f7fa] text-[#5a7080] text-sm font-medium px-4 py-2 rounded-full">3 & 5 gallon available</span>
                 </div>
                 <a href="#order" className="inline-flex items-center gap-2 bg-[#00c9e4] hover:bg-[#00dff8] text-[#0d2b4e] px-7 py-4 rounded-lg font-bold transition-all hover:-translate-y-0.5">
@@ -219,7 +217,7 @@ export default function ProductsPage() {
               Ready to Order?
             </h2>
             <p className="text-white/60 text-lg mb-8">
-              Your first delivery is free. No contracts, no commitments — just great water.
+              No contracts, no commitments — just great water delivered on your schedule.
             </p>
             <a href="/#order" className="inline-flex items-center gap-2 bg-[#00c9e4] text-[#0d2b4e] px-10 py-5 rounded-lg font-bold text-lg hover:bg-[#00dff8] transition-all hover:-translate-y-0.5 hover:shadow-[0_8px_32px_rgba(0,201,228,0.35)]">
               Start My Delivery →

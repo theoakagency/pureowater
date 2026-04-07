@@ -61,7 +61,7 @@ export default function Hero() {
           {/* Badge */}
           <div className="inline-flex items-center gap-2 bg-[#00c9e4]/10 border border-[#00c9e4]/30 text-[#00c9e4] text-xs font-bold tracking-widest uppercase px-4 py-2 rounded-full mb-7">
             <span className="w-1.5 h-1.5 rounded-full bg-[#00c9e4] animate-pulse" />
-            Serving Southern California Since 2005
+            Serving Southern California for Over 20 Years
           </div>
 
           <h1 className="text-5xl lg:text-6xl font-bold text-white leading-[1.08] mb-6" style={{ fontFamily: 'var(--font-playfair)' }}>
@@ -71,7 +71,7 @@ export default function Hero() {
           </h1>
 
           <p className="text-lg text-white/75 leading-relaxed mb-10 max-w-lg">
-            Pure alkaline and purified water for homes, offices, and businesses
+            Alkaline and Purified water for homes, offices, and businesses
             across Ventura County, Santa Clarita, and the Antelope Valley.
           </p>
 
@@ -98,7 +98,7 @@ export default function Hero() {
           {/* Stats */}
           <div className="flex items-center gap-2 flex-shrink-0">
             <CheckCircle2 size={18} className="text-[#00c9e4]" />
-            <span className="text-white font-bold text-sm">2,400+</span>
+            <span className="text-white font-bold text-sm">6,000+</span>
             <span className="text-white/60 text-sm">Happy customers</span>
           </div>
           <div className="hidden sm:block w-px h-5 bg-white/20 flex-shrink-0" />

@@ -93,7 +93,7 @@ export const services: ServiceData[] = [
     name: 'Home',
     headline: 'Water Delivery for Your Home',
     subheadline: 'Pure, great-tasting water delivered to your door — no more lugging heavy cases from the store.',
-    heroDesc: 'Stop buying single-use plastic bottles from the grocery store. Pure O Water delivers fresh purified and alkaline water directly to your home on a schedule that works for your family — for less than $1 a day.',
+    heroDesc: 'Stop buying single-use plastic bottles from the grocery store. Pure O Water delivers fresh purified and alkaline water directly to your home on a schedule that works for your family.',
     painPoints: [
       { icon: 'ShoppingCart', title: 'Heavy cases from the store',     desc: 'Stop hauling water home every week. We bring it right to your door.' },
       { icon: 'Trash2',       title: 'Single-use plastic waste',       desc: 'Reusable 5-gallon bottles dramatically reduce your household plastic footprint.' },
@@ -103,11 +103,11 @@ export const services: ServiceData[] = [
     benefits: [
       'Purified and alkaline water options for the whole family',
       'Delivered to your front door on your schedule',
-      'Under $1 per day for most households',
+
       '3 and 5 gallon bottles available',
       'Cooler rentals available for hot and cold water',
       'No contracts — pause or cancel anytime',
-      'First delivery free for new customers',
+      'No long-term contracts — cancel anytime',
     ],
     typicalOrder: { bottles: '2–4 bottles', size: '3 or 5 Gallon', frequency: 'Every 2 weeks' },
     testimonial: {
@@ -118,12 +118,12 @@ export const services: ServiceData[] = [
     },
     faq: [
       { q: 'What if I am not home during delivery?', a: 'No problem — just tell us a safe drop-off spot like your front porch or garage and we will leave your bottles there and pick up the empties.' },
-      { q: 'How much does home delivery cost?', a: 'Purified water starts at $6.99 per bottle and alkaline water starts at $8.99 per bottle. Most families spend under $30 per delivery.' },
+      { q: 'How much does home delivery cost?', a: 'Pricing depends on water type and bottle size. Contact us for current pricing — delivery is always included, no separate delivery fee.' },
       { q: 'Do I need to buy a water cooler?', a: 'You can use your own existing cooler or rent one from us. We have hot/cold and cold-only options available.' },
       { q: 'Can I change how often you deliver?', a: 'Yes, anytime. Just call or email us and we will adjust your schedule for the next delivery.' },
     ],
     metaTitle: 'Home Water Delivery | Pure O Water — Ventura County',
-    metaDesc: 'Fresh purified and alkaline water delivered to your home in Ventura County, Santa Clarita, and the Antelope Valley. Under $1/day, no contracts, first delivery free.',
+    metaDesc: 'Fresh purified and alkaline water delivered to your home in Ventura County, Santa Clarita, and the Antelope Valley. No contracts, flexible scheduling.',
   },
   {
     slug: 'gym',
@@ -161,6 +161,43 @@ export const services: ServiceData[] = [
     ],
     metaTitle: 'Gym & Fitness Water Delivery | Pure O Water — Ventura County',
     metaDesc: 'Premium alkaline and purified water delivery for gyms, CrossFit boxes, and fitness studios in Ventura County and Southern California. pH 9.5 alkaline water for serious athletes.',
+  },
+  {
+    slug: 'catering',
+    name: 'Catering & Craft Services',
+    headline: 'Water Delivery for Catering & Craft Services',
+    subheadline: 'Keep your crew, cast, and guests hydrated — on set, on location, or at the event.',
+    heroDesc: 'From film and TV production craft services to wedding catering and corporate events, Pure O Water delivers premium purified and alkaline water throughout Ventura County, Santa Clarita, and the Antelope Valley.',
+    painPoints: [
+      { icon: 'Users',      title: 'Large crews to hydrate',         desc: 'Film sets, event staffs, and catering crews need reliable water — not cases of single-use bottles.' },
+      { icon: 'Clock',      title: 'Early calls and tight timelines', desc: 'We work around your call sheet and event schedule to ensure water is there when you need it.' },
+      { icon: 'RefreshCw',  title: 'Inconsistent supply',            desc: 'One reliable local supplier — no scrambling at the last minute before a shoot or event.' },
+      { icon: 'DollarSign', title: 'Cost of single-use bottles',     desc: 'Reusable 5-gallon bottles are more economical and dramatically reduce on-set plastic waste.' },
+    ],
+    benefits: [
+      'Purified and alkaline water for cast, crew, and guests',
+      'Large-format 5-gallon bottles reduce plastic waste on set',
+      'Delivery scheduled around your production or event dates',
+      'On-demand orders available for last-minute needs',
+      'Hot/cold cooler rentals for craft service stations',
+      'Serving Ventura County, Santa Clarita, and Antelope Valley film country',
+      'Empty bottle pickup included',
+    ],
+    typicalOrder: { bottles: '8–20 bottles', size: '5 Gallon', frequency: 'Per event or weekly' },
+    testimonial: {
+      quote: 'We run craft services on film sets throughout the Santa Clarita area and Pure O Water is our go-to. Reliable, great quality, and they always work around our schedule.',
+      name: 'Derek H.',
+      role: 'Craft Services Coordinator, Santa Clarita',
+      initials: 'DH',
+    },
+    faq: [
+      { q: 'Can you accommodate same-day or rush orders?', a: 'We do our best for last-minute requests — call us directly at (805) 522-7002 and we will tell you what we can do.' },
+      { q: 'Do you deliver to film locations and event venues?', a: 'Yes. We deliver throughout Ventura County, Santa Clarita, and the Antelope Valley — including production facilities, ranches, and event spaces.' },
+      { q: 'Do you provide coolers for on-set craft service stations?', a: 'Yes, we rent hot/cold and cold-only dispensers that work great for craft service tables and catering setups.' },
+      { q: 'Can we set up a standing order for a recurring production?', a: 'Absolutely. If you have a recurring show or regular event schedule, we can set up a standing delivery account.' },
+    ],
+    metaTitle: 'Catering & Craft Services Water Delivery | Pure O Water',
+    metaDesc: 'Premium water delivery for film production craft services, catering, and events in Ventura County, Santa Clarita, and the Antelope Valley. Purified and alkaline water for cast and crew.',
   },
 ]
 

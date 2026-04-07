@@ -1,11 +1,9 @@
-import { Award, ShieldCheck, RefreshCw, DollarSign, Truck } from 'lucide-react'
+import { Award, RefreshCw, Truck } from 'lucide-react'
 
 const trustItems = [
-  { icon: Award,       label: 'Shop Local Guarantee' },
-  { icon: ShieldCheck, label: 'NSF Certified' },
-  { icon: RefreshCw,   label: 'Flexible Scheduling' },
-  { icon: DollarSign,  label: 'Under $1/day' },
-  { icon: Truck,       label: 'Delivered Every 2 Weeks' },
+  { icon: Award,    label: 'Locally Owned' },
+  { icon: RefreshCw, label: 'Flexible Scheduling' },
+  { icon: Truck,    label: 'Delivered Every 2 Weeks' },
 ]
 
 const reviews = [
