@@ -29,6 +29,7 @@ const footerLinks = {
     { label: 'Current Offers', href: '/offers' },
     { label: 'FAQ',            href: '/faq' },
     { label: 'Contact',        href: '/contact' },
+    { label: 'Sitemap',        href: '/sitemap-page' },
     { label: 'Admin Login',    href: '/admin' },
   ],
 }
