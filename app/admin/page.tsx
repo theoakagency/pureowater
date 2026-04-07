@@ -53,7 +53,7 @@ export default function AdminLoginPage() {
                 type="text"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
-                placeholder="joseph"
+                placeholder=""
                 autoComplete="username"
                 className="w-full border border-[#d0e4ef] rounded-lg px-4 py-3 text-sm outline-none focus:border-[#1e90d6] focus:ring-2 focus:ring-[#1e90d6]/10 transition-all"
               />
@@ -64,7 +64,7 @@ export default function AdminLoginPage() {
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                placeholder="••••••••••"
+                placeholder=""
                 autoComplete="current-password"
                 className="w-full border border-[#d0e4ef] rounded-lg px-4 py-3 text-sm outline-none focus:border-[#1e90d6] focus:ring-2 focus:ring-[#1e90d6]/10 transition-all"
               />
