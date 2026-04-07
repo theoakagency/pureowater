@@ -7,6 +7,7 @@ import ServiceFAQ from '@/components/ServiceFAQ'
 import Link from 'next/link'
 import Script from 'next/script'
 import { Check, Phone } from 'lucide-react'
+import OrderForm from '@/components/OrderForm'
 import {
   Droplets, DollarSign, Clock, Package,
   Coffee, Users, RefreshCw, ShieldCheck,
@@ -227,24 +228,10 @@ export default async function ServicePage(
           </div>
         </section>
 
-        {/* ── Order CTA ── */}
-        <section className="py-20 px-6 bg-gradient-to-br from-[#061c35] to-[#0d2b4e] text-center">
-          <div className="max-w-2xl mx-auto">
-            <p className="text-[#00c9e4] font-bold text-xs tracking-widest uppercase mb-4">Get Started</p>
-            <h2 className="text-4xl font-bold text-white mb-4" style={{ fontFamily: 'var(--font-playfair)' }}>
-              Start {service.name} Water Delivery Today
-            </h2>
-            <p className="text-white/60 text-lg mb-8">
-              No contracts, no commitments — just great water on your schedule.
-            </p>
-            <a
-              href="/#order"
-              className="inline-flex items-center gap-2 bg-[#00c9e4] text-[#0d2b4e] px-10 py-5 rounded-lg font-bold text-lg hover:bg-[#00dff8] transition-all hover:-translate-y-0.5 hover:shadow-[0_8px_32px_rgba(0,201,228,0.35)]"
-            >
-              Start My Delivery →
-            </a>
-          </div>
-        </section>
+        {/* ── Order Form ── */}
+        <div id="order-form">
+          <OrderForm />
+        </div>
 
         {/* ── Other Services ── */}
         <section className="py-16 px-6 bg-[#f4f7fa]">

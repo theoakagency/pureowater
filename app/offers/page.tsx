@@ -3,6 +3,7 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import PageHero from '@/components/PageHero'
 import { Check } from 'lucide-react'
+import OrderForm from '@/components/OrderForm'
 
 export const metadata: Metadata = {
   title: 'Current Offers | Pure O Water',
@@ -90,6 +91,8 @@ export default function OffersPage() {
             ))}
           </div>
         </section>
+
+        <OrderForm />
 
       </main>
       <Footer />

@@ -6,6 +6,7 @@ import Footer from '@/components/Footer'
 import Link from 'next/link'
 import Script from 'next/script'
 import { Truck, ShieldCheck, CalendarX2, Check, Droplets, FlaskConical, Phone } from 'lucide-react'
+import OrderForm from '@/components/OrderForm'
 
 // Generate static params for all cities
 export async function generateStaticParams() {
@@ -245,56 +246,9 @@ export default async function CityPage(
         </section>
 
         {/* Order form */}
-        <section id="order-form" className="py-20 px-6 bg-white">
-          <div className="max-w-2xl mx-auto">
-            <div className="text-center mb-10">
-              <p className="text-xs font-bold tracking-[0.12em] uppercase text-[#1e90d6] mb-4">Get Started</p>
-              <h2 className="text-4xl font-bold text-[#0d2b4e] mb-4" style={{ fontFamily: 'var(--font-playfair)' }}>
-                Start Water Delivery in {city.name}
-              </h2>
-              <p className="text-[#5a7080]">No contracts, cancel anytime.</p>
-            </div>
-
-            <div className="bg-white rounded-2xl border-2 border-[#d0e4ef] p-8">
-
-              <div className="space-y-4">
-                <div className="grid grid-cols-2 gap-3">
-                  <div>
-                    <label className="block text-xs font-semibold text-[#0d2b4e] mb-1.5">First Name</label>
-                    <input type="text" placeholder="Maria" className="w-full border border-[#d0e4ef] rounded-lg px-3.5 py-3 text-sm outline-none focus:border-[#1e90d6]" />
-                  </div>
-                  <div>
-                    <label className="block text-xs font-semibold text-[#0d2b4e] mb-1.5">Last Name</label>
-                    <input type="text" placeholder="Garcia" className="w-full border border-[#d0e4ef] rounded-lg px-3.5 py-3 text-sm outline-none focus:border-[#1e90d6]" />
-                  </div>
-                </div>
-                <div>
-                  <label className="block text-xs font-semibold text-[#0d2b4e] mb-1.5">Phone Number</label>
-                  <input type="tel" placeholder="(805) 555-0100" className="w-full border border-[#d0e4ef] rounded-lg px-3.5 py-3 text-sm outline-none focus:border-[#1e90d6]" />
-                </div>
-                <div>
-                  <label className="block text-xs font-semibold text-[#0d2b4e] mb-1.5">Email Address</label>
-                  <input type="email" placeholder="maria@example.com" className="w-full border border-[#d0e4ef] rounded-lg px-3.5 py-3 text-sm outline-none focus:border-[#1e90d6]" />
-                </div>
-                <div>
-                  <label className="block text-xs font-semibold text-[#0d2b4e] mb-1.5">Water Type</label>
-                  <select className="w-full border border-[#d0e4ef] rounded-lg px-3.5 py-3 text-sm outline-none focus:border-[#1e90d6]">
-                    <option>Purified Water</option>
-                    <option>Alkaline Water (pH 9.5)</option>
-                    <option>Both</option>
-                  </select>
-                </div>
-                <a
-                  href="/#order"
-                  className="block w-full bg-[#1e90d6] hover:bg-[#1565c0] text-white text-center py-4 rounded-xl font-bold text-base transition-all hover:shadow-[0_6px_24px_rgba(21,101,192,0.35)]"
-                >
-                  Request My Free Delivery in {city.name} →
-                </a>
-                <p className="text-[#5a7080] text-xs text-center">No spam. We&apos;ll contact you within 1 business day.</p>
-              </div>
-            </div>
-          </div>
-        </section>
+        <div id="order-form">
+          <OrderForm />
+        </div>
 
         {/* Other cities */}
         <section className="py-16 px-6 bg-[#f4f7fa]">

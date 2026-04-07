@@ -3,6 +3,7 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import PageHero from '@/components/PageHero'
 import { Microscope, Gem, Smile, Plug, FlaskConical, Leaf, BarChart2, Zap, Shield, Scale, Droplets } from 'lucide-react'
+import OrderForm from '@/components/OrderForm'
 
 export const metadata: Metadata = {
   title: 'Our Products | Pure O Water',
@@ -209,21 +210,10 @@ export default function ProductsPage() {
           </div>
         </section>
 
-        {/* Bottom CTA */}
-        <section id="order" className="py-20 px-6 bg-gradient-to-br from-[#061c35] to-[#0d2b4e] text-center">
-          <div className="max-w-2xl mx-auto">
-            <p className="text-[#00c9e4] font-bold text-xs tracking-widest uppercase mb-4">Start Today</p>
-            <h2 className="text-4xl font-bold text-white mb-4" style={{ fontFamily: 'var(--font-playfair)' }}>
-              Ready to Order?
-            </h2>
-            <p className="text-white/60 text-lg mb-8">
-              No contracts, no commitments — just great water delivered on your schedule.
-            </p>
-            <a href="/#order" className="inline-flex items-center gap-2 bg-[#00c9e4] text-[#0d2b4e] px-10 py-5 rounded-lg font-bold text-lg hover:bg-[#00dff8] transition-all hover:-translate-y-0.5 hover:shadow-[0_8px_32px_rgba(0,201,228,0.35)]">
-              Start My Delivery →
-            </a>
-          </div>
-        </section>
+        {/* Order Form */}
+        <div id="order">
+          <OrderForm />
+        </div>
       </main>
       <Footer />
     </>
