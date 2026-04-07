@@ -57,13 +57,8 @@ export default function Products() {
             return (
               <div key={p.name} className="border-2 border-[#d0e4ef] rounded-2xl overflow-hidden hover:border-[#1e90d6] hover:shadow-[0_16px_48px_rgba(21,101,192,0.1)] hover:-translate-y-1 transition-all duration-300">
                 {/* Card header */}
-                <div className={`bg-gradient-to-br ${p.gradient} p-10 text-center relative overflow-hidden`}>
+                <div className={`bg-gradient-to-br ${p.gradient} p-10 text-center relative overflow-hidden flex flex-col items-center justify-center min-h-[180px]`}>
                   <div className="absolute -bottom-10 -right-10 w-32 h-32 rounded-full bg-white/05" />
-                  <div className="flex justify-center mb-4 relative z-10">
-                    <div className="w-20 h-20 rounded-2xl bg-white/10 flex items-center justify-center">
-                      <Icon size={40} className="text-white" />
-                    </div>
-                  </div>
                   <h3 className="text-3xl font-bold text-white relative z-10" style={{ fontFamily: 'var(--font-playfair)' }}>{p.name}</h3>
                   {p.tag && (
                     <span className="inline-block mt-2 bg-[#00c9e4]/25 text-[#00c9e4] text-sm font-bold px-4 py-1 rounded-full relative z-10">{p.tag}</span>
