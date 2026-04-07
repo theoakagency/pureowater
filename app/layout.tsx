@@ -58,6 +58,11 @@ export const metadata: Metadata = {
     description: 'Purified & alkaline water delivered to your door. First delivery free.',
     images: ['/og-image.png'],
   },
+  icons: {
+    icon: '/favicon.png',
+    shortcut: '/favicon.png',
+    apple: '/favicon.png',
+  },
   robots: {
     index: true,
     follow: true,
