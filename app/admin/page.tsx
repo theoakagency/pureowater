@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
+import Image from 'next/image'
 
 export default function AdminLoginPage() {
   const router = useRouter()
@@ -34,12 +35,7 @@ export default function AdminLoginPage() {
       <div className="w-full max-w-sm">
         {/* Logo */}
         <div className="text-center mb-10">
-          <div className="inline-flex flex-col items-center leading-none">
-            <span className="text-white font-bold text-4xl" style={{ fontFamily: 'var(--font-playfair)' }}>
-              Pure<span className="text-[#00c9e4]">O</span>
-            </span>
-            <span className="text-[9px] font-bold tracking-[0.3em] text-[#00c9e4] uppercase -mt-1">Water</span>
-          </div>
+          <Image src="/logo.png" alt="Pure O Water" width={160} height={54} className="h-12 w-auto brightness-0 invert mx-auto" />
           <p className="text-white/50 text-sm mt-4">Admin Portal</p>
         </div>
 
