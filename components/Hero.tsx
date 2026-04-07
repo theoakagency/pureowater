@@ -119,7 +119,7 @@ export default function Hero() {
                 value={zip}
                 onChange={(e) => { setZip(e.target.value.replace(/\D/g, '')); setZipResult(null) }}
                 onKeyDown={(e) => e.key === 'Enter' && checkZip()}
-                className="flex-1 bg-white/10 border border-white/20 rounded-lg px-4 py-2.5 text-white placeholder-white/40 text-sm outline-none focus:border-[#00c9e4] transition-colors min-w-0"
+                className="flex-1 bg-white/15 border border-white/35 rounded-lg px-4 py-2.5 text-white placeholder-white/70 text-sm outline-none focus:border-[#00c9e4] transition-colors min-w-0"
               />
               <button
                 onClick={checkZip}
