@@ -3,6 +3,7 @@
 import { useEffect, useState, useCallback } from 'react'
 import { useRouter } from 'next/navigation'
 import { Inbox, Download, Trash2 } from 'lucide-react'
+import Image from 'next/image'
 
 type Order = {
   id: number
@@ -111,9 +112,7 @@ export default function AdminDashboard() {
       {/* Top nav */}
       <header className="bg-[#0d2b4e] text-white px-6 py-0 h-14 flex items-center justify-between shadow-lg sticky top-0 z-40">
         <div className="flex items-center gap-3">
-          <span className="font-bold text-lg" style={{ fontFamily: 'var(--font-playfair)' }}>
-            Pure<span className="text-[#00c9e4]">O</span>
-          </span>
+          <Image src="/logo.png" alt="Pure O Water" width={120} height={40} className="h-7 w-auto brightness-0 invert" />
           <span className="text-white/30 text-sm">|</span>
           <span className="text-white/70 text-sm font-medium">Order Dashboard</span>
         </div>
