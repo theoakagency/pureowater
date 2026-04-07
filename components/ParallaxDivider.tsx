@@ -1,40 +1,16 @@
 'use client'
 
-import { useRef, useEffect, useState } from 'react'
-
 export default function ParallaxDivider() {
-  const ref = useRef<HTMLDivElement>(null)
-  const [offset, setOffset] = useState(0)
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (!ref.current) return
-      const rect = ref.current.getBoundingClientRect()
-      const scrolled = window.innerHeight - rect.top
-      if (scrolled > 0) {
-        setOffset(scrolled * 0.15)
-      }
-    }
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    handleScroll()
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
-
   return (
-    <div
-      ref={ref}
-      className="relative h-[420px] overflow-hidden"
-    >
-      {/* Parallax background image — starts at top, moves up on scroll */}
+    <div className="relative h-[420px] overflow-hidden">
+      {/* CSS fixed-attachment parallax — never clips top or bottom */}
       <div
-        className="absolute w-full"
+        className="absolute inset-0"
         style={{
           backgroundImage: 'url(/pure-o-water.png)',
           backgroundSize: 'cover',
-          backgroundPosition: 'top center',
-          transform: `translateY(-${offset}px)`,
-          top: '-60px',
-          bottom: '-60px',
+          backgroundPosition: 'center',
+          backgroundAttachment: 'fixed',
         }}
       />
 
