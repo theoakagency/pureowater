@@ -3,6 +3,7 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import PageHero from '@/components/PageHero'
 import { Heart, Gem, Clock, Users } from 'lucide-react'
+import OrderForm from '@/components/OrderForm'
 
 export const metadata: Metadata = {
   title: 'About Us | Pure O Water',
@@ -137,25 +138,7 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* CTA */}
-        <section className="py-20 px-6 bg-[#0d2b4e] text-center">
-          <div className="max-w-2xl mx-auto">
-            <h2 className="text-4xl font-bold text-white mb-4" style={{ fontFamily: 'var(--font-playfair)' }}>
-              Become Part of the Pure O Family
-            </h2>
-            <p className="text-white/60 text-lg mb-8">
-              Join over 2,400 homes and businesses who trust Pure O Water for their daily hydration.
-            </p>
-            <div className="flex flex-wrap gap-4 justify-center">
-              <a href="/#order" className="bg-[#00c9e4] text-[#0d2b4e] px-8 py-4 rounded-lg font-bold hover:bg-[#00dff8] transition-all hover:-translate-y-0.5">
-                Start My Delivery →
-              </a>
-              <a href="/contact" className="border border-white/20 text-white px-8 py-4 rounded-lg font-medium hover:bg-white/05 hover:border-white/40 transition-all">
-                Get in Touch
-              </a>
-            </div>
-          </div>
-        </section>
+        <OrderForm />
       </main>
       <Footer />
     </>

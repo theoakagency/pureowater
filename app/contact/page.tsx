@@ -4,6 +4,7 @@ import { useState } from 'react'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import PageHero from '@/components/PageHero'
+import OrderForm from '@/components/OrderForm'
 import { Phone, Mail, MapPin, CheckCircle2 } from 'lucide-react'
 
 export default function ContactPage() {
@@ -117,10 +118,10 @@ export default function ContactPage() {
                   Ready to Order?
                 </h3>
                 <p className="text-white/65 text-sm mb-5">
-                  Skip the form and go straight to our order page. First delivery is free.
+                  Skip the message form and go straight to our order form below.
                 </p>
                 <a
-                  href="/#order"
+                  href="#order-form"
                   className="block text-center bg-[#00c9e4] text-[#0d2b4e] py-3 rounded-lg font-bold text-sm hover:bg-[#00dff8] transition-all"
                 >
                   Start My Delivery →
@@ -214,6 +215,11 @@ export default function ContactPage() {
             </div>
           </div>
         </section>
+
+        {/* Order Form */}
+        <div id="order-form">
+          <OrderForm />
+        </div>
 
         {/* Map embed */}
         <section className="bg-[#f4f7fa] px-6 pb-20">

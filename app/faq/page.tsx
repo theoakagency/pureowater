@@ -4,6 +4,7 @@ import { useState } from 'react'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import PageHero from '@/components/PageHero'
+import OrderForm from '@/components/OrderForm'
 import { Zap, Droplets, Truck, CreditCard, Phone } from 'lucide-react'
 
 const categories = [
@@ -188,6 +189,7 @@ export default function FAQPage() {
             </div>
           </div>
         </section>
+        <OrderForm />
       </main>
       <Footer />
     </>
