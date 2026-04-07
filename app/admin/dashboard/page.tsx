@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useCallback } from 'react'
 import { useRouter } from 'next/navigation'
-import { Inbox, Download } from 'lucide-react'
+import { Inbox, Download, Trash2 } from 'lucide-react'
 
 type Order = {
   id: number
@@ -66,6 +66,13 @@ export default function AdminDashboard() {
       body: JSON.stringify({ status }),
     })
     setOrders((prev) => prev.map((o) => o.id === id ? { ...o, status } : o))
+  }
+
+  const deleteOrder = async (id: number) => {
+    if (!confirm(`Delete order #${id}? This cannot be undone.`)) return
+    await fetch(`/api/orders/${id}`, { method: 'DELETE' })
+    setOrders((prev) => prev.filter((o) => o.id !== id))
+    if (expanded === id) setExpanded(null)
   }
 
   const saveNotes = async (id: number) => {
@@ -239,7 +246,7 @@ export default function AdminDashboard() {
                         </select>
                       </td>
                       <td className="px-4 py-3">
-                        <div className="flex gap-2" onClick={(e) => e.stopPropagation()}>
+                        <div className="flex items-center gap-2" onClick={(e) => e.stopPropagation()}>
                           <a
                             href={`mailto:${order.email}`}
                             className="text-[#1e90d6] hover:underline text-xs font-medium"
@@ -253,6 +260,14 @@ export default function AdminDashboard() {
                           >
                             Call
                           </a>
+                          <span className="text-[#d0e4ef]">|</span>
+                          <button
+                            onClick={() => deleteOrder(order.id)}
+                            className="text-red-400 hover:text-red-600 transition-colors"
+                            title="Delete order"
+                          >
+                            <Trash2 size={13} />
+                          </button>
                         </div>
                       </td>
                     </tr>
