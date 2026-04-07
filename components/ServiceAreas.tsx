@@ -1,12 +1,15 @@
-import { MapPin, Home, Mountain, Wind, Building2, Waves } from 'lucide-react'
+import { MapPin, Home, Mountain, Wind, Building2, Waves, Trees } from 'lucide-react'
 
 const areas = [
-  { icon: Waves,     name: 'Oxnard',              desc: 'Home, office & industrial delivery throughout Oxnard and Port Hueneme.' },
-  { icon: Home,      name: 'Ventura',              desc: 'Serving all of Ventura city with bi-weekly and weekly delivery options.' },
-  { icon: Mountain,  name: 'Santa Clarita',        desc: 'Valencia, Saugus, Newhall, and Canyon Country covered.' },
-  { icon: Wind,      name: 'Antelope Valley',      desc: 'Palmdale, Lancaster, and surrounding Antelope Valley communities.' },
-  { icon: Building2, name: 'Thousand Oaks',        desc: 'Newbury Park, Westlake Village, and Agoura Hills included.' },
-  { icon: MapPin,    name: "Don't see your city?", desc: 'Enter your zip above — we may still deliver to you.' },
+  { icon: Waves,     name: 'Oxnard',              desc: 'Home, office & industrial delivery throughout Oxnard and Port Hueneme.',        href: '/areas/oxnard' },
+  { icon: Home,      name: 'Ventura',              desc: 'Serving all of Ventura city with bi-weekly delivery options.',                  href: '/areas/ventura' },
+  { icon: Building2, name: 'Camarillo',            desc: 'Camarillo and surrounding Ventura County communities.',                         href: '/areas/camarillo' },
+  { icon: Building2, name: 'Thousand Oaks',        desc: 'Newbury Park, Westlake Village, and Oak Park included.',                        href: '/areas/thousand-oaks' },
+  { icon: Mountain,  name: 'Santa Clarita',        desc: 'Valencia, Saugus, Newhall, and Canyon Country covered.',                        href: '/areas/santa-clarita' },
+  { icon: Wind,      name: 'Antelope Valley',      desc: 'Palmdale, Lancaster, and surrounding communities.',                             href: '/areas/antelope-valley' },
+  { icon: Trees,     name: 'Ojai & Moorpark',      desc: 'Ojai Valley, Oak View, Moorpark, and Fillmore.',                               href: '/areas/ojai' },
+  { icon: Home,      name: 'Simi Valley',          desc: 'Wood Ranch, Big Sky, and all Simi Valley neighborhoods.',                      href: '/areas/simi-valley' },
+  { icon: MapPin,    name: "Don't see your city?", desc: 'Enter your zip above — we may still deliver to you.',                           href: '/#order' },
 ]
 
 export default function ServiceAreas() {
@@ -29,7 +32,7 @@ export default function ServiceAreas() {
             return (
               <a
                 key={area.name}
-                href={i === areas.length - 1 ? '#order' : `/areas/${area.name.toLowerCase().replace(/ /g, '-')}`}
+                href={area.href}
                 className={`group flex flex-col bg-white border-2 rounded-2xl p-6 transition-all duration-200 hover:-translate-y-1 hover:border-[#1e90d6] hover:shadow-[0_8px_28px_rgba(21,101,192,0.12)] no-underline ${
                   i === areas.length - 1 ? 'border-dashed border-[#d0e4ef] bg-[#e8f6fb]' : 'border-[#d0e4ef]'
                 }`}

@@ -110,9 +110,9 @@ export default async function CityPage(
               <a href="#order-form" className="bg-[#00c9e4] text-[#0d2b4e] px-8 py-4 rounded-lg font-bold hover:bg-[#00dff8] transition-all hover:-translate-y-0.5 hover:shadow-[0_8px_32px_rgba(0,201,228,0.35)]">
                 Start My Delivery in {city.name} →
               </a>
-              <a href="tel:+18055227002" className="inline-flex items-center gap-2 border border-white/20 text-white/80 px-7 py-4 rounded-lg font-medium hover:bg-white/05 hover:border-white/40 transition-all">
+              <a href={`tel:${city.phone.replace(/\D/g, '')}`} className="inline-flex items-center gap-2 border border-white/20 text-white/80 px-7 py-4 rounded-lg font-medium hover:bg-white/05 hover:border-white/40 transition-all">
                 <Phone size={16} />
-                (805) 522-7002
+                {city.phone}
               </a>
             </div>
           </div>
@@ -158,6 +158,17 @@ export default async function CityPage(
                 </a>{' '}
                 and we&apos;ll confirm delivery availability within 1 business day.
               </p>
+
+              <div className="mt-8 pt-6 border-t border-[#d0e4ef]">
+                <p className="text-xs font-bold tracking-[0.12em] uppercase text-[#5a7080] mb-3">Zip Codes We Serve</p>
+                <div className="flex flex-wrap gap-2">
+                  {city.zips.map((zip) => (
+                    <span key={zip} className="bg-[#f4f7fa] border border-[#d0e4ef] text-[#5a7080] text-xs font-mono px-2.5 py-1 rounded-lg">
+                      {zip}
+                    </span>
+                  ))}
+                </div>
+              </div>
             </div>
 
             <div>
