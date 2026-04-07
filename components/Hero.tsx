@@ -104,7 +104,7 @@ export default function Hero() {
           <div className="hidden sm:block w-px h-5 bg-white/20 flex-shrink-0" />
           <div className="flex items-center gap-2 flex-shrink-0">
             <CheckCircle2 size={18} className="text-[#00c9e4]" />
-            <span className="text-white font-bold text-sm">20 yr</span>
+            <span className="text-white font-bold text-sm">20 years</span>
             <span className="text-white/60 text-sm">In business</span>
           </div>
           <div className="hidden sm:block w-px h-5 bg-white/20 flex-shrink-0" />
