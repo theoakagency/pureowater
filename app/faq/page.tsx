@@ -22,7 +22,7 @@ const categories = [
       },
       {
         q: 'How much does delivery cost?',
-        a: 'Delivery is included in the price of your water — there\'s no separate delivery fee. Contact us for current pricing.',
+        a: 'There is a flat $7 delivery fee per delivery, plus the cost of your bottles and any cooler rental. There are no hidden charges or monthly membership fees.',
       },
       {
         q: 'Do I need a water cooler to get started?',
@@ -88,11 +88,11 @@ const categories = [
     items: [
       {
         q: 'How does billing work?',
-        a: 'We bill per delivery — you pay for the bottles delivered each time. There are no monthly membership fees, setup fees, or hidden charges.',
+        a: 'You pay for the bottles delivered each time, plus a flat $7 delivery fee per delivery and any cooler rental. There are no monthly membership fees, setup fees, or hidden charges.',
       },
       {
         q: 'What payment methods do you accept?',
-        a: 'We accept cash, check, and major credit cards. You can also pay online — contact us to set up electronic billing.',
+        a: 'We accept cash, check, and major credit cards including Visa, Mastercard, and American Express.',
       },
       {
         q: 'Is there a setup fee to get started?',
