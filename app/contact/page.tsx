@@ -5,7 +5,7 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import PageHero from '@/components/PageHero'
 import OrderForm from '@/components/OrderForm'
-import { Phone, MapPin, CheckCircle2 } from 'lucide-react'
+import { Phone, CheckCircle2 } from 'lucide-react'
 
 export default function ContactPage() {
   const [form, setForm] = useState({ name: '', email: '', phone: '', subject: '', message: '' })
@@ -34,10 +34,27 @@ export default function ContactPage() {
   const inputClass = 'w-full border border-[#d0e4ef] rounded-lg px-4 py-3 text-sm text-[#1a2a3a] outline-none focus:border-[#1e90d6] focus:ring-2 focus:ring-[#1e90d6]/10 transition-all'
 
   const contactDetails = [
-    { icon: Phone,  label: 'Ventura County',                   value: '(805) 991-7400',  href: 'tel:+18059917400', sub: null },
-    { icon: Phone,  label: 'Antelope Valley & Santa Clarita',  value: '(661) 522-7002',  href: 'tel:+16615227002', sub: null },
-    { icon: Phone,  label: 'Toll-Free',                        value: '(844) 522-7000',  href: 'tel:+18445227000', sub: null },
-    { icon: MapPin, label: 'Service Area', value: 'Ventura County, Santa Clarita & Antelope Valley', href: null, sub: null },
+    {
+      icon: Phone,
+      label: 'Ventura County',
+      value: '(805) 991-7400',
+      href: 'tel:+18059917400',
+      sub: '4744 Telephone Rd, Suite 3257\nVentura, CA 93003',
+    },
+    {
+      icon: Phone,
+      label: 'Antelope Valley & Santa Clarita',
+      value: '(661) 522-7002',
+      href: 'tel:+16615227002',
+      sub: '19425 Soledad Canyon Rd, Suite 205\nCanyon Country, CA 91351',
+    },
+    {
+      icon: Phone,
+      label: 'Toll-Free',
+      value: '(844) 522-7000',
+      href: 'tel:+18445227000',
+      sub: null,
+    },
   ]
 
   const hours = [
@@ -70,27 +87,31 @@ export default function ContactPage() {
                   Contact Info
                 </h3>
                 <div className="space-y-5">
-                  {contactDetails.map((item) => {
-                    const Icon = item.icon
-                    return (
-                      <div key={item.label} className="flex items-start gap-3">
-                        <div className="w-9 h-9 rounded-xl bg-[#0d2b4e] flex items-center justify-center flex-shrink-0">
-                          <Icon size={16} className="text-white" />
-                        </div>
-                        <div>
-                          <div className="text-xs font-semibold text-[#5a7080] uppercase tracking-wide mb-0.5">{item.label}</div>
-                          {item.href ? (
-                            <a href={item.href} className="text-[#0d2b4e] font-semibold text-sm hover:text-[#1e90d6] transition-colors">
-                              {item.value}
-                            </a>
-                          ) : (
-                            <span className="text-[#0d2b4e] font-medium text-sm">{item.value}</span>
-                          )}
-                          {item.sub && <div className="text-xs text-[#5a7080] mt-0.5">{item.sub}</div>}
-                        </div>
+                  {contactDetails.map((item) => (
+                    <div key={item.label} className="flex items-start gap-3">
+                      <div className="w-9 h-9 rounded-xl bg-[#0d2b4e] text-white flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <item.icon size={16} />
                       </div>
-                    )
-                  })}
+                      <div>
+                        <div className="text-xs font-semibold text-[#5a7080] uppercase tracking-wide mb-0.5">
+                          {item.label}
+                        </div>
+                        <a
+                          href={item.href ?? undefined}
+                          className="text-[#0d2b4e] font-semibold text-sm hover:text-[#1e90d6] transition-colors block"
+                        >
+                          {item.value}
+                        </a>
+                        {item.sub && (
+                          <p className="text-[#5a7080] text-xs mt-1 leading-relaxed">
+                            {item.sub.split('\n').map((line, i) => (
+                              <span key={i} className="block">{line}</span>
+                            ))}
+                          </p>
+                        )}
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </div>
 
