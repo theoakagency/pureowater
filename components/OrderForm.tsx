@@ -15,6 +15,7 @@ type FormData = {
   bottleSize: string
   bottlesPerDelivery: string
   needsCooler: string
+  website: string
 }
 
 const INITIAL: FormData = {
@@ -24,6 +25,7 @@ const INITIAL: FormData = {
   bottleSize: '5 Gallon',
   bottlesPerDelivery: '2 Bottles',
   needsCooler: 'I have my own cooler',
+  website: '',
 }
 
 const highlights = [
@@ -245,6 +247,11 @@ export default function OrderForm() {
                   <option>Yes, I need a cooler rental</option>
                   <option>Not sure yet</option>
                 </select>
+              </div>
+
+              {/* Honeypot — hidden from real users, bots will fill it */}
+              <div style={{ position: 'absolute', left: '-9999px', width: '1px', height: '1px', overflow: 'hidden' }} aria-hidden="true">
+                <input type="text" name="website" tabIndex={-1} autoComplete="off" value={form.website} onChange={set('website')} />
               </div>
 
               {status === 'error' && (

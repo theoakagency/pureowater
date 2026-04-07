@@ -11,12 +11,25 @@ export async function POST(req: NextRequest) {
       firstName, lastName, phone, email,
       address, city, zip,
       waterType, bottleSize, bottlesPerDelivery,
-      needsCooler,
+      needsCooler, website,
     } = body
+
+    // Honeypot — bots fill hidden fields, humans don't
+    if (website) {
+      return NextResponse.json({ success: true }) // silent reject
+    }
 
     // Basic server-side validation
     if (!firstName || !lastName || !phone || !email || !address || !city || !zip) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 })
+    }
+
+    // Heuristic spam checks
+    const looksRandom = (str: string) => str.length > 12 && !/\s/.test(str)
+    const phoneIsGibberish = /[a-zA-Z]/.test(phone)
+
+    if (looksRandom(firstName) || looksRandom(lastName) || phoneIsGibberish) {
+      return NextResponse.json({ success: true }) // silent reject
     }
 
     // Save to database

@@ -4,10 +4,23 @@ import { Resend } from 'resend'
 export async function POST(req: NextRequest) {
   const resend = new Resend(process.env.RESEND_API_KEY)
   try {
-    const { name, email, phone, subject, message } = await req.json()
+    const { name, email, phone, subject, message, website } = await req.json()
+
+    // Honeypot — bots fill hidden fields, humans don't
+    if (website) {
+      return NextResponse.json({ success: true }) // silent reject
+    }
 
     if (!name || !email || !message) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 })
+    }
+
+    // Heuristic spam checks
+    const looksRandom = (str: string) => str.length > 12 && !/\s/.test(str)
+    const phoneIsGibberish = phone && /[a-zA-Z]/.test(phone)
+
+    if (looksRandom(name) || looksRandom(message) || phoneIsGibberish) {
+      return NextResponse.json({ success: true }) // silent reject
     }
 
     // Notify Joseph

@@ -8,7 +8,7 @@ import OrderForm from '@/components/OrderForm'
 import { Phone, CheckCircle2 } from 'lucide-react'
 
 export default function ContactPage() {
-  const [form, setForm] = useState({ name: '', email: '', phone: '', subject: '', message: '' })
+  const [form, setForm] = useState({ name: '', email: '', phone: '', subject: '', message: '', website: '' })
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
 
   const set = (f: keyof typeof form) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) =>
@@ -25,7 +25,7 @@ export default function ContactPage() {
       })
       if (!res.ok) throw new Error('Failed')
       setStatus('success')
-      setForm({ name: '', email: '', phone: '', subject: '', message: '' })
+      setForm({ name: '', email: '', phone: '', subject: '', message: '', website: '' })
     } catch {
       setStatus('error')
     }
@@ -214,6 +214,11 @@ export default function ContactPage() {
                         required
                         className={`${inputClass} resize-none`}
                       />
+                    </div>
+
+                    {/* Honeypot — hidden from real users, bots will fill it */}
+                    <div style={{ position: 'absolute', left: '-9999px', width: '1px', height: '1px', overflow: 'hidden' }} aria-hidden="true">
+                      <input type="text" name="website" tabIndex={-1} autoComplete="off" value={form.website} onChange={set('website')} />
                     </div>
 
                     {status === 'error' && (
