@@ -42,6 +42,7 @@ export default function AdminDashboard() {
   const [expanded, setExpanded]     = useState<number | null>(null)
   const [notesDraft, setNotesDraft] = useState<Record<number, string>>({})
   const [saving, setSaving]         = useState<number | null>(null)
+  const [confirmDelete, setConfirmDelete] = useState<number | null>(null)
 
   const fetchOrders = useCallback(async () => {
     setLoading(true)
@@ -69,10 +70,10 @@ export default function AdminDashboard() {
   }
 
   const deleteOrder = async (id: number) => {
-    if (!confirm(`Delete order #${id}? This cannot be undone.`)) return
     await fetch(`/api/orders/${id}`, { method: 'DELETE' })
     setOrders((prev) => prev.filter((o) => o.id !== id))
     if (expanded === id) setExpanded(null)
+    setConfirmDelete(null)
   }
 
   const saveNotes = async (id: number) => {
@@ -262,7 +263,7 @@ export default function AdminDashboard() {
                           </a>
                           <span className="text-[#d0e4ef]">|</span>
                           <button
-                            onClick={() => deleteOrder(order.id)}
+                            onClick={() => setConfirmDelete(order.id)}
                             className="text-red-400 hover:text-red-600 transition-colors"
                             title="Delete order"
                           >
@@ -338,6 +339,42 @@ export default function AdminDashboard() {
           {orders.length} order{orders.length !== 1 ? 's' : ''} · Click any row to expand details
         </p>
       </div>
+
+      {/* Delete confirmation modal */}
+      {confirmDelete !== null && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm">
+          <div className="bg-white rounded-2xl shadow-2xl w-full max-w-sm mx-4 overflow-hidden">
+            <div className="bg-[#0d2b4e] px-6 py-4 flex items-center gap-3">
+              <div className="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center flex-shrink-0">
+                <Trash2 size={15} className="text-red-400" />
+              </div>
+              <div>
+                <p className="text-white font-semibold text-sm">Delete Order #{confirmDelete}</p>
+                <p className="text-white/50 text-xs">Pure O Water Admin</p>
+              </div>
+            </div>
+            <div className="px-6 py-5">
+              <p className="text-[#1a2a3a] text-sm leading-relaxed">
+                Are you sure you want to delete order <span className="font-bold">#{confirmDelete}</span>? This action cannot be undone.
+              </p>
+              <div className="flex gap-3 mt-5">
+                <button
+                  onClick={() => setConfirmDelete(null)}
+                  className="flex-1 border border-[#d0e4ef] text-[#5a7080] hover:bg-[#f4f7fa] py-2.5 rounded-xl text-sm font-semibold transition-colors"
+                >
+                  Cancel
+                </button>
+                <button
+                  onClick={() => deleteOrder(confirmDelete)}
+                  className="flex-1 bg-red-500 hover:bg-red-600 text-white py-2.5 rounded-xl text-sm font-semibold transition-colors"
+                >
+                  Delete
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
