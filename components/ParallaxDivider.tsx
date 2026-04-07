@@ -11,9 +11,12 @@ export default function ParallaxDivider() {
       if (!ref.current) return
       const rect = ref.current.getBoundingClientRect()
       const scrolled = window.innerHeight - rect.top
-      setOffset(scrolled * 0.25)
+      if (scrolled > 0) {
+        setOffset(scrolled * 0.15)
+      }
     }
     window.addEventListener('scroll', handleScroll, { passive: true })
+    handleScroll()
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
@@ -22,23 +25,24 @@ export default function ParallaxDivider() {
       ref={ref}
       className="relative h-[420px] overflow-hidden"
     >
-      {/* Parallax background image */}
+      {/* Parallax background image — starts at top, moves up on scroll */}
       <div
         className="absolute inset-0 w-full"
         style={{
           backgroundImage: 'url(/pure-o-water.png)',
           backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          transform: `translateY(${offset}px)`,
-          top: '-80px',
-          bottom: '-80px',
+          backgroundPosition: 'top center',
+          transform: `translateY(-${offset}px)`,
         }}
       />
 
-      {/* Overlay for readability */}
-      <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at center, rgba(13,43,78,0.85) 0%, rgba(13,43,78,0.72) 50%, rgba(13,43,78,0.55) 100%)' }} />
+      {/* Gradient overlay */}
+      <div
+        className="absolute inset-0"
+        style={{ background: 'radial-gradient(ellipse at center, rgba(13,43,78,0.85) 0%, rgba(13,43,78,0.72) 50%, rgba(13,43,78,0.55) 100%)' }}
+      />
 
-      {/* Content centered over the image */}
+      {/* Content */}
       <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6">
         <p className="text-[#00c9e4] text-xs font-bold tracking-[0.15em] uppercase mb-4">
           Pure. Clean. Refreshing.
@@ -49,7 +53,10 @@ export default function ParallaxDivider() {
         >
           Water the Way Nature<br />Intended It.
         </h2>
-        <p className="text-white/85 text-lg max-w-xl leading-relaxed mb-8" style={{ textShadow: '0 1px 12px rgba(0,0,0,0.8)' }}>
+        <p
+          className="text-white/85 text-lg max-w-xl leading-relaxed mb-8"
+          style={{ textShadow: '0 1px 12px rgba(0,0,0,0.8)' }}
+        >
           Every bottle goes through our 10-stage filtration process — removing 99.9% of contaminants and leaving only pure, perfect water.
         </p>
         <a
