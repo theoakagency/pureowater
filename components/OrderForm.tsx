@@ -126,7 +126,7 @@ export default function OrderForm() {
                 You&apos;re all set!
               </h3>
               <p className="text-[#5a7080] leading-relaxed">
-                We received your order request and will contact you within 1 business day to confirm your first <strong className="text-[#0d2b4e]">free</strong> delivery.
+                We received your order request and will contact you within 1 business day to confirm your first delivery.
               </p>
               <button
                 onClick={() => setStatus('idle')}
@@ -248,7 +248,7 @@ export default function OrderForm() {
               </div>
 
               {status === 'error' && (
-                <p className="text-red-500 text-sm mb-4">Something went wrong. Please try again or call us at (805) 522-7002.</p>
+                <p className="text-red-500 text-sm mb-4">Something went wrong. Please try again or <a href="/contact" className="underline">contact us</a>.</p>
               )}
 
               <button

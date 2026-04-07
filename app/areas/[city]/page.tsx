@@ -5,7 +5,7 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import Link from 'next/link'
 import Script from 'next/script'
-import { Truck, ShieldCheck, CalendarX2, Check, Droplets, FlaskConical, Phone } from 'lucide-react'
+import { Truck, ShieldCheck, CalendarX2, Check, Droplets, FlaskConical } from 'lucide-react'
 import OrderForm from '@/components/OrderForm'
 
 // Generate static params for all cities
@@ -45,7 +45,7 @@ export default async function CityPage(
     provider: {
       '@type': 'LocalBusiness',
       name: 'Pure O Water',
-      telephone: '+18055227002',
+      telephone: '+18445227000',
       url: BASE_URL,
     },
     areaServed: {
@@ -110,9 +110,8 @@ export default async function CityPage(
               <a href="#order-form" className="bg-[#00c9e4] text-[#0d2b4e] px-8 py-4 rounded-lg font-bold hover:bg-[#00dff8] transition-all hover:-translate-y-0.5 hover:shadow-[0_8px_32px_rgba(0,201,228,0.35)]">
                 Start My Delivery in {city.name} →
               </a>
-              <a href={`tel:${city.phone.replace(/\D/g, '')}`} className="inline-flex items-center gap-2 border border-white/20 text-white/80 px-7 py-4 rounded-lg font-medium hover:bg-white/05 hover:border-white/40 transition-all">
-                <Phone size={16} />
-                {city.phone}
+              <a href="/contact" className="inline-flex items-center gap-2 border border-white/20 text-white/80 px-7 py-4 rounded-lg font-medium hover:bg-white/05 hover:border-white/40 transition-all">
+                Contact Us →
               </a>
             </div>
           </div>

@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import { Phone } from 'lucide-react'
 
 const footerLinks = {
   Products: [
@@ -47,10 +46,20 @@ export default function Footer() {
             <p className="text-sm leading-relaxed max-w-xs">
               Premium purified and alkaline water delivered to homes, offices, and businesses across Southern California.
             </p>
-            <a href="tel:+18055227002" className="flex items-center gap-2 mt-5 text-[#00c9e4] font-bold text-lg hover:text-[#00dff8] transition-colors">
-              <Phone size={18} />
-              (805) 522-7002
-            </a>
+            <div className="mt-5 space-y-3 text-sm">
+              <div>
+                <div className="text-white/40 text-xs uppercase tracking-wide mb-0.5">Ventura County</div>
+                <a href="tel:+18059917400" className="text-[#00c9e4] font-semibold hover:text-[#00dff8] transition-colors">(805) 991-7400</a>
+              </div>
+              <div>
+                <div className="text-white/40 text-xs uppercase tracking-wide mb-0.5">Antelope Valley &amp; Santa Clarita</div>
+                <a href="tel:+16615227002" className="text-[#00c9e4] font-semibold hover:text-[#00dff8] transition-colors">(661) 522-7002</a>
+              </div>
+              <div>
+                <div className="text-white/40 text-xs uppercase tracking-wide mb-0.5">Toll-Free</div>
+                <a href="tel:+18445227000" className="text-[#00c9e4] font-semibold hover:text-[#00dff8] transition-colors">(844) 522-7000</a>
+              </div>
+            </div>
           </div>
 
           {/* Link columns */}

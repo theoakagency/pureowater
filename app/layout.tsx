@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     template: '%s | Pure O Water',
   },
   description:
-    'Premium purified and alkaline water delivery for homes, offices, and businesses across Ventura County, Santa Clarita, and the Antelope Valley. First delivery free.',
+    'Premium purified and alkaline water delivery for homes, offices, and businesses across Ventura County, Santa Clarita, and the Antelope Valley.',
   keywords: [
     'water delivery',
     'alkaline water delivery',
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     siteName: 'Pure O Water',
     title: 'Pure O Water – Premium Water Delivery | Ventura County',
     description:
-      'Premium purified and alkaline water delivery for homes and businesses across Southern California. First delivery free.',
+      'Premium purified and alkaline water delivery for homes and businesses across Southern California.',
     images: [
       {
         url: '/og-image.png',
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Pure O Water – Premium Water Delivery',
-    description: 'Purified & alkaline water delivered to your door. First delivery free.',
+    description: 'Purified & alkaline water delivered to your door. No contracts, cancel anytime.',
     images: ['/og-image.png'],
   },
   icons: {
@@ -82,7 +82,7 @@ const localBusinessSchema = {
   description:
     'Premium purified and alkaline water delivery for homes, offices, and businesses across Southern California.',
   url: BASE_URL,
-  telephone: '+18055227002',
+  telephone: '+18445227000',
   email: 'hello@pureowater.com',
   foundingDate: '2005',
   priceRange: '$$',

@@ -191,7 +191,7 @@ export const services: ServiceData[] = [
       initials: 'DH',
     },
     faq: [
-      { q: 'Can you accommodate same-day or rush orders?', a: 'We do our best for last-minute requests — call us directly at (805) 522-7002 and we will tell you what we can do.' },
+      { q: 'Can you accommodate same-day or rush orders?', a: 'We do our best for last-minute requests — reach out via our contact page and we will tell you what we can do.' },
       { q: 'Do you deliver to film locations and event venues?', a: 'Yes. We deliver throughout Ventura County, Santa Clarita, and the Antelope Valley — including production facilities, ranches, and event spaces.' },
       { q: 'Do you provide coolers for on-set craft service stations?', a: 'Yes, we rent hot/cold and cold-only dispensers that work great for craft service tables and catering setups.' },
       { q: 'Can we set up a standing order for a recurring production?', a: 'Absolutely. If you have a recurring show or regular event schedule, we can set up a standing delivery account.' },

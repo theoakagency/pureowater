@@ -5,7 +5,7 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import PageHero from '@/components/PageHero'
 import OrderForm from '@/components/OrderForm'
-import { Zap, Droplets, Truck, CreditCard, Phone } from 'lucide-react'
+import { Zap, Droplets, Truck, CreditCard } from 'lucide-react'
 
 const categories = [
   {
@@ -78,7 +78,7 @@ const categories = [
       },
       {
         q: 'Can I change my delivery schedule or quantity?',
-        a: 'Yes, anytime. Just call us at (805) 522-7002 or send us an email and we\'ll update your schedule or quantity for your next delivery.',
+        a: 'Yes, anytime. Just call us or send us a message through our contact page and we\'ll update your schedule or quantity for your next delivery.',
       },
     ],
   },
@@ -136,7 +136,7 @@ export default function FAQPage() {
           badge="Help Center"
           title="Frequently Asked"
           titleAccent="Questions"
-          subtitle="Everything you need to know about Pure O Water delivery. Can't find your answer? Call us at (805) 522-7002."
+          subtitle="Everything you need to know about Pure O Water delivery. Can't find your answer? Visit our contact page."
           breadcrumbs={[{ label: 'FAQ', href: '#' }]}
           compact
         />
@@ -178,9 +178,8 @@ export default function FAQPage() {
               </h3>
               <p className="text-[#5a7080] mb-6">We&apos;re happy to help. Reach out and we&apos;ll get back to you the same business day.</p>
               <div className="flex flex-wrap gap-4 justify-center">
-                <a href="tel:+18055227002" className="inline-flex items-center gap-2 bg-[#0d2b4e] text-white px-6 py-3 rounded-lg font-bold text-sm hover:bg-[#1565c0] transition-all">
-                  <Phone size={15} />
-                  Call (805) 522-7002
+                <a href="/contact" className="inline-flex items-center gap-2 bg-[#0d2b4e] text-white px-6 py-3 rounded-lg font-bold text-sm hover:bg-[#1565c0] transition-all">
+                  Contact Us →
                 </a>
                 <a href="/contact" className="border border-[#d0e4ef] text-[#0d2b4e] px-6 py-3 rounded-lg font-semibold text-sm hover:border-[#1e90d6] hover:text-[#1e90d6] transition-all">
                   Send a Message →

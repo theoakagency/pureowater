@@ -99,7 +99,7 @@ export async function POST(req: NextRequest) {
             </div>
 
             <p style="color:#5a7080;font-size:14px;line-height:1.7;">
-              Questions? Call us anytime at <a href="tel:+18055227002" style="color:#1e90d6;font-weight:600;">(805) 522-7002</a>
+              Questions? Call us anytime at <a href="tel:+18445227000" style="color:#1e90d6;font-weight:600;">(844) 522-7000</a>
               or reply to this email.
             </p>
 
@@ -111,7 +111,7 @@ export async function POST(req: NextRequest) {
 
           <div style="background:#f4f7fa;padding:16px 32px;text-align:center;">
             <p style="color:#5a7080;font-size:12px;margin:0;">
-              Pure O Water · (805) 522-7002 · Ventura County, CA<br />
+              Pure O Water · (844) 522-7000 · Southern California<br />
               <em>Small Enough To Care. Big Enough To Deliver.</em>
             </p>
           </div>

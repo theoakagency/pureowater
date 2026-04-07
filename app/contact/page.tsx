@@ -5,7 +5,7 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import PageHero from '@/components/PageHero'
 import OrderForm from '@/components/OrderForm'
-import { Phone, Mail, MapPin, CheckCircle2 } from 'lucide-react'
+import { Phone, MapPin, CheckCircle2 } from 'lucide-react'
 
 export default function ContactPage() {
   const [form, setForm] = useState({ name: '', email: '', phone: '', subject: '', message: '' })
@@ -34,9 +34,10 @@ export default function ContactPage() {
   const inputClass = 'w-full border border-[#d0e4ef] rounded-lg px-4 py-3 text-sm text-[#1a2a3a] outline-none focus:border-[#1e90d6] focus:ring-2 focus:ring-[#1e90d6]/10 transition-all'
 
   const contactDetails = [
-    { icon: Phone,  label: 'Phone',        value: '(805) 522-7002',                             href: 'tel:+18055227002' },
-    { icon: Mail,   label: 'Email',        value: 'hello@pureowater.com',                        href: 'mailto:hello@pureowater.com' },
-    { icon: MapPin, label: 'Service Area', value: 'Ventura County, Santa Clarita & Antelope Valley', href: null },
+    { icon: Phone,  label: 'Ventura County',                   value: '(805) 991-7400',  href: 'tel:+18059917400', sub: null },
+    { icon: Phone,  label: 'Antelope Valley & Santa Clarita',  value: '(661) 522-7002',  href: 'tel:+16615227002', sub: null },
+    { icon: Phone,  label: 'Toll-Free',                        value: '(844) 522-7000',  href: 'tel:+18445227000', sub: null },
+    { icon: MapPin, label: 'Service Area', value: 'Ventura County, Santa Clarita & Antelope Valley', href: null, sub: null },
   ]
 
   const hours = [
@@ -85,6 +86,7 @@ export default function ContactPage() {
                           ) : (
                             <span className="text-[#0d2b4e] font-medium text-sm">{item.value}</span>
                           )}
+                          {item.sub && <div className="text-xs text-[#5a7080] mt-0.5">{item.sub}</div>}
                         </div>
                       </div>
                     )
@@ -194,7 +196,7 @@ export default function ContactPage() {
                     </div>
 
                     {status === 'error' && (
-                      <p className="text-red-500 text-sm">Something went wrong. Please call us at (805) 522-7002.</p>
+                      <p className="text-red-500 text-sm">Something went wrong. Please try again or call us at (844) 522-7000.</p>
                     )}
 
                     <button

@@ -83,8 +83,8 @@ export async function POST(req: NextRequest) {
               In the meantime, if you need immediate assistance, give us a call:
             </p>
             <div style="text-align:center;margin:24px 0;">
-              <a href="tel:+18055227002" style="display:inline-block;background:#0d2b4e;color:#fff;padding:14px 28px;border-radius:8px;font-weight:700;text-decoration:none;font-size:16px;">
-                (805) 522-7002
+              <a href="tel:+18445227000" style="display:inline-block;background:#0d2b4e;color:#fff;padding:14px 28px;border-radius:8px;font-weight:700;text-decoration:none;font-size:16px;">
+                (844) 522-7000
               </a>
             </div>
             <div style="background:#e8f6fb;border-radius:10px;padding:16px 20px;margin-top:16px;">

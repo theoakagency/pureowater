@@ -7,14 +7,14 @@ import OrderForm from '@/components/OrderForm'
 
 export const metadata: Metadata = {
   title: 'About Us | Pure O Water',
-  description: 'Pure O Water has been delivering premium purified and alkaline water across Ventura County and surrounding areas since 2005. A local, family-owned business that cares.',
+  description: 'Pure O Water has been delivering premium purified and alkaline water across Ventura County and surrounding areas since 2005. A locally owned business built on quality and reliability.',
 }
 
 const values = [
-  { icon: Heart, title: 'Local & Family Owned', desc: 'We\'re a small local business — not a national chain. That means you get personal service and a team that actually cares about your experience.' },
+  { icon: Heart, title: 'Locally Owned', desc: 'We are a local business rooted in the communities we serve. When you choose Pure O Water, you are supporting local.' },
   { icon: Gem,   title: 'Quality Without Compromise', desc: 'Every bottle goes through our 10-stage filtration process. We never cut corners on water quality, because your health depends on it.' },
   { icon: Clock, title: 'Reliable & Consistent', desc: 'We show up when we say we will. Our delivery team has served many customers for years because consistency matters more than anything.' },
-  { icon: Users, title: 'Community First', desc: 'We live and work in the same communities we deliver to. Supporting Pure O Water means supporting a local family and the local economy.' },
+  { icon: Users, title: 'Community First', desc: 'We live and work in the same communities we deliver to. Supporting Pure O Water means supporting local.' },
 ]
 
 const timeline = [
@@ -34,13 +34,13 @@ export default function AboutPage() {
           badge="Our Story"
           title="Small Enough to Care."
           titleAccent="Big Enough to Deliver."
-          subtitle="Pure O Water has been a trusted name in Southern California water delivery since 2005. We're a local, family-owned business built on quality, reliability, and personal service."
+          subtitle="Pure O Water has been a trusted name in Southern California water delivery since 2005. A locally owned business built on quality, reliability, and personal service."
           breadcrumbs={[{ label: 'About Us', href: '#' }]}
         />
 
         {/* Mission */}
         <section className="py-24 px-6 bg-white">
-          <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="max-w-4xl mx-auto">
             <div>
               <p className="text-xs font-bold tracking-[0.12em] uppercase text-[#1e90d6] mb-4">Our Mission</p>
               <h2 className="text-4xl font-bold text-[#0d2b4e] leading-tight mb-6" style={{ fontFamily: 'var(--font-playfair)' }}>
@@ -56,28 +56,13 @@ export default function AboutPage() {
                 {[
                   { num: '20+', label: 'Years in business' },
                   { num: '6,000+', label: 'Active customers' },
-                  { num: '6', label: 'Cities served' },
+                  { num: '11', label: 'Communities served' },
                 ].map((s) => (
                   <div key={s.label}>
                     <div className="text-3xl font-bold text-[#0d2b4e]" style={{ fontFamily: 'var(--font-playfair)' }}>{s.num}</div>
                     <div className="text-sm text-[#5a7080] mt-1">{s.label}</div>
                   </div>
                 ))}
-              </div>
-            </div>
-
-            {/* Owner card */}
-            <div className="bg-gradient-to-br from-[#0d2b4e] to-[#1565c0] rounded-3xl p-10 text-white">
-              <div className="w-20 h-20 rounded-full bg-[#00c9e4] text-[#0d2b4e] text-3xl font-bold flex items-center justify-center mb-6" style={{ fontFamily: 'var(--font-playfair)' }}>
-                J
-              </div>
-              <h3 className="text-2xl font-bold mb-2" style={{ fontFamily: 'var(--font-playfair)' }}>Joseph</h3>
-              <p className="text-[#00c9e4] text-sm font-semibold mb-5">Founder & Owner, Pure O Water</p>
-              <blockquote className="text-white/80 text-base leading-relaxed italic border-l-2 border-[#00c9e4] pl-4">
-                &ldquo;I started this business because I wanted my neighbors to have access to the same quality water I&apos;d want for my own family. That hasn&apos;t changed in 20 years — and it never will.&rdquo;
-              </blockquote>
-              <div className="mt-6 pt-6 border-t border-white/15">
-                <p className="text-white/50 text-sm">Direct line: <a href="tel:+18055227002" className="text-[#00c9e4] font-semibold hover:underline">(805) 522-7002</a></p>
               </div>
             </div>
           </div>
