@@ -129,10 +129,35 @@ export default function Hero() {
               </button>
             </div>
             {zipResult === 'yes' && (
-              <p className="mt-1.5 text-emerald-400 text-xs font-medium flex items-center gap-1"><CheckCircle2 size={13} /> Great news — we deliver to {zip}!</p>
+              <div className="mt-3 bg-emerald-500/20 border border-emerald-400/40 rounded-xl px-4 py-3 flex items-center justify-between gap-4">
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 size={18} className="text-emerald-400 flex-shrink-0" />
+                  <div>
+                    <p className="text-emerald-300 font-bold text-sm">We deliver to {zip}!</p>
+                    <p className="text-white/60 text-xs mt-0.5">You&apos;re in our service area. Fill out the form to get started.</p>
+                  </div>
+                </div>
+                <a
+                  href="#order"
+                  className="bg-[#00c9e4] text-[#0d2b4e] px-4 py-2 rounded-lg font-bold text-xs hover:bg-[#00dff8] transition-all whitespace-nowrap flex-shrink-0"
+                >
+                  Order Now →
+                </a>
+              </div>
             )}
             {zipResult === 'no' && (
-              <p className="mt-1.5 text-white/50 text-xs">We don&apos;t currently deliver to {zip}, but fill out the form and we&apos;ll let you know when we expand.</p>
+              <div className="mt-3 bg-white/08 border border-white/15 rounded-xl px-4 py-3 flex items-center justify-between gap-4">
+                <div>
+                  <p className="text-white/80 font-semibold text-sm">We don&apos;t deliver to {zip} yet.</p>
+                  <p className="text-white/50 text-xs mt-0.5">Fill out the form and we&apos;ll notify you when we expand to your area.</p>
+                </div>
+                <a
+                  href="#order"
+                  className="border border-white/30 text-white px-4 py-2 rounded-lg font-bold text-xs hover:bg-white/10 transition-all whitespace-nowrap flex-shrink-0"
+                >
+                  Get Notified →
+                </a>
+              </div>
             )}
           </div>
         </div>
