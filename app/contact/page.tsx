@@ -58,8 +58,8 @@ export default function ContactPage() {
   ]
 
   const hours = [
-    { day: 'Monday – Friday', hours: '7:00 AM – 6:00 PM' },
-    { day: 'Saturday',        hours: '8:00 AM – 3:00 PM' },
+    { day: 'Monday – Friday', hours: '8:00 AM – 5:00 PM' },
+    { day: 'Saturday',        hours: 'Closed' },
     { day: 'Sunday',          hours: 'Closed' },
   ]
 
@@ -131,7 +131,7 @@ export default function ContactPage() {
                   ))}
                 </div>
                 <p className="text-[#5a7080] text-xs mt-4 leading-relaxed">
-                  For urgent requests outside business hours, leave a voicemail and we&apos;ll call you back first thing.
+                  For requests outside business hours, leave a voicemail and we&apos;ll get back to you the next business day.
                 </p>
               </div>
 
