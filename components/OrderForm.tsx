@@ -139,6 +139,9 @@ export default function OrderForm() {
             </div>
           ) : (
             <form onSubmit={handleSubmit} noValidate>
+              <div className="bg-[#e8f6fb] border border-[#00c9e4]/40 rounded-xl px-4 py-3 mb-5 text-sm text-[#0d2b4e] font-medium text-center">
+                🎉 Introductory offer: Hot &amp; Cold dispenser + 2 bottles for $30 delivered — no contracts
+              </div>
               <h3 className="text-xl font-bold text-[#0d2b4e] mb-1" style={{ fontFamily: 'var(--font-playfair)' }}>
                 Start My Delivery
               </h3>

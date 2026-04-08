@@ -12,6 +12,22 @@ export const metadata: Metadata = {
 
 const offers = [
   {
+    badge: 'Homes & Small Businesses',
+    title: 'Hot & Cold Dispenser + 2 Bottles — $30 Delivered',
+    desc: 'Try Pure O Water with zero risk. Get a hot and cold water dispenser plus 2 bottles of your choice delivered to your door for just $30. No contracts, no commitment — just great water.',
+    details: [
+      'Includes a hot & cold water dispenser',
+      'Choose any 2 bottles — purified or alkaline (pH 9.5)',
+      'Delivered straight to your home or business',
+      'Flat $30 introductory price — no hidden fees',
+      'No contracts and no obligation to continue',
+      'Perfect for homes, small offices, and first-time customers',
+    ],
+    cta: 'Claim This Offer',
+    href: '/#order',
+    highlight: true,
+  },
+  {
     badge: 'Referral Program',
     title: 'Refer a Friend, Get a Free Delivery',
     desc: 'When you refer a friend, neighbor, or colleague who becomes an active customer, both of you get a free delivery.',
