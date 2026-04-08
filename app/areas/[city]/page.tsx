@@ -7,6 +7,7 @@ import Link from 'next/link'
 import Script from 'next/script'
 import { Truck, ShieldCheck, CalendarX2, Check, Droplets, FlaskConical } from 'lucide-react'
 import OrderForm from '@/components/OrderForm'
+import ServiceAreaMap from '@/components/ServiceAreaMap'
 
 // Generate static params for all cities
 export async function generateStaticParams() {
@@ -167,6 +168,10 @@ export default async function CityPage(
                     </span>
                   ))}
                 </div>
+              </div>
+
+              <div className="mt-10">
+                <ServiceAreaMap />
               </div>
             </div>
 
