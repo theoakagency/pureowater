@@ -202,11 +202,13 @@ export default function AdminDashboard() {
             <table className="w-full text-sm">
               <thead>
                 <tr className="bg-[#f4f7fa] border-b border-[#d0e4ef]">
-                  {['ID', 'Date', 'Customer', 'Location', 'Order', 'Status', 'Actions'].map((h) => (
-                    <th key={h} className="px-4 py-3 text-left text-xs font-bold text-[#5a7080] uppercase tracking-wide whitespace-nowrap">
-                      {h}
-                    </th>
-                  ))}
+                  <th className="px-4 py-3 text-left text-xs font-bold text-[#5a7080] uppercase tracking-wide whitespace-nowrap">ID</th>
+                  <th className="px-4 py-3 text-left text-xs font-bold text-[#5a7080] uppercase tracking-wide whitespace-nowrap">Date</th>
+                  <th className="px-4 py-3 text-left text-xs font-bold text-[#5a7080] uppercase tracking-wide whitespace-nowrap">Customer</th>
+                  <th className="hidden md:table-cell px-4 py-3 text-left text-xs font-bold text-[#5a7080] uppercase tracking-wide whitespace-nowrap">Location</th>
+                  <th className="hidden lg:table-cell px-4 py-3 text-left text-xs font-bold text-[#5a7080] uppercase tracking-wide whitespace-nowrap">Order</th>
+                  <th className="hidden md:table-cell px-4 py-3 text-left text-xs font-bold text-[#5a7080] uppercase tracking-wide whitespace-nowrap">Status</th>
+                  <th className="px-4 py-3 text-left text-xs font-bold text-[#5a7080] uppercase tracking-wide whitespace-nowrap">Actions</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-[#f4f7fa]">
@@ -225,15 +227,15 @@ export default function AdminDashboard() {
                         <div className="font-semibold text-[#0d2b4e]">{order.firstName} {order.lastName}</div>
                         <div className="text-[#5a7080] text-xs">{order.phone}</div>
                       </td>
-                      <td className="px-4 py-3">
+                      <td className="hidden md:table-cell px-4 py-3">
                         <div className="text-[#1a2a3a]">{order.city}</div>
                         <div className="text-[#5a7080] text-xs">{order.zip}</div>
                       </td>
-                      <td className="px-4 py-3">
+                      <td className="hidden lg:table-cell px-4 py-3">
                         <div className="text-[#1a2a3a]">{order.waterType}</div>
                         <div className="text-[#5a7080] text-xs">{order.bottleSize} · {order.bottlesPerDelivery}</div>
                       </td>
-                      <td className="px-4 py-3">
+                      <td className="hidden md:table-cell px-4 py-3">
                         <select
                           value={order.status}
                           onClick={(e) => e.stopPropagation()}
