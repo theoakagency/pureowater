@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useCallback } from 'react'
 import { useRouter } from 'next/navigation'
-import { Inbox, Download, Trash2 } from 'lucide-react'
+import { Inbox, Download, Trash2, Printer } from 'lucide-react'
 import Image from 'next/image'
 
 type Order = {
@@ -259,6 +259,16 @@ export default function AdminDashboard() {
                             className="text-[#1e90d6] hover:underline text-xs font-medium"
                           >
                             Call
+                          </a>
+                          <span className="text-[#d0e4ef]">|</span>
+                          <a
+                            href={`/admin/orders/${order.id}/print`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-[#5a7080] hover:text-[#0d2b4e] transition-colors"
+                            title="Print order"
+                          >
+                            <Printer size={13} />
                           </a>
                           <span className="text-[#d0e4ef]">|</span>
                           <button
