@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Image from 'next/image'
+import { COMPANY_NAME, IMAGES } from '@/lib/config'
 
 export default function AdminLoginPage() {
   const router = useRouter()
@@ -31,42 +32,42 @@ export default function AdminLoginPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#061c35] to-[#0d2b4e] flex items-center justify-center px-6">
+    <div className="min-h-screen bg-gradient-to-br from-deeper to-navy flex items-center justify-center px-6">
       <div className="w-full max-w-sm">
         {/* Logo */}
         <div className="text-center mb-10">
-          <Image src="/logo.png" alt="Pure O Water" width={160} height={54} className="h-12 w-auto brightness-0 invert mx-auto" />
+          <Image src={IMAGES.logo} alt={COMPANY_NAME} width={160} height={54} className="h-12 w-auto brightness-0 invert mx-auto" />
           <p className="text-white/50 text-sm mt-4">Admin Portal</p>
         </div>
 
         {/* Card */}
         <div className="bg-white rounded-2xl p-8 shadow-[0_24px_80px_rgba(0,0,0,0.4)]">
-          <h1 className="text-xl font-bold text-[#0d2b4e] mb-1" style={{ fontFamily: 'var(--font-playfair)' }}>
+          <h1 className="text-xl font-bold text-navy mb-1" style={{ fontFamily: 'var(--font-playfair)' }}>
             Sign In
           </h1>
-          <p className="text-[#5a7080] text-sm mb-6">Access the order management dashboard</p>
+          <p className="text-muted text-sm mb-6">Access the order management dashboard</p>
 
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <label className="block text-xs font-semibold text-[#0d2b4e] mb-1.5">Username</label>
+              <label className="block text-xs font-semibold text-navy mb-1.5">Username</label>
               <input
                 type="text"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
                 placeholder=""
                 autoComplete="username"
-                className="w-full border border-[#d0e4ef] rounded-lg px-4 py-3 text-sm outline-none focus:border-[#1e90d6] focus:ring-2 focus:ring-[#1e90d6]/10 transition-all"
+                className="w-full border border-border rounded-lg px-4 py-3 text-sm outline-none focus:border-sky focus:ring-2 focus:ring-sky/10 transition-all"
               />
             </div>
             <div>
-              <label className="block text-xs font-semibold text-[#0d2b4e] mb-1.5">Password</label>
+              <label className="block text-xs font-semibold text-navy mb-1.5">Password</label>
               <input
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder=""
                 autoComplete="current-password"
-                className="w-full border border-[#d0e4ef] rounded-lg px-4 py-3 text-sm outline-none focus:border-[#1e90d6] focus:ring-2 focus:ring-[#1e90d6]/10 transition-all"
+                className="w-full border border-border rounded-lg px-4 py-3 text-sm outline-none focus:border-sky focus:ring-2 focus:ring-sky/10 transition-all"
               />
             </div>
 
@@ -79,7 +80,7 @@ export default function AdminLoginPage() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-[#0d2b4e] hover:bg-[#1565c0] text-white py-3.5 rounded-xl font-bold text-sm transition-all disabled:opacity-60 flex items-center justify-center gap-2 mt-2"
+              className="w-full bg-navy hover:bg-blue text-white py-3.5 rounded-xl font-bold text-sm transition-all disabled:opacity-60 flex items-center justify-center gap-2 mt-2"
             >
               {loading ? (
                 <>
@@ -92,7 +93,7 @@ export default function AdminLoginPage() {
         </div>
 
         <p className="text-center text-white/30 text-xs mt-6">
-          © 2025 Pure O Water — Admin Access Only
+          &copy; {new Date().getFullYear()} {COMPANY_NAME} — Admin Access Only
         </p>
       </div>
     </div>

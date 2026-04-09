@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Script from 'next/script'
+import { COMPANY_NAME, PRICING } from '@/lib/config'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import PageHero from '@/components/PageHero'
@@ -8,9 +9,9 @@ import FAQClient from './FAQClient'
 import { Zap, Droplets, Truck, CreditCard } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'Frequently Asked Questions | Pure O Water',
+  title: `Frequently Asked Questions | ${COMPANY_NAME}`,
   description:
-    'Find answers to common questions about Pure O Water delivery service — pricing, delivery schedule, water quality, bottle sizes, billing, and more.',
+    `Find answers to common questions about ${COMPANY_NAME} delivery service — pricing, delivery schedule, water quality, bottle sizes, billing, and more.`,
   alternates: {
     canonical: '/faq',
   },
@@ -31,7 +32,7 @@ const categories = [
       },
       {
         q: 'How much does delivery cost?',
-        a: 'There is a flat $7 delivery fee per delivery, plus the cost of your bottles and any cooler rental. There are no hidden charges or monthly membership fees.',
+        a: `There is a flat $${PRICING.deliveryFee} delivery fee per delivery, plus the cost of your bottles and any cooler rental. There are no hidden charges or monthly membership fees.`,
       },
       {
         q: 'Do I need a water cooler to get started?',
@@ -97,7 +98,7 @@ const categories = [
     items: [
       {
         q: 'How does billing work?',
-        a: 'You pay for the bottles delivered each time, plus a flat $7 delivery fee per delivery and any cooler rental. There are no monthly membership fees, setup fees, or hidden charges.',
+        a: `You pay for the bottles delivered each time, plus a flat $${PRICING.deliveryFee} delivery fee per delivery and any cooler rental. There are no monthly membership fees, setup fees, or hidden charges.`,
       },
       {
         q: 'What payment methods do you accept?',
@@ -140,7 +141,7 @@ export default function FAQPage() {
           badge="Help Center"
           title="Frequently Asked"
           titleAccent="Questions"
-          subtitle="Everything you need to know about Pure O Water delivery. Can't find your answer? Visit our contact page."
+          subtitle={`Everything you need to know about ${COMPANY_NAME} delivery. Can't find your answer? Visit our contact page.`}
           breadcrumbs={[{ label: 'FAQ', href: '#' }]}
           compact
         />
@@ -150,16 +151,16 @@ export default function FAQPage() {
             <FAQClient categories={categories} />
 
             {/* Still have questions */}
-            <div className="mt-14 bg-[#f4f7fa] rounded-2xl p-8 text-center">
-              <h3 className="text-2xl font-bold text-[#0d2b4e] mb-2" style={{ fontFamily: 'var(--font-playfair)' }}>
+            <div className="mt-14 bg-gray rounded-2xl p-8 text-center">
+              <h3 className="text-2xl font-bold text-navy mb-2" style={{ fontFamily: 'var(--font-playfair)' }}>
                 Still have questions?
               </h3>
-              <p className="text-[#5a7080] mb-6">We&apos;re happy to help. Reach out and we&apos;ll get back to you the same business day.</p>
+              <p className="text-muted mb-6">We&apos;re happy to help. Reach out and we&apos;ll get back to you the same business day.</p>
               <div className="flex flex-wrap gap-4 justify-center">
-                <a href="/contact" className="inline-flex items-center gap-2 bg-[#0d2b4e] text-white px-6 py-3 rounded-lg font-bold text-sm hover:bg-[#1565c0] transition-all">
+                <a href="/contact" className="inline-flex items-center gap-2 bg-navy text-white px-6 py-3 rounded-lg font-bold text-sm hover:bg-blue transition-all">
                   Contact Us →
                 </a>
-                <a href="/contact" className="border border-[#d0e4ef] text-[#0d2b4e] px-6 py-3 rounded-lg font-semibold text-sm hover:border-[#1e90d6] hover:text-[#1e90d6] transition-all">
+                <a href="/contact" className="border border-border text-navy px-6 py-3 rounded-lg font-semibold text-sm hover:border-sky hover:text-sky transition-all">
                   Send a Message →
                 </a>
               </div>

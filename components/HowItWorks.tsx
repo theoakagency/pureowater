@@ -26,26 +26,26 @@ export default function HowItWorks() {
     <section id="how" className="py-24 px-6 bg-white">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <p className="text-xs font-bold tracking-[0.12em] uppercase text-[#1e90d6] mb-4">Simple Process</p>
-          <h2 className="text-4xl lg:text-5xl font-bold text-[#0d2b4e] mb-5" style={{ fontFamily: 'var(--font-playfair)' }}>
+          <p className="text-xs font-bold tracking-[0.12em] uppercase text-sky mb-4">Simple Process</p>
+          <h2 className="text-4xl lg:text-5xl font-bold text-navy mb-5" style={{ fontFamily: 'var(--font-playfair)' }}>
             Get Started in Minutes
           </h2>
-          <p className="text-[#5a7080] text-lg max-w-md mx-auto leading-relaxed">
+          <p className="text-muted text-lg max-w-md mx-auto leading-relaxed">
             No contracts, no commitment — just great water delivered on your schedule.
           </p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 relative">
           {/* Connector line (desktop only) */}
-          <div className="hidden lg:block absolute top-8 left-[12.5%] right-[12.5%] h-px bg-gradient-to-r from-[#e8f6fb] via-[#d0e4ef] to-[#e8f6fb]" />
+          <div className="hidden lg:block absolute top-8 left-[12.5%] right-[12.5%] h-px bg-gradient-to-r from-ice via-border to-ice" />
 
           {steps.map((step) => (
             <div key={step.num} className="text-center relative z-10">
-              <div className="w-14 h-14 rounded-full border-2 border-[#1e90d6] text-[#1e90d6] text-xl font-bold flex items-center justify-center mx-auto mb-5 bg-white" style={{ fontFamily: 'var(--font-playfair)' }}>
+              <div className="w-14 h-14 rounded-full border-2 border-sky text-sky text-xl font-bold flex items-center justify-center mx-auto mb-5 bg-white" style={{ fontFamily: 'var(--font-playfair)' }}>
                 {step.num}
               </div>
-              <h3 className="font-bold text-[#0d2b4e] text-lg mb-2" style={{ fontFamily: 'var(--font-playfair)' }}>{step.title}</h3>
-              <p className="text-[#5a7080] text-sm leading-relaxed">{step.desc}</p>
+              <h3 className="font-bold text-navy text-lg mb-2" style={{ fontFamily: 'var(--font-playfair)' }}>{step.title}</h3>
+              <p className="text-muted text-sm leading-relaxed">{step.desc}</p>
             </div>
           ))}
         </div>

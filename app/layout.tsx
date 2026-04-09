@@ -2,6 +2,11 @@ import type { Metadata } from 'next'
 import { DM_Sans, Playfair_Display } from 'next/font/google'
 import Script from 'next/script'
 import './globals.css'
+import {
+  COMPANY_NAME, BASE_URL, PHONES, EMAILS, IMAGES,
+  FOUNDING_YEAR, PRICING, SOCIAL, GEO, REGIONS,
+  SCHEMA_OPENING_HOURS, SCHEMA_AREAS_SERVED,
+} from '@/lib/config'
 
 const dmSans = DM_Sans({
   subsets: ['latin'],
@@ -15,23 +20,21 @@ const playfair = Playfair_Display({
   display: 'swap',
 })
 
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://pureowater.com'
-
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
   title: {
-    default: 'Pure O Water – Premium Water Delivery | Ventura County',
-    template: '%s | Pure O Water',
+    default: `${COMPANY_NAME} – Premium Water Delivery | ${REGIONS[0]}`,
+    template: `%s | ${COMPANY_NAME}`,
   },
   description:
-    'Premium purified and alkaline water delivery for homes, offices, and businesses across Ventura County, Santa Clarita, and the Antelope Valley.',
+    `Premium purified and alkaline water delivery for homes, offices, and businesses across ${REGIONS.join(', ')}.`,
   keywords: [
     'water delivery',
     'alkaline water delivery',
     'purified water delivery',
-    'Ventura County water delivery',
-    'Santa Clarita water delivery',
-    'Antelope Valley water delivery',
+    `${REGIONS[0]} water delivery`,
+    `${REGIONS[1]} water delivery`,
+    `${REGIONS[2]} water delivery`,
     'office water delivery',
     'pH 9.5 alkaline water',
   ],
@@ -39,29 +42,29 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: BASE_URL,
-    siteName: 'Pure O Water',
-    title: 'Pure O Water – Premium Water Delivery | Ventura County',
+    siteName: COMPANY_NAME,
+    title: `${COMPANY_NAME} – Premium Water Delivery | ${REGIONS[0]}`,
     description:
       'Premium purified and alkaline water delivery for homes and businesses across Southern California.',
     images: [
       {
-        url: '/pure-o-water-bottles.png',
+        url: IMAGES.ogImage,
         width: 1200,
         height: 630,
-        alt: 'Pure O Water – Premium Water Delivery',
+        alt: `${COMPANY_NAME} – Premium Water Delivery`,
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Pure O Water – Premium Water Delivery',
+    title: `${COMPANY_NAME} – Premium Water Delivery`,
     description: 'Purified & alkaline water delivered to your door. No contracts, cancel anytime.',
-    images: ['/pure-o-water-bottles.png'],
+    images: [IMAGES.ogImage],
   },
   icons: {
-    icon: '/favicon.png',
-    shortcut: '/favicon.png',
-    apple: '/favicon.png',
+    icon: IMAGES.favicon,
+    shortcut: IMAGES.favicon,
+    apple: IMAGES.favicon,
   },
   robots: {
     index: true,
@@ -74,43 +77,28 @@ export const metadata: Metadata = {
 const localBusinessSchema = {
   '@context': 'https://schema.org',
   '@type': 'LocalBusiness',
-  name: 'Pure O Water',
+  name: COMPANY_NAME,
   description:
     'Premium purified and alkaline water delivery for homes, offices, and businesses across Southern California.',
   url: BASE_URL,
-  telephone: '+18445227000',
-  email: 'hello@pureowater.com',
-  foundingDate: '2005',
+  telephone: PHONES.tollFree.intl,
+  email: EMAILS.hello,
+  foundingDate: String(FOUNDING_YEAR),
   priceRange: '$$',
   servesCuisine: null,
   address: {
     '@type': 'PostalAddress',
-    addressLocality: 'Oxnard',
-    addressRegion: 'CA',
-    addressCountry: 'US',
+    addressLocality: GEO.primaryCity,
+    addressRegion: GEO.state,
+    addressCountry: GEO.country,
   },
   geo: {
     '@type': 'GeoCoordinates',
-    latitude: 34.1975,
-    longitude: -119.1771,
+    latitude: GEO.latitude,
+    longitude: GEO.longitude,
   },
-  areaServed: [
-    { '@type': 'City', name: 'Oxnard' },
-    { '@type': 'City', name: 'Ventura' },
-    { '@type': 'City', name: 'Santa Clarita' },
-    { '@type': 'City', name: 'Palmdale' },
-    { '@type': 'City', name: 'Lancaster' },
-    { '@type': 'City', name: 'Thousand Oaks' },
-    { '@type': 'City', name: 'Simi Valley' },
-  ],
-  openingHoursSpecification: [
-    {
-      '@type': 'OpeningHoursSpecification',
-      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-      opens: '08:00',
-      closes: '17:00',
-    },
-  ],
+  areaServed: SCHEMA_AREAS_SERVED,
+  openingHoursSpecification: SCHEMA_OPENING_HOURS,
   hasOfferCatalog: {
     '@type': 'OfferCatalog',
     name: 'Water Delivery Services',
@@ -122,7 +110,7 @@ const localBusinessSchema = {
           name: 'Purified Water Delivery',
           description: '10-stage ultra-filtered purified water, 3 and 5 gallon bottles.',
         },
-        price: '6.99',
+        price: String(PRICING.purified),
         priceCurrency: 'USD',
       },
       {
@@ -132,16 +120,12 @@ const localBusinessSchema = {
           name: 'Alkaline Water Delivery (pH 9.5)',
           description: 'Purified and remineralized alkaline water at pH 9.5.',
         },
-        price: '8.99',
+        price: String(PRICING.alkaline),
         priceCurrency: 'USD',
       },
     ],
   },
-  sameAs: [
-    'https://www.facebook.com/pureowater',
-    'https://www.instagram.com/pureowater',
-    'https://www.yelp.com/biz/pure-o-water',
-  ],
+  sameAs: Object.values(SOCIAL),
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

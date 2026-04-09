@@ -1,3 +1,5 @@
+import { COMPANY_NAME } from '@/lib/config'
+
 export type CityData = {
   slug: string
   name: string
@@ -22,7 +24,7 @@ export const cities: CityData[] = [
     zips: ['93030','93031','93032','93033','93034','93035','93036','93041','93044'],
     customerTypes: ['Homes & Apartments', 'Offices & Businesses', 'Restaurants & Food Service', 'Gyms & Fitness Studios', 'Industrial Facilities'],
     testimonial: {
-      quote: "Pure O Water has been delivering to our office in Oxnard for over 2 years. Always on time, always great quality. The alkaline water keeps our whole team hydrated.",
+      quote: `${COMPANY_NAME} has been delivering to our office in Oxnard for over 2 years. Always on time, always great quality. The alkaline water keeps our whole team hydrated.`,
       name: 'Maria R.',
       role: 'Office Manager, Oxnard',
       initials: 'MR',
@@ -39,7 +41,7 @@ export const cities: CityData[] = [
     zips: ['93001','93002','93003','93004','93005','93006','93007','93009'],
     customerTypes: ['Homes & Families', 'Downtown Offices', 'Restaurants & Cafés', 'Yoga Studios & Gyms', 'Retail Businesses'],
     testimonial: {
-      quote: "Our restaurant switched to Pure O Water and the difference in our food and beverages was immediately noticeable. Couldn't be happier with the service.",
+      quote: `Our restaurant switched to ${COMPANY_NAME} and the difference in our food and beverages was immediately noticeable. Couldn't be happier with the service.`,
       name: 'Ana L.',
       role: 'Restaurant Owner, Ventura',
       initials: 'AL',
@@ -56,7 +58,7 @@ export const cities: CityData[] = [
     zips: ['93010','93011','93012'],
     customerTypes: ['Homes & Families', 'Offices & Businesses', 'Restaurants', 'Gyms & Studios'],
     testimonial: {
-      quote: "Reliable, affordable, and the water quality is excellent. Pure O Water has been a great find for our Camarillo office.",
+      quote: `Reliable, affordable, and the water quality is excellent. ${COMPANY_NAME} has been a great find for our Camarillo office.`,
       name: 'David R.',
       role: 'Business Owner, Camarillo',
       initials: 'DR',
@@ -73,7 +75,7 @@ export const cities: CityData[] = [
     zips: ['91358','91359','91360','91361','91362','91319','91320','91377'],
     customerTypes: ['Homes & Families', 'Corporate Campuses', 'Medical Offices', 'Gyms & Wellness Centers', 'Restaurants'],
     testimonial: {
-      quote: "Pure O Water is the best value for water delivery in Thousand Oaks. Professional, punctual, and the alkaline water is exceptional.",
+      quote: `${COMPANY_NAME} is the best value for water delivery in Thousand Oaks. Professional, punctual, and the alkaline water is exceptional.`,
       name: 'Jennifer W.',
       role: 'Homeowner, Thousand Oaks',
       initials: 'JW',
@@ -90,7 +92,7 @@ export const cities: CityData[] = [
     zips: ['93062','93063','93065','93093','93094'],
     customerTypes: ['Homes & Families', 'Offices & Businesses', 'Gyms & Studios', 'Restaurants & Cafés', 'Schools'],
     testimonial: {
-      quote: "Switched to Pure O Water six months ago and we'll never go back. The water quality is incredible and the delivery team is always friendly.",
+      quote: `Switched to ${COMPANY_NAME} six months ago and we'll never go back. The water quality is incredible and the delivery team is always friendly.`,
       name: 'Robert T.',
       role: 'Business Owner, Simi Valley',
       initials: 'RT',
@@ -107,7 +109,7 @@ export const cities: CityData[] = [
     zips: ['93020','93021'],
     customerTypes: ['Homes & Families', 'Offices', 'Restaurants', 'Gyms'],
     testimonial: {
-      quote: "Pure O Water makes it so easy. They deliver to our Moorpark home every two weeks and we have never had an issue.",
+      quote: `${COMPANY_NAME} makes it so easy. They deliver to our Moorpark home every two weeks and we have never had an issue.`,
       name: 'Lisa M.',
       role: 'Homeowner, Moorpark',
       initials: 'LM',
@@ -124,7 +126,7 @@ export const cities: CityData[] = [
     zips: ['93015','93016','93040'],
     customerTypes: ['Homes & Families', 'Agricultural Businesses', 'Offices', 'Restaurants'],
     testimonial: {
-      quote: "Great service and great water. Pure O Water has been delivering to our family in Fillmore for over a year now.",
+      quote: `Great service and great water. ${COMPANY_NAME} has been delivering to our family in Fillmore for over a year now.`,
       name: 'Carlos V.',
       role: 'Homeowner, Fillmore',
       initials: 'CV',
@@ -141,7 +143,7 @@ export const cities: CityData[] = [
     zips: ['93023','93024','93022'],
     customerTypes: ['Homes & Families', 'Wellness Businesses', 'Restaurants & Cafés', 'Yoga Studios', 'Offices'],
     testimonial: {
-      quote: "In a health-conscious community like Ojai, Pure O Water's alkaline water is a perfect fit. Reliable delivery and excellent quality.",
+      quote: `In a health-conscious community like Ojai, ${COMPANY_NAME}'s alkaline water is a perfect fit. Reliable delivery and excellent quality.`,
       name: 'Sarah K.',
       role: 'Wellness Studio Owner, Ojai',
       initials: 'SK',
@@ -158,7 +160,7 @@ export const cities: CityData[] = [
     zips: ['93060','93061'],
     customerTypes: ['Homes & Families', 'Agricultural Businesses', 'Offices', 'Restaurants'],
     testimonial: {
-      quote: "Pure O Water delivers to our Santa Paula home reliably every two weeks. Great quality and friendly service.",
+      quote: `${COMPANY_NAME} delivers to our Santa Paula home reliably every two weeks. Great quality and friendly service.`,
       name: 'Maria G.',
       role: 'Homeowner, Santa Paula',
       initials: 'MG',
@@ -175,7 +177,7 @@ export const cities: CityData[] = [
     zips: ['91350','91380','91382','91383','91390','91351','91387','91321','91354','91355'],
     customerTypes: ['Homes & Families', 'Corporate Offices', 'Schools & Daycares', 'Fitness Centers', 'Restaurants'],
     testimonial: {
-      quote: "Best water delivery in Santa Clarita. Pure O is simply better — cleaner taste, more reliable, and the customer service is outstanding.",
+      quote: `Best water delivery in Santa Clarita. ${COMPANY_NAME} is simply better — cleaner taste, more reliable, and the customer service is outstanding.`,
       name: 'David K.',
       role: 'Homeowner, Valencia',
       initials: 'DK',
@@ -197,7 +199,7 @@ export const cities: CityData[] = [
     ],
     customerTypes: ['Homes & Families', 'Offices & Warehouses', 'Agricultural Businesses', 'Schools', 'Restaurants'],
     testimonial: {
-      quote: "In the Antelope Valley heat, having Pure O deliver fresh alkaline water is a game changer. Our whole family stays hydrated.",
+      quote: `In the Antelope Valley heat, having ${COMPANY_NAME} deliver fresh alkaline water is a game changer. Our whole family stays hydrated.`,
       name: 'Carlos M.',
       role: 'Homeowner, Palmdale',
       initials: 'CM',

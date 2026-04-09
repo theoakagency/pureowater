@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { prisma } from '@/lib/db'
 import { Resend } from 'resend'
+import { COMPANY_NAME, DOMAIN, EMAILS, PHONES, TAGLINE, REGION_SHORT } from '@/lib/config'
 
 export async function POST(req: NextRequest) {
   const resend = new Resend(process.env.RESEND_API_KEY)
@@ -45,14 +46,14 @@ export async function POST(req: NextRequest) {
 
     // Send notification to Joseph
     await resend.emails.send({
-      from: 'Pure O Water <orders@pureowater.com>',
+      from: `${COMPANY_NAME} <${EMAILS.orders}>`,
       to: process.env.JOSEPH_EMAIL as string,
       subject: `New Order Request — ${firstName} ${lastName} (${city})`,
       html: `
         <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;">
           <div style="background:#0d2b4e;padding:24px 32px;">
             <h1 style="color:#fff;margin:0;font-size:22px;">New Order Request</h1>
-            <p style="color:#00c9e4;margin:6px 0 0;font-size:14px;">Pure O Water — Order #${order.id}</p>
+            <p style="color:#00c9e4;margin:6px 0 0;font-size:14px;">${COMPANY_NAME} — Order #${order.id}</p>
           </div>
 
           <div style="padding:32px;background:#f4f7fa;">
@@ -87,9 +88,9 @@ export async function POST(req: NextRequest) {
 
     // Send confirmation to customer
     await resend.emails.send({
-      from: 'Pure O Water <hello@pureowater.com>',
+      from: `${COMPANY_NAME} <${EMAILS.hello}>`,
       to: email,
-      subject: `Your Pure O Water delivery request is confirmed!`,
+      subject: `Your ${COMPANY_NAME} delivery request is confirmed!`,
       html: `
         <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;">
           <div style="background:#0d2b4e;padding:24px 32px;text-align:center;">
@@ -99,7 +100,7 @@ export async function POST(req: NextRequest) {
 
           <div style="padding:32px;">
             <p style="color:#1a2a3a;font-size:15px;line-height:1.7;">
-              Thanks for choosing Pure O Water! We received your delivery request and will contact you
+              Thanks for choosing ${COMPANY_NAME}! We received your delivery request and will contact you
               within <strong>1 business day</strong> to confirm your first delivery date.
             </p>
 
@@ -112,20 +113,20 @@ export async function POST(req: NextRequest) {
             </div>
 
             <p style="color:#5a7080;font-size:14px;line-height:1.7;">
-              Questions? Call us anytime at <a href="tel:+18445227000" style="color:#1e90d6;font-weight:600;">(844) 522-7000</a>
+              Questions? Call us anytime at <a href="${PHONES.tollFree.href}" style="color:#1e90d6;font-weight:600;">${PHONES.tollFree.display}</a>
               or reply to this email.
             </p>
 
             <p style="color:#1a2a3a;font-size:14px;margin-top:24px;">
-              Welcome to the Pure O Water family!<br />
-              <strong>— The Pure O Water Team</strong>
+              Welcome to the ${COMPANY_NAME} family!<br />
+              <strong>— The ${COMPANY_NAME} Team</strong>
             </p>
           </div>
 
           <div style="background:#f4f7fa;padding:16px 32px;text-align:center;">
             <p style="color:#5a7080;font-size:12px;margin:0;">
-              Pure O Water · (844) 522-7000 · Southern California<br />
-              <em>Small Enough To Care. Big Enough To Deliver.</em>
+              ${COMPANY_NAME} · ${PHONES.tollFree.display} · ${REGION_SHORT}<br />
+              <em>${TAGLINE}</em>
             </p>
           </div>
         </div>

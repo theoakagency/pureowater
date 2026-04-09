@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { Clock, CalendarX2, Users, PartyPopper, CalendarDays } from 'lucide-react'
+import { COMPANY_NAME, FOUNDING_YEAR, STATS } from '@/lib/config'
 
 type FormData = {
   firstName: string
@@ -29,7 +30,7 @@ const INITIAL: FormData = {
 }
 
 const highlights = [
-  { icon: Clock,      title: 'Serving SoCal 20+ Years', desc: 'A trusted local name in water delivery since 2005.' },
+  { icon: Clock,      title: `Serving SoCal ${STATS.yearsInBusiness} Years`, desc: `A trusted local name in water delivery since ${FOUNDING_YEAR}.` },
   { icon: CalendarX2, title: 'No Long-Term Contract',   desc: 'Month-to-month service. Pause or cancel anytime with zero fees.' },
   { icon: Users,      title: 'Locally Owned Business',  desc: 'Real people, real service. We know our customers by name.' },
 ]
@@ -76,14 +77,14 @@ export default function OrderForm() {
   }
 
   const inputClass = (field: keyof FormData) =>
-    `w-full border rounded-lg px-3.5 py-3 text-sm text-[#1a2a3a] outline-none transition-all ${
+    `w-full border rounded-lg px-3.5 py-3 text-sm text-dark outline-none transition-all ${
       errors[field]
         ? 'border-red-400 focus:ring-2 focus:ring-red-200'
-        : 'border-[#d0e4ef] focus:border-[#1e90d6] focus:ring-2 focus:ring-[#1e90d6]/10'
+        : 'border-border focus:border-sky focus:ring-2 focus:ring-sky/10'
     }`
 
   return (
-    <section id="order" className="py-24 px-6 bg-gradient-to-br from-[#061c35] to-[#0d2b4e] relative overflow-hidden">
+    <section id="order" className="py-24 px-6 bg-gradient-to-br from-deeper to-navy relative overflow-hidden">
       {/* Glow */}
       <div className="absolute top-0 right-0 w-96 h-96 rounded-full pointer-events-none"
         style={{ background: 'radial-gradient(circle, rgba(0,201,228,0.07) 0%, transparent 70%)' }} />
@@ -91,7 +92,7 @@ export default function OrderForm() {
       <div className="relative z-10 max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
         {/* Left */}
         <div>
-          <p className="text-xs font-bold tracking-[0.12em] uppercase text-[#00c9e4] mb-4">Start Today</p>
+          <p className="text-xs font-bold tracking-[0.12em] uppercase text-aqua mb-4">Start Today</p>
           <h2 className="text-4xl lg:text-5xl font-bold text-white leading-tight mb-5" style={{ fontFamily: 'var(--font-playfair)' }}>
             Ready for Better Water?
           </h2>
@@ -104,8 +105,8 @@ export default function OrderForm() {
               const Icon = h.icon
               return (
               <div key={h.title} className="flex items-start gap-4">
-                <div className="w-11 h-11 rounded-xl bg-[#00c9e4]/12 border border-[#00c9e4]/20 flex items-center justify-center flex-shrink-0">
-                  <Icon size={20} className="text-[#00c9e4]" />
+                <div className="w-11 h-11 rounded-xl bg-aqua/12 border border-aqua/20 flex items-center justify-center flex-shrink-0">
+                  <Icon size={20} className="text-aqua" />
                 </div>
                 <div>
                   <strong className="block text-white text-sm font-semibold mb-1">{h.title}</strong>
@@ -121,41 +122,41 @@ export default function OrderForm() {
         <div className="bg-white rounded-2xl p-10 shadow-[0_24px_80px_rgba(0,0,0,0.35)]">
           {status === 'success' ? (
             <div className="text-center py-8">
-              <div className="w-16 h-16 rounded-full bg-[#e8f6fb] flex items-center justify-center mx-auto mb-4">
-                <PartyPopper size={32} className="text-[#1e90d6]" />
+              <div className="w-16 h-16 rounded-full bg-ice flex items-center justify-center mx-auto mb-4">
+                <PartyPopper size={32} className="text-sky" />
               </div>
-              <h3 className="text-2xl font-bold text-[#0d2b4e] mb-3" style={{ fontFamily: 'var(--font-playfair)' }}>
+              <h3 className="text-2xl font-bold text-navy mb-3" style={{ fontFamily: 'var(--font-playfair)' }}>
                 You&apos;re all set!
               </h3>
-              <p className="text-[#5a7080] leading-relaxed">
+              <p className="text-muted leading-relaxed">
                 We received your order request and will contact you within 1 business day to confirm your first delivery.
               </p>
               <button
                 onClick={() => setStatus('idle')}
-                className="mt-6 text-[#1e90d6] text-sm font-medium hover:underline"
+                className="mt-6 text-sky text-sm font-medium hover:underline"
               >
                 Submit another request
               </button>
             </div>
           ) : (
             <form onSubmit={handleSubmit} noValidate>
-              <div className="bg-[#e8f6fb] border border-[#00c9e4]/40 rounded-xl px-4 py-3 mb-5 text-sm text-[#0d2b4e] font-medium text-center">
+              <div className="bg-ice border border-aqua/40 rounded-xl px-4 py-3 mb-5 text-sm text-navy font-medium text-center">
                 🎉 Introductory offer: Hot &amp; Cold dispenser + 2 bottles for $30 delivered — no contracts
               </div>
-              <h3 className="text-xl font-bold text-[#0d2b4e] mb-1" style={{ fontFamily: 'var(--font-playfair)' }}>
+              <h3 className="text-xl font-bold text-navy mb-1" style={{ fontFamily: 'var(--font-playfair)' }}>
                 Start My Delivery
               </h3>
-              <p className="text-[#5a7080] text-sm mb-5">Takes less than 2 minutes</p>
+              <p className="text-muted text-sm mb-5">Takes less than 2 minutes</p>
 
               {/* Name row */}
               <div className="grid grid-cols-2 gap-3 mb-4">
                 <div>
-                  <label className="block text-xs font-semibold text-[#0d2b4e] mb-1.5">First Name</label>
+                  <label className="block text-xs font-semibold text-navy mb-1.5">First Name</label>
                   <input type="text" placeholder="Maria" value={form.firstName} onChange={set('firstName')} className={inputClass('firstName')} />
                   {errors.firstName && <p className="text-red-500 text-xs mt-1">{errors.firstName}</p>}
                 </div>
                 <div>
-                  <label className="block text-xs font-semibold text-[#0d2b4e] mb-1.5">Last Name</label>
+                  <label className="block text-xs font-semibold text-navy mb-1.5">Last Name</label>
                   <input type="text" placeholder="Garcia" value={form.lastName} onChange={set('lastName')} className={inputClass('lastName')} />
                   {errors.lastName && <p className="text-red-500 text-xs mt-1">{errors.lastName}</p>}
                 </div>
@@ -163,21 +164,21 @@ export default function OrderForm() {
 
               {/* Phone */}
               <div className="mb-4">
-                <label className="block text-xs font-semibold text-[#0d2b4e] mb-1.5">Phone Number</label>
+                <label className="block text-xs font-semibold text-navy mb-1.5">Phone Number</label>
                 <input type="tel" placeholder="(805) 555-0100" value={form.phone} onChange={set('phone')} className={inputClass('phone')} />
                 {errors.phone && <p className="text-red-500 text-xs mt-1">{errors.phone}</p>}
               </div>
 
               {/* Email */}
               <div className="mb-4">
-                <label className="block text-xs font-semibold text-[#0d2b4e] mb-1.5">Email Address</label>
+                <label className="block text-xs font-semibold text-navy mb-1.5">Email Address</label>
                 <input type="email" placeholder="maria@example.com" value={form.email} onChange={set('email')} className={inputClass('email')} />
                 {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
               </div>
 
               {/* Address */}
               <div className="mb-4">
-                <label className="block text-xs font-semibold text-[#0d2b4e] mb-1.5">Street Address</label>
+                <label className="block text-xs font-semibold text-navy mb-1.5">Street Address</label>
                 <input type="text" placeholder="123 Main St" value={form.address} onChange={set('address')} className={inputClass('address')} />
                 {errors.address && <p className="text-red-500 text-xs mt-1">{errors.address}</p>}
               </div>
@@ -185,12 +186,12 @@ export default function OrderForm() {
               {/* City + Zip */}
               <div className="grid grid-cols-2 gap-3 mb-4">
                 <div>
-                  <label className="block text-xs font-semibold text-[#0d2b4e] mb-1.5">City</label>
+                  <label className="block text-xs font-semibold text-navy mb-1.5">City</label>
                   <input type="text" placeholder="Oxnard" value={form.city} onChange={set('city')} className={inputClass('city')} />
                   {errors.city && <p className="text-red-500 text-xs mt-1">{errors.city}</p>}
                 </div>
                 <div>
-                  <label className="block text-xs font-semibold text-[#0d2b4e] mb-1.5">Zip Code</label>
+                  <label className="block text-xs font-semibold text-navy mb-1.5">Zip Code</label>
                   <input type="text" placeholder="93030" maxLength={5} value={form.zip} onChange={set('zip')} className={inputClass('zip')} />
                   {errors.zip && <p className="text-red-500 text-xs mt-1">{errors.zip}</p>}
                 </div>
@@ -199,7 +200,7 @@ export default function OrderForm() {
               {/* Water type + Bottle size */}
               <div className="grid grid-cols-2 gap-3 mb-4">
                 <div>
-                  <label className="block text-xs font-semibold text-[#0d2b4e] mb-1.5">Water Type</label>
+                  <label className="block text-xs font-semibold text-navy mb-1.5">Water Type</label>
                   <select value={form.waterType} onChange={set('waterType')} className={inputClass('waterType')}>
                     <option>Purified Drinking Water</option>
                     <option>Alkaline Water (pH 9.5)</option>
@@ -207,7 +208,7 @@ export default function OrderForm() {
                   </select>
                 </div>
                 <div>
-                  <label className="block text-xs font-semibold text-[#0d2b4e] mb-1.5">Bottle Size</label>
+                  <label className="block text-xs font-semibold text-navy mb-1.5">Bottle Size</label>
                   <select value={form.bottleSize} onChange={set('bottleSize')} className={inputClass('bottleSize')}>
                     <option>5 Gallon</option>
                     <option>3 Gallon</option>
@@ -217,33 +218,33 @@ export default function OrderForm() {
 
               {/* Quantity */}
               <div className="mb-4">
-                <label className="block text-xs font-semibold text-[#0d2b4e] mb-1.5">Bottles for First Delivery <span className="text-[#5a7080] font-normal">(we&apos;ll confirm recurring qty with you)</span></label>
+                <label className="block text-xs font-semibold text-navy mb-1.5">Bottles for First Delivery <span className="text-muted font-normal">(we&apos;ll confirm recurring qty with you)</span></label>
                 <select value={form.bottlesPerDelivery} onChange={set('bottlesPerDelivery')} className={inputClass('bottlesPerDelivery')}>
                   <option>2 Bottles</option>
                   <option>4 Bottles</option>
                   <option>6 Bottles</option>
                   <option>8+ Bottles</option>
                 </select>
-                <p className="text-xs text-[#5a7080] mt-1.5">
+                <p className="text-xs text-muted mt-1.5">
                   We'll confirm your ongoing delivery quantity with you after the first drop-off.
                 </p>
               </div>
 
               {/* Frequency note */}
-              <div className="bg-[#f4f7fa] border border-[#d0e4ef] rounded-xl px-4 py-3.5 flex items-start gap-3 mb-4">
-                <span className="text-[#1e90d6] mt-0.5 flex-shrink-0">
+              <div className="bg-gray border border-border rounded-xl px-4 py-3.5 flex items-start gap-3 mb-4">
+                <span className="text-sky mt-0.5 flex-shrink-0">
                   <CalendarDays size={16} />
                 </span>
-                <p className="text-sm text-[#5a7080] leading-relaxed">
-                  All new deliveries are scheduled <strong className="text-[#0d2b4e]">every 2 weeks</strong>.
+                <p className="text-sm text-muted leading-relaxed">
+                  All new deliveries are scheduled <strong className="text-navy">every 2 weeks</strong>.
                   As your needs grow, we&apos;ll adjust your frequency together — just give us a call.
                 </p>
               </div>
 
               {/* Cooler */}
               <div className="mb-6">
-                <label className="block text-xs font-semibold text-[#0d2b4e] mb-1.5">
-                  Do you need a water cooler? <span className="text-[#5a7080] font-normal">(optional)</span>
+                <label className="block text-xs font-semibold text-navy mb-1.5">
+                  Do you need a water cooler? <span className="text-muted font-normal">(optional)</span>
                 </label>
                 <select value={form.needsCooler} onChange={set('needsCooler')} className={inputClass('needsCooler')}>
                   <option>I have my own cooler</option>
@@ -264,7 +265,7 @@ export default function OrderForm() {
               <button
                 type="submit"
                 disabled={status === 'loading'}
-                className="w-full bg-[#1e90d6] hover:bg-[#1565c0] text-white py-4 rounded-xl font-bold text-base transition-all hover:-translate-y-0.5 hover:shadow-[0_6px_24px_rgba(21,101,192,0.35)] disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                className="w-full bg-sky hover:bg-blue text-white py-4 rounded-xl font-bold text-base transition-all hover:-translate-y-0.5 hover:shadow-[0_6px_24px_rgba(21,101,192,0.35)] disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2"
               >
                 {status === 'loading' ? (
                   <>
@@ -276,8 +277,8 @@ export default function OrderForm() {
                 )}
               </button>
 
-              <p className="text-[#5a7080] text-xs text-center mt-3 leading-relaxed">
-                By submitting, you agree to be contacted by Pure O Water. No spam, ever.
+              <p className="text-muted text-xs text-center mt-3 leading-relaxed">
+                By submitting, you agree to be contacted by {COMPANY_NAME}. No spam, ever.
               </p>
             </form>
           )}

@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import { COMPANY_NAME, IMAGES, PHONES, REGIONS, REGION_SHORT } from '@/lib/config'
 
 const footerLinks = {
   Products: [
@@ -33,32 +34,28 @@ const footerLinks = {
   ],
 }
 
+const phoneList = [PHONES.primary, PHONES.secondary, PHONES.tollFree]
+
 export default function Footer() {
   return (
-    <footer className="bg-[#061c35] text-white/60 pt-16 pb-8 px-6">
+    <footer className="bg-deeper text-white/60 pt-16 pb-8 px-6">
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
           {/* Brand */}
           <div>
             <div className="mb-4">
-              <Image src="/logo.png" alt="Pure O Water" width={140} height={48} className="h-10 w-auto brightness-0 invert" />
+              <Image src={IMAGES.logo} alt={COMPANY_NAME} width={140} height={48} className="h-10 w-auto brightness-0 invert" />
             </div>
             <p className="text-sm leading-relaxed max-w-xs">
-              Premium purified and alkaline water delivered to homes, offices, and businesses across Southern California.
+              Premium purified and alkaline water delivered to homes, offices, and businesses across {REGION_SHORT}.
             </p>
             <div className="mt-5 space-y-3 text-sm">
-              <div>
-                <div className="text-white/40 text-xs uppercase tracking-wide mb-0.5">Ventura County</div>
-                <a href="tel:+18059917400" className="text-[#00c9e4] font-semibold hover:text-[#00dff8] transition-colors">(805) 991-7400</a>
-              </div>
-              <div>
-                <div className="text-white/40 text-xs uppercase tracking-wide mb-0.5">Antelope Valley &amp; Santa Clarita</div>
-                <a href="tel:+16615227002" className="text-[#00c9e4] font-semibold hover:text-[#00dff8] transition-colors">(661) 522-7002</a>
-              </div>
-              <div>
-                <div className="text-white/40 text-xs uppercase tracking-wide mb-0.5">Toll-Free</div>
-                <a href="tel:+18445227000" className="text-[#00c9e4] font-semibold hover:text-[#00dff8] transition-colors">(844) 522-7000</a>
-              </div>
+              {phoneList.map((phone) => (
+                <div key={phone.label}>
+                  <div className="text-white/40 text-xs uppercase tracking-wide mb-0.5">{phone.label}</div>
+                  <a href={phone.href} className="text-aqua font-semibold hover:text-aqua-light transition-colors">{phone.display}</a>
+                </div>
+              ))}
             </div>
           </div>
 
@@ -71,7 +68,7 @@ export default function Footer() {
                   <li key={link.label}>
                     <a
                       href={link.href}
-                      className="text-white/55 hover:text-[#00c9e4] text-sm transition-colors"
+                      className="text-white/55 hover:text-aqua text-sm transition-colors"
                     >
                       {link.label}
                     </a>
@@ -83,8 +80,8 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-white/08 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
-          <span>© 2025 Pure O Water. All rights reserved.</span>
-          <span>Ventura County · Santa Clarita · Antelope Valley</span>
+          <span>&copy; {new Date().getFullYear()} {COMPANY_NAME}. All rights reserved.</span>
+          <span>{REGIONS.join(' \u00B7 ')}</span>
         </div>
       </div>
     </footer>

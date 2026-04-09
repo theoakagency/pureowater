@@ -1,3 +1,5 @@
+import { COMPANY_NAME } from '@/lib/config'
+
 export type ServiceData = {
   slug: string
   name: string
@@ -19,7 +21,7 @@ export const services: ServiceData[] = [
     name: 'Office',
     headline: 'Water Delivery for Offices & Businesses',
     subheadline: 'Keep your team hydrated and productive with reliable scheduled delivery.',
-    heroDesc: 'Pure O Water delivers premium purified and alkaline water to offices across Ventura County, Santa Clarita, and the Antelope Valley. Flexible scheduling, no contracts, and a dedicated account for your business.',
+    heroDesc: `${COMPANY_NAME} delivers premium purified and alkaline water to offices across Ventura County, Santa Clarita, and the Antelope Valley. Flexible scheduling, no contracts, and a dedicated account for your business.`,
     painPoints: [
       { icon: 'Droplets',   title: 'Running out mid-week',       desc: 'We set your delivery frequency so you never run dry between orders.' },
       { icon: 'DollarSign', title: 'Overpriced national brands',  desc: 'Local delivery means lower overhead and better pricing than the big guys.' },
@@ -37,7 +39,7 @@ export const services: ServiceData[] = [
     ],
     typicalOrder: { bottles: '6–12 bottles', size: '5 Gallon', frequency: 'Weekly or bi-weekly' },
     testimonial: {
-      quote: 'We have 25 employees and Pure O Water keeps everyone hydrated without us thinking about it. The delivery is always on time and the team loves the alkaline water option.',
+      quote: `We have 25 employees and ${COMPANY_NAME} keeps everyone hydrated without us thinking about it. The delivery is always on time and the team loves the alkaline water option.`,
       name: 'Sandra M.',
       role: 'Office Manager, Oxnard',
       initials: 'SM',
@@ -48,7 +50,7 @@ export const services: ServiceData[] = [
       { q: 'Do you provide coolers for offices?', a: 'Yes, we rent both hot/cold and cold-only dispensers. Ask us about cooler options when you sign up.' },
       { q: 'What if we need an extra delivery between scheduled dates?', a: 'Just call us and we will arrange an on-demand delivery, usually within 1–2 business days.' },
     ],
-    metaTitle: 'Office Water Delivery | Pure O Water — Ventura County',
+    metaTitle: `Office Water Delivery | ${COMPANY_NAME} — Ventura County`,
     metaDesc: 'Reliable water delivery for offices and businesses across Ventura County, Santa Clarita, and the Antelope Valley. Purified and alkaline water, flexible scheduling, volume discounts.',
   },
   {
@@ -56,7 +58,7 @@ export const services: ServiceData[] = [
     name: 'Restaurant',
     headline: 'Water Delivery for Restaurants & Food Service',
     subheadline: 'Better water means better food, better drinks, and better customer experiences.',
-    heroDesc: 'The quality of your water directly affects the taste of everything you serve — from coffee and tea to sauces and soups. Pure O Water delivers consistently pure, great-tasting water to restaurants across Southern California.',
+    heroDesc: `The quality of your water directly affects the taste of everything you serve — from coffee and tea to sauces and soups. ${COMPANY_NAME} delivers consistently pure, great-tasting water to restaurants across Southern California.`,
     painPoints: [
       { icon: 'Coffee',      title: 'Tap water affecting taste',    desc: 'Chlorine and minerals in tap water alter the flavor of coffee, tea, and food. Pure water lets your ingredients shine.' },
       { icon: 'Users',       title: 'Customer expectations',        desc: 'Diners notice water quality. Serving premium water signals premium standards throughout.' },
@@ -74,7 +76,7 @@ export const services: ServiceData[] = [
     ],
     typicalOrder: { bottles: '8–20 bottles', size: '5 Gallon', frequency: 'Weekly' },
     testimonial: {
-      quote: 'We switched our whole kitchen to Pure O Water and the difference in our coffee and sauces was immediately noticeable. Our customers comment on it. Worth every penny.',
+      quote: `We switched our whole kitchen to ${COMPANY_NAME} and the difference in our coffee and sauces was immediately noticeable. Our customers comment on it. Worth every penny.`,
       name: 'Ana L.',
       role: 'Restaurant Owner, Ventura',
       initials: 'AL',
@@ -85,7 +87,7 @@ export const services: ServiceData[] = [
       { q: 'Do you offer high-volume discounts for restaurants?', a: 'Yes — restaurants ordering 8 or more bottles per delivery qualify for volume pricing. Contact us for a custom quote.' },
       { q: 'Can we get alkaline water for table service separately from purified for the kitchen?', a: 'Absolutely. Many restaurant customers order both types and we deliver them together.' },
     ],
-    metaTitle: 'Restaurant Water Delivery | Pure O Water — Ventura County',
+    metaTitle: `Restaurant Water Delivery | ${COMPANY_NAME} — Ventura County`,
     metaDesc: 'Premium water delivery for restaurants and food service businesses in Ventura County and Southern California. NSF certified purified water for cooking, alkaline water for table service.',
   },
   {
@@ -93,7 +95,7 @@ export const services: ServiceData[] = [
     name: 'Home',
     headline: 'Water Delivery for Your Home',
     subheadline: 'Pure, great-tasting water delivered to your door — no more lugging heavy cases from the store.',
-    heroDesc: 'Stop buying single-use plastic bottles from the grocery store. Pure O Water delivers fresh purified and alkaline water directly to your home on a schedule that works for your family.',
+    heroDesc: `Stop buying single-use plastic bottles from the grocery store. ${COMPANY_NAME} delivers fresh purified and alkaline water directly to your home on a schedule that works for your family.`,
     painPoints: [
       { icon: 'ShoppingCart', title: 'Heavy cases from the store',     desc: 'Stop hauling water home every week. We bring it right to your door.' },
       { icon: 'Trash2',       title: 'Single-use plastic waste',       desc: 'Reusable 5-gallon bottles dramatically reduce your household plastic footprint.' },
@@ -122,7 +124,7 @@ export const services: ServiceData[] = [
       { q: 'Do I need to buy a water cooler?', a: 'You can use your own existing cooler or rent one from us. We have hot/cold and cold-only options available.' },
       { q: 'Can I change how often you deliver?', a: 'Yes, anytime. Just call or email us and we will adjust your schedule for the next delivery.' },
     ],
-    metaTitle: 'Home Water Delivery | Pure O Water — Ventura County',
+    metaTitle: `Home Water Delivery | ${COMPANY_NAME} — Ventura County`,
     metaDesc: 'Fresh purified and alkaline water delivered to your home in Ventura County, Santa Clarita, and the Antelope Valley. No contracts, flexible scheduling.',
   },
   {
@@ -130,7 +132,7 @@ export const services: ServiceData[] = [
     name: 'Gym & Fitness',
     headline: 'Water Delivery for Gyms & Fitness Studios',
     subheadline: 'Fuel your members with premium alkaline water — the hydration choice of serious athletes.',
-    heroDesc: 'Your members push hard. Give them water that works as hard as they do. Pure O Water delivers pH 9.5 alkaline water and purified water to gyms, CrossFit boxes, yoga studios, and fitness centers across Southern California.',
+    heroDesc: `Your members push hard. Give them water that works as hard as they do. ${COMPANY_NAME} delivers pH 9.5 alkaline water and purified water to gyms, CrossFit boxes, yoga studios, and fitness centers across Southern California.`,
     painPoints: [
       { icon: 'Zap',         title: 'Members demanding better hydration', desc: 'Health-conscious gym members notice and appreciate premium alkaline water over standard tap or filtered water.' },
       { icon: 'DollarSign',  title: 'Expensive vending alternatives',     desc: 'Providing quality water builds member loyalty — more valuable than the markup on vending machine bottles.' },
@@ -148,7 +150,7 @@ export const services: ServiceData[] = [
     ],
     typicalOrder: { bottles: '6–16 bottles', size: '5 Gallon', frequency: 'Weekly' },
     testimonial: {
-      quote: 'Our members love the alkaline water. We have it front and center in the gym and it has become a real selling point. Pure O is reliable, affordable, and the water quality is excellent.',
+      quote: `Our members love the alkaline water. We have it front and center in the gym and it has become a real selling point. ${COMPANY_NAME} is reliable, affordable, and the water quality is excellent.`,
       name: 'Marcus T.',
       role: 'Gym Owner, Santa Clarita',
       initials: 'MT',
@@ -156,10 +158,10 @@ export const services: ServiceData[] = [
     faq: [
       { q: 'Why alkaline water for gyms specifically?', a: 'Alkaline water at pH 9.5 helps neutralize lactic acid buildup during intense exercise, potentially reducing muscle fatigue and improving recovery.' },
       { q: 'How many bottles does a typical gym need?', a: 'It depends on membership size and hours. Most gyms we serve order 6 to 16 bottles per week. We can help you estimate the right quantity.' },
-      { q: 'Can we put your branding or signage near the cooler?', a: 'We can provide Pure O Water branded materials for display near coolers. Ask us when you sign up.' },
+      { q: 'Can we put your branding or signage near the cooler?', a: `We can provide ${COMPANY_NAME} branded materials for display near coolers. Ask us when you sign up.` },
       { q: 'Do you deliver to multiple locations?', a: 'Yes — if you have more than one gym location we can set up separate delivery schedules for each address.' },
     ],
-    metaTitle: 'Gym & Fitness Water Delivery | Pure O Water — Ventura County',
+    metaTitle: `Gym & Fitness Water Delivery | ${COMPANY_NAME} — Ventura County`,
     metaDesc: 'Premium alkaline and purified water delivery for gyms, CrossFit boxes, and fitness studios in Ventura County and Southern California. pH 9.5 alkaline water for serious athletes.',
   },
   {
@@ -167,7 +169,7 @@ export const services: ServiceData[] = [
     name: 'Catering & Craft Services',
     headline: 'Water Delivery for Catering & Craft Services',
     subheadline: 'Keep your crew, cast, and guests hydrated — on set, on location, or at the event.',
-    heroDesc: 'From film and TV production craft services to wedding catering and corporate events, Pure O Water delivers premium purified and alkaline water throughout Ventura County, Santa Clarita, and the Antelope Valley.',
+    heroDesc: `From film and TV production craft services to wedding catering and corporate events, ${COMPANY_NAME} delivers premium purified and alkaline water throughout Ventura County, Santa Clarita, and the Antelope Valley.`,
     painPoints: [
       { icon: 'Users',      title: 'Large crews to hydrate',         desc: 'Film sets, event staffs, and catering crews need reliable water — not cases of single-use bottles.' },
       { icon: 'Clock',      title: 'Early calls and tight timelines', desc: 'We work around your call sheet and event schedule to ensure water is there when you need it.' },
@@ -185,7 +187,7 @@ export const services: ServiceData[] = [
     ],
     typicalOrder: { bottles: '8–20 bottles', size: '5 Gallon', frequency: 'Per event or weekly' },
     testimonial: {
-      quote: 'We run craft services on film sets throughout the Santa Clarita area and Pure O Water is our go-to. Reliable, great quality, and they always work around our schedule.',
+      quote: `We run craft services on film sets throughout the Santa Clarita area and ${COMPANY_NAME} is our go-to. Reliable, great quality, and they always work around our schedule.`,
       name: 'Derek H.',
       role: 'Craft Services Coordinator, Santa Clarita',
       initials: 'DH',
@@ -196,7 +198,7 @@ export const services: ServiceData[] = [
       { q: 'Do you provide coolers for on-set craft service stations?', a: 'Yes, we rent hot/cold and cold-only dispensers that work great for craft service tables and catering setups.' },
       { q: 'Can we set up a standing order for a recurring production?', a: 'Absolutely. If you have a recurring show or regular event schedule, we can set up a standing delivery account.' },
     ],
-    metaTitle: 'Catering & Craft Services Water Delivery | Pure O Water',
+    metaTitle: `Catering & Craft Services Water Delivery | ${COMPANY_NAME}`,
     metaDesc: 'Premium water delivery for film production craft services, catering, and events in Ventura County, Santa Clarita, and the Antelope Valley. Purified and alkaline water for cast and crew.',
   },
 ]

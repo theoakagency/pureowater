@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import Image from 'next/image'
 import { CheckCircle2 } from 'lucide-react'
+import { COMPANY_NAME, IMAGES, STATS, REGION_SUMMARY, REGION_SHORT } from '@/lib/config'
 
 const SERVICE_ZIPS = [
   // Ventura County
@@ -45,8 +46,8 @@ export default function Hero() {
     <section className="min-h-screen flex flex-col relative overflow-hidden pt-16">
       {/* Background image */}
       <Image
-        src="/pure-o-water-bottles.png"
-        alt="Pure O Water delivery"
+        src={IMAGES.heroBackground}
+        alt={`${COMPANY_NAME} delivery`}
         fill
         className="object-cover object-center"
         priority
@@ -59,26 +60,26 @@ export default function Hero() {
       <div className="relative z-10 flex-1 flex items-center">
         <div className="max-w-6xl mx-auto px-6 py-20 w-full">
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 bg-[#00c9e4]/10 border border-[#00c9e4]/30 text-[#00c9e4] text-xs font-bold tracking-widest uppercase px-4 py-2 rounded-full mb-7">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#00c9e4] animate-pulse" />
-            Serving Southern California for Over 20 Years
+          <div className="inline-flex items-center gap-2 bg-aqua/10 border border-aqua/30 text-aqua text-xs font-bold tracking-widest uppercase px-4 py-2 rounded-full mb-7">
+            <span className="w-1.5 h-1.5 rounded-full bg-aqua animate-pulse" />
+            Serving {REGION_SHORT} for Over {STATS.yearsInBusiness} Years
           </div>
 
           <h1 className="text-5xl lg:text-6xl font-bold text-white leading-[1.08] mb-6" style={{ fontFamily: 'var(--font-playfair)' }}>
             Premium Water<br />
             Delivered to<br />
-            Your <span className="text-[#00c9e4]">Door.</span>
+            Your <span className="text-aqua">Door.</span>
           </h1>
 
           <p className="text-lg text-white/75 leading-relaxed mb-10 max-w-lg">
             Alkaline and Purified water for homes, offices, and businesses
-            across Ventura County, Santa Clarita, and the Antelope Valley.
+            across {REGION_SUMMARY}.
           </p>
 
           <div className="flex flex-wrap gap-4">
             <a
               href="#order"
-              className="inline-flex items-center gap-2 bg-[#00c9e4] text-[#0d2b4e] px-8 py-4 rounded-lg font-bold text-base hover:bg-[#00dff8] transition-all hover:-translate-y-0.5 hover:shadow-[0_8px_32px_rgba(0,201,228,0.35)]"
+              className="inline-flex items-center gap-2 bg-aqua text-navy px-8 py-4 rounded-lg font-bold text-base hover:bg-aqua-light transition-all hover:-translate-y-0.5 hover:shadow-[0_8px_32px_rgba(0,201,228,0.35)]"
             >
               Start My Delivery →
             </a>
@@ -97,14 +98,14 @@ export default function Hero() {
         <div className="max-w-6xl mx-auto px-6 py-5 flex flex-col sm:flex-row items-start sm:items-center gap-5">
           {/* Stats */}
           <div className="flex items-center gap-2 flex-shrink-0">
-            <CheckCircle2 size={18} className="text-[#00c9e4]" />
-            <span className="text-white font-bold text-sm">6,000+</span>
+            <CheckCircle2 size={18} className="text-aqua" />
+            <span className="text-white font-bold text-sm">{STATS.customers}</span>
             <span className="text-white/60 text-sm">Happy customers</span>
           </div>
           <div className="hidden sm:block w-px h-5 bg-white/20 flex-shrink-0" />
           <div className="flex items-center gap-2 flex-shrink-0">
-            <CheckCircle2 size={18} className="text-[#00c9e4]" />
-            <span className="text-white font-bold text-sm">20 years</span>
+            <CheckCircle2 size={18} className="text-aqua" />
+            <span className="text-white font-bold text-sm">{STATS.yearsInBusiness} years</span>
             <span className="text-white/60 text-sm">In business</span>
           </div>
           <div className="hidden sm:block w-px h-5 bg-white/20 flex-shrink-0" />
@@ -119,11 +120,11 @@ export default function Hero() {
                 value={zip}
                 onChange={(e) => { setZip(e.target.value.replace(/\D/g, '')); setZipResult(null) }}
                 onKeyDown={(e) => e.key === 'Enter' && checkZip()}
-                className="flex-1 bg-white/15 border border-white/35 rounded-lg px-4 py-2.5 text-white placeholder-white/70 text-sm outline-none focus:border-[#00c9e4] transition-colors min-w-0"
+                className="flex-1 bg-white/15 border border-white/35 rounded-lg px-4 py-2.5 text-white placeholder-white/70 text-sm outline-none focus:border-aqua transition-colors min-w-0"
               />
               <button
                 onClick={checkZip}
-                className="bg-[#00c9e4] text-[#0d2b4e] px-5 py-2.5 rounded-lg font-bold text-sm hover:bg-[#00dff8] transition-colors whitespace-nowrap flex-shrink-0"
+                className="bg-aqua text-navy px-5 py-2.5 rounded-lg font-bold text-sm hover:bg-aqua-light transition-colors whitespace-nowrap flex-shrink-0"
               >
                 Check →
               </button>
@@ -139,7 +140,7 @@ export default function Hero() {
                 </div>
                 <a
                   href="#order"
-                  className="bg-[#00c9e4] text-[#0d2b4e] px-4 py-2 rounded-lg font-bold text-xs hover:bg-[#00dff8] transition-all whitespace-nowrap flex-shrink-0"
+                  className="bg-aqua text-navy px-4 py-2 rounded-lg font-bold text-xs hover:bg-aqua-light transition-all whitespace-nowrap flex-shrink-0"
                 >
                   Order Now →
                 </a>

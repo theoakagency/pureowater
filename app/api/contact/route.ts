@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { Resend } from 'resend'
+import { COMPANY_NAME, DOMAIN, EMAILS, PHONES, TAGLINE } from '@/lib/config'
 
 export async function POST(req: NextRequest) {
   const resend = new Resend(process.env.RESEND_API_KEY)
@@ -25,7 +26,7 @@ export async function POST(req: NextRequest) {
 
     // Notify Joseph
     await resend.emails.send({
-      from: 'Pure O Water <contact@pureowater.com>',
+      from: `${COMPANY_NAME} <${EMAILS.contact}>`,
       to: process.env.JOSEPH_EMAIL as string,
       replyTo: email,
       subject: `Contact Form: ${subject || 'General Inquiry'} — ${name}`,
@@ -33,7 +34,7 @@ export async function POST(req: NextRequest) {
         <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;">
           <div style="background:#0d2b4e;padding:24px 32px;">
             <h1 style="color:#fff;margin:0;font-size:20px;">New Contact Form Message</h1>
-            <p style="color:#00c9e4;margin:6px 0 0;font-size:14px;">pureowater.com</p>
+            <p style="color:#00c9e4;margin:6px 0 0;font-size:14px;">${DOMAIN}</p>
           </div>
           <div style="padding:32px;background:#f4f7fa;">
             <table style="width:100%;border-collapse:collapse;background:#fff;border-radius:8px;overflow:hidden;">
@@ -81,7 +82,7 @@ export async function POST(req: NextRequest) {
 
     // Auto-reply to sender
     await resend.emails.send({
-      from: 'Pure O Water <hello@pureowater.com>',
+      from: `${COMPANY_NAME} <${EMAILS.hello}>`,
       to: email,
       subject: `We received your message, ${name}!`,
       html: `
@@ -96,16 +97,16 @@ export async function POST(req: NextRequest) {
               In the meantime, if you need immediate assistance, give us a call:
             </p>
             <div style="text-align:center;margin:24px 0;">
-              <a href="tel:+18445227000" style="display:inline-block;background:#0d2b4e;color:#fff;padding:14px 28px;border-radius:8px;font-weight:700;text-decoration:none;font-size:16px;">
-                (844) 522-7000
+              <a href="${PHONES.tollFree.href}" style="display:inline-block;background:#0d2b4e;color:#fff;padding:14px 28px;border-radius:8px;font-weight:700;text-decoration:none;font-size:16px;">
+                ${PHONES.tollFree.display}
               </a>
             </div>
             <div style="background:#e8f6fb;border-radius:10px;padding:16px 20px;margin-top:16px;">
               <p style="margin:0;font-size:13px;color:#5a7080;"><strong style="color:#0d2b4e;">Your message:</strong><br/>${message.replace(/\n/g, '<br/>')}</p>
             </div>
             <p style="color:#5a7080;font-size:13px;margin-top:20px;line-height:1.6;">
-              — The Pure O Water Team<br/>
-              <em>Small Enough To Care. Big Enough To Deliver.</em>
+              — The ${COMPANY_NAME} Team<br/>
+              <em>${TAGLINE}</em>
             </p>
           </div>
         </div>

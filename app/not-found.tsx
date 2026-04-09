@@ -7,10 +7,10 @@ export default function NotFound() {
   return (
     <>
       <Navbar />
-      <main className="min-h-[80vh] flex items-center justify-center px-6 bg-gradient-to-br from-[#061c35] to-[#0d2b4e]">
+      <main className="min-h-[80vh] flex items-center justify-center px-6 bg-gradient-to-br from-deeper to-navy">
         <div className="text-center max-w-lg">
           <div className="w-24 h-24 rounded-full bg-white/10 flex items-center justify-center mx-auto mb-6">
-            <Droplets size={48} className="text-[#00c9e4]" />
+            <Droplets size={48} className="text-aqua" />
           </div>
           <h1 className="text-6xl font-bold text-white mb-4" style={{ fontFamily: 'var(--font-playfair)' }}>404</h1>
           <h2 className="text-2xl font-bold text-white mb-4" style={{ fontFamily: 'var(--font-playfair)' }}>
@@ -22,7 +22,7 @@ export default function NotFound() {
           <div className="flex flex-wrap gap-4 justify-center">
             <Link
               href="/"
-              className="bg-[#00c9e4] text-[#0d2b4e] px-8 py-4 rounded-lg font-bold hover:bg-[#00dff8] transition-all"
+              className="bg-aqua text-navy px-8 py-4 rounded-lg font-bold hover:bg-aqua-light transition-all"
             >
               Go Home
             </Link>

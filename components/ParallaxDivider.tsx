@@ -1,5 +1,7 @@
 'use client'
 
+import { IMAGES } from '@/lib/config'
+
 export default function ParallaxDivider() {
   return (
     <div className="relative h-[420px] overflow-hidden">
@@ -7,7 +9,7 @@ export default function ParallaxDivider() {
       <div
         className="absolute inset-0"
         style={{
-          backgroundImage: 'url(/pure-o-water.png)',
+          backgroundImage: `url(${IMAGES.parallax})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundAttachment: 'fixed',
@@ -22,7 +24,7 @@ export default function ParallaxDivider() {
 
       {/* Content */}
       <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6">
-        <p className="text-[#00c9e4] text-xs font-bold tracking-[0.15em] uppercase mb-4">
+        <p className="text-aqua text-xs font-bold tracking-[0.15em] uppercase mb-4">
           Pure. Clean. Refreshing.
         </p>
         <h2
@@ -39,7 +41,7 @@ export default function ParallaxDivider() {
         </p>
         <a
           href="/#order"
-          className="inline-flex items-center gap-2 bg-[#00c9e4] text-[#0d2b4e] px-8 py-4 rounded-lg font-bold hover:bg-[#00dff8] transition-all hover:-translate-y-0.5 hover:shadow-[0_8px_32px_rgba(0,201,228,0.35)]"
+          className="inline-flex items-center gap-2 bg-aqua text-navy px-8 py-4 rounded-lg font-bold hover:bg-aqua-light transition-all hover:-translate-y-0.5 hover:shadow-[0_8px_32px_rgba(0,201,228,0.35)]"
         >
           Start My Delivery →
         </a>

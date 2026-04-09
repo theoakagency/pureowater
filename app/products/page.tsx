@@ -5,16 +5,15 @@ import Footer from '@/components/Footer'
 import PageHero from '@/components/PageHero'
 import { Microscope, Gem, Smile, Plug, FlaskConical, Leaf, BarChart2, Zap, Shield, Scale, Droplets } from 'lucide-react'
 import OrderForm from '@/components/OrderForm'
+import { COMPANY_NAME, BASE_URL, PRICING } from '@/lib/config'
 
 export const metadata: Metadata = {
-  title: 'Our Products | Pure O Water',
+  title: `Our Products | ${COMPANY_NAME}`,
   description: 'Premium purified water and alkaline water (pH 9.5) delivered to your home or office. 10-stage filtration, organic mineral blend, available in 3 and 5 gallon bottles.',
   alternates: {
     canonical: '/products',
   },
 }
-
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://pureowater.com'
 
 const productSchema = {
   '@context': 'https://schema.org',
@@ -24,13 +23,13 @@ const productSchema = {
       name: 'Purified Drinking Water',
       description:
         '10-stage ultra-filtered purified water. Removes 99.9% of contaminants. Available in 3 and 5 gallon BPA-free bottles.',
-      brand: { '@type': 'Brand', name: 'Pure O Water' },
+      brand: { '@type': 'Brand', name: COMPANY_NAME },
       offers: {
         '@type': 'Offer',
-        price: '6.99',
+        price: String(PRICING.purified),
         priceCurrency: 'USD',
         availability: 'https://schema.org/InStock',
-        seller: { '@type': 'LocalBusiness', name: 'Pure O Water' },
+        seller: { '@type': 'LocalBusiness', name: COMPANY_NAME },
       },
       url: `${BASE_URL}/products`,
     },
@@ -39,13 +38,13 @@ const productSchema = {
       name: 'Alkaline Water pH 9.5',
       description:
         'Purified and remineralized alkaline water at pH 9.5. Organic mineral blend with calcium, magnesium, and potassium. Available in 3 and 5 gallon BPA-free bottles.',
-      brand: { '@type': 'Brand', name: 'Pure O Water' },
+      brand: { '@type': 'Brand', name: COMPANY_NAME },
       offers: {
         '@type': 'Offer',
-        price: '8.99',
+        price: String(PRICING.alkaline),
         priceCurrency: 'USD',
         availability: 'https://schema.org/InStock',
-        seller: { '@type': 'LocalBusiness', name: 'Pure O Water' },
+        seller: { '@type': 'LocalBusiness', name: COMPANY_NAME },
       },
       url: `${BASE_URL}/products`,
     },
@@ -108,7 +107,7 @@ export default function ProductsPage() {
       <Navbar />
       <main>
         <PageHero
-          badge="Pure O Water Products"
+          badge={`${COMPANY_NAME} Products`}
           title="Two Choices."
           titleAccent="One Standard of Excellence."
           subtitle="Every bottle is produced through a rigorous 10-stage filtration process at our local facility before it reaches your door."
@@ -120,20 +119,20 @@ export default function ProductsPage() {
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               <div>
-                <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-[#0d2b4e] to-[#1565c0] flex items-center justify-center mb-6">
+                <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-navy to-blue flex items-center justify-center mb-6">
                   <Droplets size={36} className="text-white" />
                 </div>
-                <p className="text-xs font-bold tracking-[0.12em] uppercase text-[#1e90d6] mb-3">Product 01</p>
-                <h2 className="text-4xl lg:text-5xl font-bold text-[#0d2b4e] leading-tight mb-5" style={{ fontFamily: 'var(--font-playfair)' }}>
+                <p className="text-xs font-bold tracking-[0.12em] uppercase text-sky mb-3">Product 01</p>
+                <h2 className="text-4xl lg:text-5xl font-bold text-navy leading-tight mb-5" style={{ fontFamily: 'var(--font-playfair)' }}>
                   Purified Drinking Water
                 </h2>
-                <p className="text-[#5a7080] text-lg leading-relaxed mb-8">
+                <p className="text-muted text-lg leading-relaxed mb-8">
                   Our purified water is processed through an advanced 10-stage filtration system at our local facility. The result is water so clean and pure, it speaks for itself — no chemicals, no contaminants, just perfect water.
                 </p>
                 <div className="flex flex-wrap gap-3 mb-8">
-                  <span className="bg-[#f4f7fa] text-[#5a7080] text-sm font-medium px-4 py-2 rounded-full">3 & 5 gallon available</span>
+                  <span className="bg-gray text-muted text-sm font-medium px-4 py-2 rounded-full">3 & 5 gallon available</span>
                 </div>
-                <a href="#order" className="inline-flex items-center gap-2 bg-[#0d2b4e] hover:bg-[#1565c0] text-white px-7 py-4 rounded-lg font-bold transition-all hover:-translate-y-0.5">
+                <a href="#order" className="inline-flex items-center gap-2 bg-navy hover:bg-blue text-white px-7 py-4 rounded-lg font-bold transition-all hover:-translate-y-0.5">
                   Order Purified Drinking Water →
                 </a>
               </div>
@@ -142,12 +141,12 @@ export default function ProductsPage() {
                 {purifiedFeatures.map((f) => {
                   const Icon = f.icon
                   return (
-                    <div key={f.title} className="bg-[#f4f7fa] rounded-2xl p-5">
-                      <div className="w-9 h-9 rounded-lg bg-[#e8f6fb] flex items-center justify-center mb-3">
-                        <Icon size={18} className="text-[#1e90d6]" />
+                    <div key={f.title} className="bg-gray rounded-2xl p-5">
+                      <div className="w-9 h-9 rounded-lg bg-ice flex items-center justify-center mb-3">
+                        <Icon size={18} className="text-sky" />
                       </div>
-                      <h3 className="font-bold text-[#0d2b4e] mb-2 text-sm">{f.title}</h3>
-                      <p className="text-[#5a7080] text-xs leading-relaxed">{f.desc}</p>
+                      <h3 className="font-bold text-navy mb-2 text-sm">{f.title}</h3>
+                      <p className="text-muted text-xs leading-relaxed">{f.desc}</p>
                     </div>
                   )
                 })}
@@ -157,7 +156,7 @@ export default function ProductsPage() {
         </section>
 
         {/* Divider */}
-        <div className="h-px bg-gradient-to-r from-transparent via-[#d0e4ef] to-transparent mx-16" />
+        <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent mx-16" />
 
         {/* Alkaline Water */}
         <section className="py-24 px-6 bg-white">
@@ -167,12 +166,12 @@ export default function ProductsPage() {
                 {alkalineFeatures.map((f) => {
                   const Icon = f.icon
                   return (
-                    <div key={f.title} className="bg-[#f4f7fa] rounded-2xl p-5">
-                      <div className="w-9 h-9 rounded-lg bg-[#e8f6fb] flex items-center justify-center mb-3">
-                        <Icon size={18} className="text-[#1e90d6]" />
+                    <div key={f.title} className="bg-gray rounded-2xl p-5">
+                      <div className="w-9 h-9 rounded-lg bg-ice flex items-center justify-center mb-3">
+                        <Icon size={18} className="text-sky" />
                       </div>
-                      <h3 className="font-bold text-[#0d2b4e] mb-2 text-sm">{f.title}</h3>
-                      <p className="text-[#5a7080] text-xs leading-relaxed">{f.desc}</p>
+                      <h3 className="font-bold text-navy mb-2 text-sm">{f.title}</h3>
+                      <p className="text-muted text-xs leading-relaxed">{f.desc}</p>
                     </div>
                   )
                 })}
@@ -183,19 +182,19 @@ export default function ProductsPage() {
                   <FlaskConical size={36} className="text-white" />
                 </div>
                 <div className="flex items-center gap-3 mb-3">
-                  <p className="text-xs font-bold tracking-[0.12em] uppercase text-[#1e90d6]">Product 02</p>
-                  <span className="bg-[#00c9e4]/20 text-[#007a8a] text-xs font-bold px-3 py-1 rounded-full">pH 9.5</span>
+                  <p className="text-xs font-bold tracking-[0.12em] uppercase text-sky">Product 02</p>
+                  <span className="bg-aqua/20 text-[#007a8a] text-xs font-bold px-3 py-1 rounded-full">pH 9.5</span>
                 </div>
-                <h2 className="text-4xl lg:text-5xl font-bold text-[#0d2b4e] leading-tight mb-5" style={{ fontFamily: 'var(--font-playfair)' }}>
+                <h2 className="text-4xl lg:text-5xl font-bold text-navy leading-tight mb-5" style={{ fontFamily: 'var(--font-playfair)' }}>
                   Alkaline Water
                 </h2>
-                <p className="text-[#5a7080] text-lg leading-relaxed mb-8">
+                <p className="text-muted text-lg leading-relaxed mb-8">
                   Our alkaline water starts as purified water, then goes through a remineralization process using a proprietary organic mineral blend. The result is water at pH 9.5 — perfectly balanced for superior hydration and health benefits.
                 </p>
                 <div className="flex flex-wrap gap-3 mb-8">
-                  <span className="bg-[#f4f7fa] text-[#5a7080] text-sm font-medium px-4 py-2 rounded-full">3 & 5 gallon available</span>
+                  <span className="bg-gray text-muted text-sm font-medium px-4 py-2 rounded-full">3 & 5 gallon available</span>
                 </div>
-                <a href="#order" className="inline-flex items-center gap-2 bg-[#00c9e4] hover:bg-[#00dff8] text-[#0d2b4e] px-7 py-4 rounded-lg font-bold transition-all hover:-translate-y-0.5">
+                <a href="#order" className="inline-flex items-center gap-2 bg-aqua hover:bg-aqua-light text-navy px-7 py-4 rounded-lg font-bold transition-all hover:-translate-y-0.5">
                   Order Alkaline Water →
                 </a>
               </div>
@@ -204,20 +203,20 @@ export default function ProductsPage() {
         </section>
 
         {/* Bottle sizes */}
-        <section className="py-20 px-6 bg-[#f4f7fa]">
+        <section className="py-20 px-6 bg-gray">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
-              <p className="text-xs font-bold tracking-[0.12em] uppercase text-[#1e90d6] mb-3">Sizing Options</p>
-              <h2 className="text-4xl font-bold text-[#0d2b4e]" style={{ fontFamily: 'var(--font-playfair)' }}>Choose Your Bottle Size</h2>
+              <p className="text-xs font-bold tracking-[0.12em] uppercase text-sky mb-3">Sizing Options</p>
+              <h2 className="text-4xl font-bold text-navy" style={{ fontFamily: 'var(--font-playfair)' }}>Choose Your Bottle Size</h2>
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-3xl mx-auto">
               {bottles.map((b) => (
-                <div key={b.size} className="bg-white border-2 border-[#d0e4ef] rounded-2xl p-8 hover:border-[#1e90d6] transition-all">
-                  <div className="w-10 h-10 rounded-xl bg-[#e8f6fb] flex items-center justify-center mb-4">
-                    <Droplets size={22} className="text-[#1e90d6]" />
+                <div key={b.size} className="bg-white border-2 border-border rounded-2xl p-8 hover:border-sky transition-all">
+                  <div className="w-10 h-10 rounded-xl bg-ice flex items-center justify-center mb-4">
+                    <Droplets size={22} className="text-sky" />
                   </div>
-                  <h3 className="text-2xl font-bold text-[#0d2b4e] mb-2" style={{ fontFamily: 'var(--font-playfair)' }}>{b.size}</h3>
-                  <p className="text-sm font-medium text-[#1e90d6] mb-5">Best for: {b.best}</p>
+                  <h3 className="text-2xl font-bold text-navy mb-2" style={{ fontFamily: 'var(--font-playfair)' }}>{b.size}</h3>
+                  <p className="text-sm font-medium text-sky mb-5">Best for: {b.best}</p>
                   <dl className="space-y-2">
                     {[
                       ['Dimensions', b.dimensions],
@@ -225,8 +224,8 @@ export default function ProductsPage() {
                       ['Compatible with', b.compatible],
                     ].map(([k, v]) => (
                       <div key={k} className="flex gap-3 text-sm">
-                        <dt className="text-[#5a7080] w-28 flex-shrink-0">{k}</dt>
-                        <dd className="text-[#1a2a3a] font-medium">{v}</dd>
+                        <dt className="text-muted w-28 flex-shrink-0">{k}</dt>
+                        <dd className="text-dark font-medium">{v}</dd>
                       </div>
                     ))}
                   </dl>
@@ -237,7 +236,7 @@ export default function ProductsPage() {
         </section>
 
         {/* Cooler rental CTA */}
-        <section className="py-16 px-6 bg-[#0d2b4e]">
+        <section className="py-16 px-6 bg-navy">
           <div className="max-w-4xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-8">
             <div>
               <h2 className="text-3xl font-bold text-white mb-2" style={{ fontFamily: 'var(--font-playfair)' }}>
@@ -247,7 +246,7 @@ export default function ProductsPage() {
                 We offer cooler rentals as part of your delivery service — hot and cold dispensers available for home and office.
               </p>
             </div>
-            <a href="/#order" className="flex-shrink-0 bg-[#00c9e4] text-[#0d2b4e] px-8 py-4 rounded-lg font-bold hover:bg-[#00dff8] transition-all whitespace-nowrap">
+            <a href="/#order" className="flex-shrink-0 bg-aqua text-navy px-8 py-4 rounded-lg font-bold hover:bg-aqua-light transition-all whitespace-nowrap">
               Ask About Cooler Rental →
             </a>
           </div>
@@ -257,19 +256,19 @@ export default function ProductsPage() {
         <section className="py-20 px-6 bg-white">
           <div className="max-w-3xl mx-auto">
             <div className="text-center mb-10">
-              <p className="text-xs font-bold tracking-[0.12em] uppercase text-[#1e90d6] mb-3">Quick Answers</p>
-              <h2 className="text-3xl font-bold text-[#0d2b4e]" style={{ fontFamily: 'var(--font-playfair)' }}>Product Questions</h2>
+              <p className="text-xs font-bold tracking-[0.12em] uppercase text-sky mb-3">Quick Answers</p>
+              <h2 className="text-3xl font-bold text-navy" style={{ fontFamily: 'var(--font-playfair)' }}>Product Questions</h2>
             </div>
             <div className="space-y-4">
               {faqs.map((item) => (
-                <div key={item.q} className="border border-[#d0e4ef] rounded-xl p-6">
-                  <h3 className="font-bold text-[#0d2b4e] mb-2 text-sm">{item.q}</h3>
-                  <p className="text-[#5a7080] text-sm leading-relaxed">{item.a}</p>
+                <div key={item.q} className="border border-border rounded-xl p-6">
+                  <h3 className="font-bold text-navy mb-2 text-sm">{item.q}</h3>
+                  <p className="text-muted text-sm leading-relaxed">{item.a}</p>
                 </div>
               ))}
             </div>
             <div className="text-center mt-8">
-              <a href="/faq" className="text-[#1e90d6] font-semibold hover:underline text-sm">View all FAQs →</a>
+              <a href="/faq" className="text-sky font-semibold hover:underline text-sm">View all FAQs →</a>
             </div>
           </div>
         </section>

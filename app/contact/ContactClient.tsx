@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { Phone, CheckCircle2 } from 'lucide-react'
+import { PHONES, ADDRESSES, HOURS } from '@/lib/config'
 
 export default function ContactClient() {
   const [form, setForm] = useState({ name: '', email: '', phone: '', subject: '', message: '', website: '' })
@@ -27,37 +28,33 @@ export default function ContactClient() {
     }
   }
 
-  const inputClass = 'w-full border border-[#d0e4ef] rounded-lg px-4 py-3 text-sm text-[#1a2a3a] outline-none focus:border-[#1e90d6] focus:ring-2 focus:ring-[#1e90d6]/10 transition-all'
+  const inputClass = 'w-full border border-border rounded-lg px-4 py-3 text-sm text-dark outline-none focus:border-sky focus:ring-2 focus:ring-sky/10 transition-all'
 
   const contactDetails = [
     {
       icon: Phone,
-      label: 'Ventura County',
-      value: '(805) 991-7400',
-      href: 'tel:+18059917400',
-      sub: '4744 Telephone Rd, Suite 3257\nVentura, CA 93003',
+      label: PHONES.primary.label,
+      value: PHONES.primary.display,
+      href: PHONES.primary.href,
+      sub: ADDRESSES.ventura.full,
     },
     {
       icon: Phone,
-      label: 'Antelope Valley & Santa Clarita',
-      value: '(661) 522-7002',
-      href: 'tel:+16615227002',
-      sub: '19425 Soledad Canyon Rd, Suite 205\nCanyon Country, CA 91351',
+      label: PHONES.secondary.label,
+      value: PHONES.secondary.display,
+      href: PHONES.secondary.href,
+      sub: ADDRESSES.antelope.full,
     },
     {
       icon: Phone,
-      label: 'Toll-Free',
-      value: '(844) 522-7000',
-      href: 'tel:+18445227000',
+      label: PHONES.tollFree.label,
+      value: PHONES.tollFree.display,
+      href: PHONES.tollFree.href,
       sub: null,
     },
   ]
 
-  const hours = [
-    { day: 'Monday – Friday', hours: '8:00 AM – 5:00 PM' },
-    { day: 'Saturday',        hours: 'Closed' },
-    { day: 'Sunday',          hours: 'Closed' },
-  ]
+  const hours = HOURS.map((h) => ({ day: h.day, hours: h.hours }))
 
   return (
     <section className="py-20 px-6 bg-white">
@@ -66,28 +63,28 @@ export default function ContactClient() {
         {/* Left sidebar — contact info */}
         <div className="lg:col-span-2 space-y-6">
           {/* Quick contact */}
-          <div className="bg-[#f4f7fa] rounded-2xl p-7">
-            <h3 className="font-bold text-[#0d2b4e] text-lg mb-5" style={{ fontFamily: 'var(--font-playfair)' }}>
+          <div className="bg-gray rounded-2xl p-7">
+            <h3 className="font-bold text-navy text-lg mb-5" style={{ fontFamily: 'var(--font-playfair)' }}>
               Contact Info
             </h3>
             <div className="space-y-5">
               {contactDetails.map((item) => (
                 <div key={item.label} className="flex items-start gap-3">
-                  <div className="w-9 h-9 rounded-xl bg-[#0d2b4e] text-white flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <div className="w-9 h-9 rounded-xl bg-navy text-white flex items-center justify-center flex-shrink-0 mt-0.5">
                     <item.icon size={16} />
                   </div>
                   <div>
-                    <div className="text-xs font-semibold text-[#5a7080] uppercase tracking-wide mb-0.5">
+                    <div className="text-xs font-semibold text-muted uppercase tracking-wide mb-0.5">
                       {item.label}
                     </div>
                     <a
                       href={item.href ?? undefined}
-                      className="text-[#0d2b4e] font-semibold text-sm hover:text-[#1e90d6] transition-colors block"
+                      className="text-navy font-semibold text-sm hover:text-sky transition-colors block"
                     >
                       {item.value}
                     </a>
                     {item.sub && (
-                      <p className="text-[#5a7080] text-xs mt-1 leading-relaxed">
+                      <p className="text-muted text-xs mt-1 leading-relaxed">
                         {item.sub.split('\n').map((line, i) => (
                           <span key={i} className="block">{line}</span>
                         ))}
@@ -100,27 +97,27 @@ export default function ContactClient() {
           </div>
 
           {/* Hours */}
-          <div className="bg-[#f4f7fa] rounded-2xl p-7">
-            <h3 className="font-bold text-[#0d2b4e] text-lg mb-5" style={{ fontFamily: 'var(--font-playfair)' }}>
+          <div className="bg-gray rounded-2xl p-7">
+            <h3 className="font-bold text-navy text-lg mb-5" style={{ fontFamily: 'var(--font-playfair)' }}>
               Business Hours
             </h3>
             <div className="space-y-3">
               {hours.map((h) => (
                 <div key={h.day} className="flex justify-between items-center text-sm">
-                  <span className="text-[#5a7080]">{h.day}</span>
-                  <span className={`font-semibold ${h.hours === 'Closed' ? 'text-[#5a7080]' : 'text-[#0d2b4e]'}`}>
+                  <span className="text-muted">{h.day}</span>
+                  <span className={`font-semibold ${h.hours === 'Closed' ? 'text-muted' : 'text-navy'}`}>
                     {h.hours}
                   </span>
                 </div>
               ))}
             </div>
-            <p className="text-[#5a7080] text-xs mt-4 leading-relaxed">
+            <p className="text-muted text-xs mt-4 leading-relaxed">
               For requests outside business hours, leave a voicemail and we&apos;ll get back to you the next business day.
             </p>
           </div>
 
           {/* Quick start CTA */}
-          <div className="bg-gradient-to-br from-[#0d2b4e] to-[#1565c0] rounded-2xl p-7 text-white">
+          <div className="bg-gradient-to-br from-navy to-blue rounded-2xl p-7 text-white">
             <h3 className="font-bold text-lg mb-2" style={{ fontFamily: 'var(--font-playfair)' }}>
               Ready to Order?
             </h3>
@@ -129,7 +126,7 @@ export default function ContactClient() {
             </p>
             <a
               href="#order-form"
-              className="block text-center bg-[#00c9e4] text-[#0d2b4e] py-3 rounded-lg font-bold text-sm hover:bg-[#00dff8] transition-all"
+              className="block text-center bg-aqua text-navy py-3 rounded-lg font-bold text-sm hover:bg-aqua-light transition-all"
             >
               Start My Delivery →
             </a>
@@ -138,22 +135,22 @@ export default function ContactClient() {
 
         {/* Right — contact form */}
         <div className="lg:col-span-3">
-          <div className="border-2 border-[#d0e4ef] rounded-2xl p-8">
-            <h2 className="text-2xl font-bold text-[#0d2b4e] mb-2" style={{ fontFamily: 'var(--font-playfair)' }}>
+          <div className="border-2 border-border rounded-2xl p-8">
+            <h2 className="text-2xl font-bold text-navy mb-2" style={{ fontFamily: 'var(--font-playfair)' }}>
               Send Us a Message
             </h2>
-            <p className="text-[#5a7080] text-sm mb-7">We respond to all messages within 1 business day.</p>
+            <p className="text-muted text-sm mb-7">We respond to all messages within 1 business day.</p>
 
             {status === 'success' ? (
               <div className="text-center py-10">
-                <div className="w-16 h-16 rounded-full bg-[#e8f6fb] flex items-center justify-center mx-auto mb-4">
-                  <CheckCircle2 size={32} className="text-[#1e90d6]" />
+                <div className="w-16 h-16 rounded-full bg-ice flex items-center justify-center mx-auto mb-4">
+                  <CheckCircle2 size={32} className="text-sky" />
                 </div>
-                <h3 className="text-xl font-bold text-[#0d2b4e] mb-2" style={{ fontFamily: 'var(--font-playfair)' }}>
+                <h3 className="text-xl font-bold text-navy mb-2" style={{ fontFamily: 'var(--font-playfair)' }}>
                   Message Sent!
                 </h3>
-                <p className="text-[#5a7080]">We&apos;ll get back to you within 1 business day.</p>
-                <button onClick={() => setStatus('idle')} className="mt-5 text-[#1e90d6] text-sm font-medium hover:underline">
+                <p className="text-muted">We&apos;ll get back to you within 1 business day.</p>
+                <button onClick={() => setStatus('idle')} className="mt-5 text-sky text-sm font-medium hover:underline">
                   Send another message
                 </button>
               </div>
@@ -161,22 +158,22 @@ export default function ContactClient() {
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-semibold text-[#0d2b4e] mb-1.5">Your Name</label>
+                    <label className="block text-xs font-semibold text-navy mb-1.5">Your Name</label>
                     <input type="text" placeholder="Maria Garcia" value={form.name} onChange={set('name')} required className={inputClass} />
                   </div>
                   <div>
-                    <label className="block text-xs font-semibold text-[#0d2b4e] mb-1.5">Phone Number</label>
+                    <label className="block text-xs font-semibold text-navy mb-1.5">Phone Number</label>
                     <input type="tel" placeholder="(805) 555-0100" value={form.phone} onChange={set('phone')} className={inputClass} />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-[#0d2b4e] mb-1.5">Email Address</label>
+                  <label className="block text-xs font-semibold text-navy mb-1.5">Email Address</label>
                   <input type="email" placeholder="maria@example.com" value={form.email} onChange={set('email')} required className={inputClass} />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-[#0d2b4e] mb-1.5">Subject</label>
+                  <label className="block text-xs font-semibold text-navy mb-1.5">Subject</label>
                   <select value={form.subject} onChange={set('subject')} className={inputClass}>
                     <option value="">Select a topic…</option>
                     <option>New delivery inquiry</option>
@@ -189,7 +186,7 @@ export default function ContactClient() {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-[#0d2b4e] mb-1.5">Message</label>
+                  <label className="block text-xs font-semibold text-navy mb-1.5">Message</label>
                   <textarea
                     rows={5}
                     placeholder="Tell us how we can help…"
@@ -206,13 +203,13 @@ export default function ContactClient() {
                 </div>
 
                 {status === 'error' && (
-                  <p className="text-red-500 text-sm">Something went wrong. Please try again or call us at (844) 522-7000.</p>
+                  <p className="text-red-500 text-sm">Something went wrong. Please try again or call us at {PHONES.tollFree.display}.</p>
                 )}
 
                 <button
                   type="submit"
                   disabled={status === 'loading'}
-                  className="w-full bg-[#1e90d6] hover:bg-[#1565c0] text-white py-4 rounded-xl font-bold text-sm transition-all hover:-translate-y-0.5 disabled:opacity-60 flex items-center justify-center gap-2"
+                  className="w-full bg-sky hover:bg-blue text-white py-4 rounded-xl font-bold text-sm transition-all hover:-translate-y-0.5 disabled:opacity-60 flex items-center justify-center gap-2"
                 >
                   {status === 'loading' ? (
                     <>

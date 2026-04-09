@@ -23,7 +23,7 @@ export default function PageHero({
 }: PageHeroProps) {
   return (
     <section
-      className={`bg-gradient-to-br from-[#061c35] via-[#0d2b4e] to-[#0f4a7a] flex items-center pt-16 px-6 relative overflow-hidden ${
+      className={`bg-gradient-to-br from-deeper via-navy to-ocean flex items-center pt-16 px-6 relative overflow-hidden ${
         compact ? 'min-h-[44vh]' : 'min-h-[56vh]'
       }`}
     >
@@ -53,8 +53,8 @@ export default function PageHero({
 
         {/* Badge */}
         {badge && (
-          <div className="inline-flex items-center gap-2 bg-[#00c9e4]/10 border border-[#00c9e4]/30 text-[#00c9e4] text-xs font-bold tracking-widest uppercase px-4 py-2 rounded-full mb-6">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#00c9e4] animate-pulse" />
+          <div className="inline-flex items-center gap-2 bg-aqua/10 border border-aqua/30 text-aqua text-xs font-bold tracking-widest uppercase px-4 py-2 rounded-full mb-6">
+            <span className="w-1.5 h-1.5 rounded-full bg-aqua animate-pulse" />
             {badge}
           </div>
         )}
@@ -68,7 +68,7 @@ export default function PageHero({
           {titleAccent && (
             <>
               <br />
-              <span className="text-[#00c9e4]">{titleAccent}</span>
+              <span className="text-aqua">{titleAccent}</span>
             </>
           )}
         </h1>
@@ -82,7 +82,7 @@ export default function PageHero({
         {cta && (
           <a
             href={cta.href}
-            className="inline-flex items-center gap-2 bg-[#00c9e4] text-[#0d2b4e] px-8 py-4 rounded-lg font-bold hover:bg-[#00dff8] transition-all hover:-translate-y-0.5 hover:shadow-[0_8px_32px_rgba(0,201,228,0.35)]"
+            className="inline-flex items-center gap-2 bg-aqua text-navy px-8 py-4 rounded-lg font-bold hover:bg-aqua-light transition-all hover:-translate-y-0.5 hover:shadow-[0_8px_32px_rgba(0,201,228,0.35)]"
           >
             {cta.label}
           </a>
