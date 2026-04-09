@@ -246,21 +246,7 @@ export default function AdminDashboard() {
                         </select>
                       </td>
                       <td className="px-4 py-3">
-                        <div className="flex items-center gap-2" onClick={(e) => e.stopPropagation()}>
-                          <a
-                            href={`mailto:${order.email}`}
-                            className="text-[#1e90d6] hover:underline text-xs font-medium"
-                          >
-                            Email
-                          </a>
-                          <span className="text-[#d0e4ef]">|</span>
-                          <a
-                            href={`tel:${order.phone}`}
-                            className="text-[#1e90d6] hover:underline text-xs font-medium"
-                          >
-                            Call
-                          </a>
-                          <span className="text-[#d0e4ef]">|</span>
+                        <div className="flex items-center gap-3" onClick={(e) => e.stopPropagation()}>
                           <a
                             href={`/admin/orders/${order.id}/print`}
                             target="_blank"
@@ -268,15 +254,14 @@ export default function AdminDashboard() {
                             className="text-[#5a7080] hover:text-[#0d2b4e] transition-colors"
                             title="Print order"
                           >
-                            <Printer size={13} />
+                            <Printer size={14} />
                           </a>
-                          <span className="text-[#d0e4ef]">|</span>
                           <button
                             onClick={() => setConfirmDelete(order.id)}
                             className="text-red-400 hover:text-red-600 transition-colors"
                             title="Delete order"
                           >
-                            <Trash2 size={13} />
+                            <Trash2 size={14} />
                           </button>
                         </div>
                       </td>
