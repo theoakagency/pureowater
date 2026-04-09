@@ -68,10 +68,6 @@ export const metadata: Metadata = {
     follow: true,
     googleBot: { index: true, follow: true },
   },
-  verification: {
-    // Replace with your actual Google Search Console verification token
-    // google: 'your-google-verification-token',
-  },
 }
 
 // JSON-LD local business schema for Google rich results
