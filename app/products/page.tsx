@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 import Script from 'next/script'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
@@ -246,9 +247,9 @@ export default function ProductsPage() {
                 We offer cooler rentals as part of your delivery service — hot and cold dispensers available for home and office.
               </p>
             </div>
-            <a href="/#order" className="flex-shrink-0 bg-aqua text-navy px-8 py-4 rounded-lg font-bold hover:bg-aqua-light transition-all whitespace-nowrap">
+            <Link href="/#order" className="flex-shrink-0 bg-aqua text-navy px-8 py-4 rounded-lg font-bold hover:bg-aqua-light transition-all whitespace-nowrap">
               Ask About Cooler Rental →
-            </a>
+            </Link>
           </div>
         </section>
 

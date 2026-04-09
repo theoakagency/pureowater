@@ -51,7 +51,6 @@ export default function Products() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-7">
           {products.map((p) => {
-            const Icon = p.icon
             return (
               <div key={p.name} className="border-2 border-border rounded-2xl overflow-hidden hover:border-sky hover:shadow-[0_16px_48px_rgba(21,101,192,0.1)] hover:-translate-y-1 transition-all duration-300">
                 {/* Card header */}

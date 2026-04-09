@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState, useCallback } from 'react'
+import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { Inbox, Download, Trash2, Printer } from 'lucide-react'
 import Image from 'next/image'
@@ -46,21 +46,24 @@ export default function AdminDashboard() {
   const [saving, setSaving]         = useState<number | null>(null)
   const [confirmDelete, setConfirmDelete] = useState<number | null>(null)
 
-  const fetchOrders = useCallback(async () => {
-    setLoading(true)
-    const params = new URLSearchParams()
-    if (statusFilter !== 'all') params.set('status', statusFilter)
-    if (search) params.set('search', search)
-    const res = await fetch(`/api/orders?${params}`)
-    if (res.status === 401) { router.push('/admin'); return }
-    const data = await res.json()
-    setOrders(data)
-    setLoading(false)
-  }, [statusFilter, search, router])
-
   useEffect(() => {
+    let cancelled = false
+    async function fetchOrders() {
+      setLoading(true)
+      const params = new URLSearchParams()
+      if (statusFilter !== 'all') params.set('status', statusFilter)
+      if (search) params.set('search', search)
+      const res = await fetch(`/api/orders?${params}`)
+      if (res.status === 401) { router.push('/admin'); return }
+      const data = await res.json()
+      if (!cancelled) {
+        setOrders(data)
+        setLoading(false)
+      }
+    }
     fetchOrders()
-  }, [fetchOrders])
+    return () => { cancelled = true }
+  }, [statusFilter, search, router])
 
   const updateStatus = async (id: number, status: string) => {
     await fetch(`/api/orders/${id}`, {

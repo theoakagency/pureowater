@@ -226,7 +226,7 @@ export default function OrderForm() {
                   <option>8+ Bottles</option>
                 </select>
                 <p className="text-xs text-muted mt-1.5">
-                  We'll confirm your ongoing delivery quantity with you after the first drop-off.
+                  We&apos;ll confirm your ongoing delivery quantity with you after the first drop-off.
                 </p>
               </div>
 

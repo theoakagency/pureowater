@@ -131,12 +131,12 @@ export default async function ServicePage(
             <p className="text-lg text-white/65 max-w-2xl leading-relaxed mb-10">{service.heroDesc}</p>
 
             <div className="flex flex-wrap gap-4">
-              <a href="/#order" className="bg-aqua text-navy px-8 py-4 rounded-lg font-bold hover:bg-aqua-light transition-all hover:-translate-y-0.5 hover:shadow-[0_8px_32px_rgba(0,201,228,0.35)]">
+              <Link href="/#order" className="bg-aqua text-navy px-8 py-4 rounded-lg font-bold hover:bg-aqua-light transition-all hover:-translate-y-0.5 hover:shadow-[0_8px_32px_rgba(0,201,228,0.35)]">
                 Start My Delivery →
-              </a>
-              <a href="/contact" className="inline-flex items-center gap-2 border border-white/20 text-white/80 px-7 py-4 rounded-lg font-medium hover:bg-white/05 hover:border-white/40 transition-all">
+              </Link>
+              <Link href="/contact" className="inline-flex items-center gap-2 border border-white/20 text-white/80 px-7 py-4 rounded-lg font-medium hover:bg-white/05 hover:border-white/40 transition-all">
                 Contact Us →
-              </a>
+              </Link>
             </div>
           </div>
         </section>
@@ -213,12 +213,12 @@ export default async function ServicePage(
                   <p className="text-white/50 text-xs">No contracts. Cancel or adjust anytime.</p>
                 </div>
               </div>
-              <a
+              <Link
                 href="/#order"
                 className="mt-5 w-full block text-center bg-aqua text-navy py-4 rounded-xl font-bold text-base hover:bg-aqua-light transition-all hover:-translate-y-0.5"
               >
                 Set Up My {service.name} Delivery →
-              </a>
+              </Link>
             </div>
           </div>
         </section>

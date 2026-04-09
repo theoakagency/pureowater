@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { prisma } from '@/lib/db'
 import { Resend } from 'resend'
-import { COMPANY_NAME, DOMAIN, EMAILS, PHONES, TAGLINE, REGION_SHORT } from '@/lib/config'
+import { COMPANY_NAME, EMAILS, PHONES, TAGLINE, REGION_SHORT } from '@/lib/config'
 
 export async function POST(req: NextRequest) {
   const resend = new Resend(process.env.RESEND_API_KEY)

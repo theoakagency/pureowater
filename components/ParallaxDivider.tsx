@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link'
 import { IMAGES } from '@/lib/config'
 
 export default function ParallaxDivider() {
@@ -39,12 +40,12 @@ export default function ParallaxDivider() {
         >
           Every bottle goes through our 10-stage filtration process — removing 99.9% of contaminants and leaving only pure, perfect water.
         </p>
-        <a
+        <Link
           href="/#order"
           className="inline-flex items-center gap-2 bg-aqua text-navy px-8 py-4 rounded-lg font-bold hover:bg-aqua-light transition-all hover:-translate-y-0.5 hover:shadow-[0_8px_32px_rgba(0,201,228,0.35)]"
         >
           Start My Delivery →
-        </a>
+        </Link>
       </div>
     </div>
   )

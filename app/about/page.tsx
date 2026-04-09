@@ -104,7 +104,7 @@ export default function AboutPage() {
               {/* Vertical line */}
               <div className="absolute left-16 top-0 bottom-0 w-px bg-border" />
               <div className="space-y-8">
-                {timeline.map((item, i) => (
+                {timeline.map((item) => (
                   <div key={item.year} className="flex gap-8 items-start">
                     <div className="flex-shrink-0 w-32 text-right">
                       <span className="inline-block bg-navy text-aqua text-sm font-bold px-3 py-1.5 rounded-lg">
