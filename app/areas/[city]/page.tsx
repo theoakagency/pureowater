@@ -25,6 +25,9 @@ export async function generateMetadata(
     title: `Water Delivery in ${city.name}, CA | Pure O Water`,
     description: `Premium purified and alkaline water delivery in ${city.name}, ${city.county}. ${city.heroDesc} Start your delivery today.`,
     keywords: `water delivery ${city.name}, alkaline water ${city.name}, purified water delivery ${city.county}, ${city.name} water service`,
+    alternates: {
+      canonical: `/areas/${citySlug}`,
+    },
   }
 }
 
@@ -57,6 +60,31 @@ export default async function CityPage(
     url: `${BASE_URL}/areas/${city.slug}`,
   }
 
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: BASE_URL,
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Service Areas',
+        item: `${BASE_URL}/#areas`,
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: city.name,
+        item: `${BASE_URL}/areas/${city.slug}`,
+      },
+    ],
+  }
+
   const trustItems = [
     { icon: Truck,      label: `Delivering to ${city.name} since 2005` },
     { icon: ShieldCheck, label: 'Locally Owned Business' },
@@ -74,6 +102,11 @@ export default async function CityPage(
         id={`city-schema-${city.slug}`}
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(citySchema) }}
+      />
+      <Script
+        id={`breadcrumb-schema-${city.slug}`}
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
       <Navbar />
       <main>

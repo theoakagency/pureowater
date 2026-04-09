@@ -35,6 +35,9 @@ export async function generateMetadata(
   return {
     title: service.metaTitle,
     description: service.metaDesc,
+    alternates: {
+      canonical: `/services/${type}`,
+    },
   }
 }
 
@@ -61,6 +64,30 @@ export default async function ServicePage(
     url: `${BASE_URL}/services/${service.slug}`,
   }
 
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: BASE_URL,
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Services',
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: service.name,
+        item: `${BASE_URL}/services/${service.slug}`,
+      },
+    ],
+  }
+
   const otherServices = services.filter((s) => s.slug !== service.slug)
 
   return (
@@ -69,6 +96,11 @@ export default async function ServicePage(
         id={`service-schema-${service.slug}`}
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
+      <Script
+        id={`breadcrumb-schema-${service.slug}`}
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
       <Navbar />
       <main>

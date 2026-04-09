@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Script from 'next/script'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import PageHero from '@/components/PageHero'
@@ -8,6 +9,64 @@ import OrderForm from '@/components/OrderForm'
 export const metadata: Metadata = {
   title: 'Our Products | Pure O Water',
   description: 'Premium purified water and alkaline water (pH 9.5) delivered to your home or office. 10-stage filtration, organic mineral blend, available in 3 and 5 gallon bottles.',
+  alternates: {
+    canonical: '/products',
+  },
+}
+
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://pureowater.com'
+
+const productSchema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Product',
+      name: 'Purified Drinking Water',
+      description:
+        '10-stage ultra-filtered purified water. Removes 99.9% of contaminants. Available in 3 and 5 gallon BPA-free bottles.',
+      brand: { '@type': 'Brand', name: 'Pure O Water' },
+      offers: {
+        '@type': 'Offer',
+        price: '6.99',
+        priceCurrency: 'USD',
+        availability: 'https://schema.org/InStock',
+        seller: { '@type': 'LocalBusiness', name: 'Pure O Water' },
+      },
+      url: `${BASE_URL}/products`,
+    },
+    {
+      '@type': 'Product',
+      name: 'Alkaline Water pH 9.5',
+      description:
+        'Purified and remineralized alkaline water at pH 9.5. Organic mineral blend with calcium, magnesium, and potassium. Available in 3 and 5 gallon BPA-free bottles.',
+      brand: { '@type': 'Brand', name: 'Pure O Water' },
+      offers: {
+        '@type': 'Offer',
+        price: '8.99',
+        priceCurrency: 'USD',
+        availability: 'https://schema.org/InStock',
+        seller: { '@type': 'LocalBusiness', name: 'Pure O Water' },
+      },
+      url: `${BASE_URL}/products`,
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: 'Home',
+          item: BASE_URL,
+        },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: 'Products',
+          item: `${BASE_URL}/products`,
+        },
+      ],
+    },
+  ],
 }
 
 const purifiedFeatures = [
@@ -41,6 +100,11 @@ const faqs = [
 export default function ProductsPage() {
   return (
     <>
+      <Script
+        id="product-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
+      />
       <Navbar />
       <main>
         <PageHero

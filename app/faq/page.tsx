@@ -1,11 +1,20 @@
-'use client'
-
-import { useState } from 'react'
+import type { Metadata } from 'next'
+import Script from 'next/script'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import PageHero from '@/components/PageHero'
 import OrderForm from '@/components/OrderForm'
+import FAQClient from './FAQClient'
 import { Zap, Droplets, Truck, CreditCard } from 'lucide-react'
+
+export const metadata: Metadata = {
+  title: 'Frequently Asked Questions | Pure O Water',
+  description:
+    'Find answers to common questions about Pure O Water delivery service — pricing, delivery schedule, water quality, bottle sizes, billing, and more.',
+  alternates: {
+    canonical: '/faq',
+  },
+}
 
 const categories = [
   {
@@ -102,34 +111,29 @@ const categories = [
   },
 ]
 
-function AccordionItem({ q, a }: { q: string; a: string }) {
-  const [open, setOpen] = useState(false)
-  return (
-    <div className={`border rounded-xl overflow-hidden transition-all ${open ? 'border-[#1e90d6]' : 'border-[#d0e4ef]'}`}>
-      <button
-        onClick={() => setOpen(!open)}
-        className="w-full flex items-center justify-between px-6 py-4 text-left gap-4"
-      >
-        <span className="font-semibold text-[#0d2b4e] text-sm leading-snug">{q}</span>
-        <span className={`flex-shrink-0 w-6 h-6 rounded-full border border-[#d0e4ef] flex items-center justify-center text-[#1e90d6] text-xs transition-transform ${open ? 'rotate-45 bg-[#e8f6fb]' : ''}`}>
-          +
-        </span>
-      </button>
-      {open && (
-        <div className="px-6 pb-5 pt-0">
-          <p className="text-[#5a7080] text-sm leading-relaxed">{a}</p>
-        </div>
-      )}
-    </div>
-  )
+// Build FAQPage schema for Google rich results
+const allFaqItems = categories.flatMap((cat) => cat.items)
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: allFaqItems.map((item) => ({
+    '@type': 'Question',
+    name: item.q,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: item.a,
+    },
+  })),
 }
 
 export default function FAQPage() {
-  const [activeCategory, setActiveCategory] = useState(0)
-  const current = categories[activeCategory]
-
   return (
     <>
+      <Script
+        id="faq-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <Navbar />
       <main>
         <PageHero
@@ -143,33 +147,7 @@ export default function FAQPage() {
 
         <section className="py-20 px-6 bg-white">
           <div className="max-w-4xl mx-auto">
-            {/* Category tabs */}
-            <div className="flex flex-wrap gap-2 mb-10">
-              {categories.map((cat, i) => {
-                const Icon = cat.icon
-                return (
-                  <button
-                    key={cat.label}
-                    onClick={() => setActiveCategory(i)}
-                    className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold transition-all ${
-                      activeCategory === i
-                        ? 'bg-[#0d2b4e] text-white'
-                        : 'bg-[#f4f7fa] text-[#5a7080] hover:bg-[#e8f6fb] hover:text-[#0d2b4e]'
-                    }`}
-                  >
-                    <Icon size={15} />
-                    {cat.label}
-                  </button>
-                )
-              })}
-            </div>
-
-            {/* Questions */}
-            <div className="space-y-3">
-              {current.items.map((item) => (
-                <AccordionItem key={item.q} q={item.q} a={item.a} />
-              ))}
-            </div>
+            <FAQClient categories={categories} />
 
             {/* Still have questions */}
             <div className="mt-14 bg-[#f4f7fa] rounded-2xl p-8 text-center">

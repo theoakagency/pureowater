@@ -45,7 +45,7 @@ export const metadata: Metadata = {
       'Premium purified and alkaline water delivery for homes and businesses across Southern California.',
     images: [
       {
-        url: '/og-image.png',
+        url: '/pure-o-water-bottles.png',
         width: 1200,
         height: 630,
         alt: 'Pure O Water – Premium Water Delivery',
@@ -56,7 +56,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Pure O Water – Premium Water Delivery',
     description: 'Purified & alkaline water delivered to your door. No contracts, cancel anytime.',
-    images: ['/og-image.png'],
+    images: ['/pure-o-water-bottles.png'],
   },
   icons: {
     icon: '/favicon.png',
@@ -69,8 +69,8 @@ export const metadata: Metadata = {
     googleBot: { index: true, follow: true },
   },
   verification: {
-    // Add your Google Search Console verification token here
-    google: 'your-google-verification-token',
+    // Replace with your actual Google Search Console verification token
+    // google: 'your-google-verification-token',
   },
 }
 
