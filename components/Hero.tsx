@@ -148,14 +148,14 @@ export default function Hero() {
             {zipResult === 'no' && (
               <div className="mt-3 bg-white/08 border border-white/15 rounded-xl px-4 py-3 flex items-center justify-between gap-4">
                 <div>
-                  <p className="text-white/80 font-semibold text-sm">We don&apos;t deliver to {zip} yet.</p>
-                  <p className="text-white/50 text-xs mt-0.5">Fill out the form and we&apos;ll notify you when we expand to your area.</p>
+                  <p className="text-white/80 font-semibold text-sm">Good news — {zip} is covered by a sister company!</p>
+                  <p className="text-white/50 text-xs mt-0.5">We&apos;ll connect you with a trusted provider in your area.</p>
                 </div>
                 <a
-                  href="#order"
+                  href={`/out-of-area?zip=${zip}`}
                   className="border border-white/30 text-white px-4 py-2 rounded-lg font-bold text-xs hover:bg-white/10 transition-all whitespace-nowrap flex-shrink-0"
                 >
-                  Get Notified →
+                  Get Connected →
                 </a>
               </div>
             )}
